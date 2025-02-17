@@ -1,0 +1,419 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+ \hypersetup{pageanchor=true}
+ % add preface chapter here if needed
+ \part{纤维丛在场论中的应用}
+本章部分进入纤维丛在物理场中的应用,前面三章是数学基础,纤维丛理论特别适用于规范场论,本章的目的
+还是架桥的工作.正式进入之前,先复习一下物理中的相关知识点.
+\chapter{拉式理论和哈式理论}
+\section{拉式理论}
+\subsection{有限自由度的拉式理论}
+$N$维系统有 $N$个独立的广义坐标,每组广义坐标 $(q^1,q^2,\cdots,q^N)$确定系统的一个\textbf{位形(configuration)},因此广义坐标又称为\textbf{位形变量(configuration variables)}.
+所有可能的位形的集合$\mathscr{C}$称为系统的\textbf{位形空间(configuration variables)},位形空间是一个$N$维流形.系统的演化无非就是位形随着时间而变化,对应到位形空间
+就是一条以 时间$t$为参数的曲线$\eta(t)$,可以给出参数式 \[q^i = q^i(t).\]曲线的切矢就是我们认知的\textbf{广义速度},其坐标分量可以表示为 \[
+\dot{q}^i(t) = \frac{d q^i(t)}{dt}
+.\] 
+在演化曲线上取两个点$Q_0,Q_1$,满足 $Q_0 = \eta(t_0), Q_1 = \eta(t_1)$且 $t_1>t_0$,则介于初位形 $Q_0$和 末位形$Q_1$之间的曲线 $\eta(t)$称为\textbf{路径(path)},两点
+之间的曲线有很多种情况,也就意味着路径不唯一,但是反应动力学规律的曲线只有一条,称为\textbf{正路},其余路径称为\textbf{旁路}. 
+
+如何在路径中找到正路便是引入拉式函数和作用量的目的.系统的\textbf{拉式函数[(Lagrangian function)(又叫拉式量)}]$L$ 是这样一个函数\[
+  L(t) = L(q^i(t), \dot{q}^i(t))
+.\] 
+其积分称为该路径的\textbf{作用量(action)}$S$,满足 \[
+  S := \int^{t_1}_{t_0} L(q^i(t), \dot{q}^i(t))dt
+.\] 
+正路与旁路的区别由\textbf{哈式原理 (Hamilton principle)(又称变分原理)} 给出, 哈式原理要求作用量取极值.
+
+$S$是一个关于函数的函数,称为\textbf{泛函(functional)},泛函的定义如下:
+\begin{definition}
+{Functional}{泛函}
+  一个\textbf{泛函(functional)} \( F \) 是从一个函数空间 \( \mathscr{F} \) 到实数集合（或复数集合）\( \mathbb{R} \) 的映射：
+\[
+F : \mathscr{F} \to \mathbb{R}
+\]
+其中，\( \mathscr{F} \) 是定义域中的函数空间，而 \( F(f) \) 是将 \( f \in \mathscr{F} \) 映射到一个实数或复数。
+\end{definition}
+\begin{note}
+例如，设 \( f(x) \) 是定义在区间 \( [a, b] \) 上的一个函数，则一个常见的积分型泛函为：
+\[
+F(f) = \int_a^b f(x) \, dx
+\]
+这个泛函将函数 \( f(x) \) 映射为它在区间 \( [a, b] \) 上的积分值。
+
+另一种常见的泛函形式是微分型泛函，它将一个函数映射到它的导数：
+\[
+F(f) = f'(x)
+\]
+$S$就是积分型泛函,普通的函数求极值只需要求微分并找到 $df = 0$时的参数值即可,但是泛函求极值需要涉及变分运算.
+\end{note}
+我们先来看看如何求$S$的极值.考虑任一 $Q_0\to Q_1$的单参路径族$q^i = (t, \lambda)$,满足当$\lambda = 0$时
+此时 $q^i$所给出的曲线是正路;$\lambda \neq 0$时,此时给出的曲线是旁路.这也是可以做到的,根据物理意义,总存在正路,
+对路径做微小偏移并用参数$\lambda$表示可以给出曲线族来.此时的 $S$是 $\lambda$的函数,用下式表示
+\begin{equation*}
+  S(\lambda) = \int^{t_1}_{t_0}L(q^i(t,\lambda),\dot{q}^i(t,\lambda))dt 
+\end{equation*}
+我们知道正路要求$S$取极值,那么也就意味着其在曲线族依旧取得极值,也就是说$S$在单参族内求极值问题转变为一元函数 $S(\lambda)$求导问题,即
+ \[
+   \left.\frac{d S(\lambda)}{d\lambda}\right|_{\lambda = 0} = \int^{t_1}_{t_0}\left.\frac{\partial L}{\partial \lambda}\right|_{\lambda = 0}dt 
+       = \int^{t_1}_{t_0}\left.\left(\frac{\partial L}{\partial q^i}\frac{\partial q^i}{\partial \lambda}+ \frac{\partial L}{\partial \dot{q}^i} \frac{\partial \dot{q}^i}{\partial \lambda} \right)\right|_{\lambda = 0} dt
+  .\] 
+令
+\begin{align*}
+  \delta S &\equiv \left.\frac{dS(\lambda)}{d \lambda}\right|_{\lambda = 0}\\
+    \delta q^i &\equiv \left.\frac{\partial q^i(t,\lambda)}{ \partial \lambda}\right|_{\lambda = 0}\\
+      \delta  \dot{q}^i&\equiv \left.\frac{\partial\dot{q}^i(t,\lambda)}{ \partial \lambda  }\right|_{\lambda = 0} 
+\end{align*}
+把$\delta S, \delta q^i, \delta \dot{q}^i$分别称为$S, q^i, \dot{q}^i$在所选的单参组内的\textbf{变分(variation)},则我们得到变分关系 \[
+  \delta S = \int^{t_1}_{t_0} \left( \frac{\partial L}{ \partial q^i}\delta q^i + \frac{\partial L}{\partial \dot{q}^i} \delta \dot{q}^i   \right)dt 
+.\] 
+我们可以把$\lambda = 0$简化不写,因为正路中要求了 $\lambda = 0$. 而且要求了$\delta S = 0$,我们来看可以给出什么,首先因为对$\lambda$求导和对 $t$求导可以交换顺序,我们有\[
+\frac{\partial L}{\partial \dot{q}^i} \delta \dot{q}^i = \frac{\partial L}{\partial \dot{q}^i} \frac{d}{dt}\delta q^i
+.\] 
+根据分部积分法有\[
+  \int^{t_1}_{t_0}[\frac{\partial L}{\partial \dot{q}^i}]dt \frac{d}{dt}\delta q^i = \int^{t_1}_{t_0}[\frac{d}{dt}(\frac{\partial L}{\partial \dot{q}^i} \delta q^i) - (\frac{d}{dt} \frac{\partial L}{\partial \dot{q}^i})\delta q^i]dt
+.\] 
+我们要求的所有曲线族均是$Q_0 \to Q_1$,也就是说我们可以计算
+\begin{align*}
+  \delta q^i |_{t_0} &= \lim_{\lambda \to 0} \frac{1}{\lambda}[q^i(t_0,\lambda) - q^i(t_0,0)] = 0 \\ 
+  \delta q^i |_{t_1} &= \lim_{\lambda \to 0} \frac{1}{\lambda}[q^i(t_1,\lambda) - q^i(t_1,0)] = 0
+.\end{align*}
+故
+\begin{align*}
+  \delta S &=  \int^{t_1}_{t_0} \left( \frac{\partial L}{ \partial q^i}\delta q^i  - (\frac{d}{dt} \frac{\partial L}{\partial \dot{q}^i})\delta q^i \right) dt  + \left.\frac{\partial L}{\partial \dot{q}^i} \delta q^i\right|^{t_1}_{t_0}\\
+           & = \int^{t_1}_{t_0} \left( \frac{\partial L}{ \partial q^i}  - (\frac{d}{dt} \frac{\partial L}{\partial \dot{q}^i}) \right) \delta q^i dt\\
+           & \equiv \int^{t_1}_{t_0}\Lambda_i \delta q^i dt 
+.\end{align*}
+我们可以给出如下定理
+\begin{theorem}
+  {}{15-1-1}
+ $\eta(t)$为正路 $\Longleftrightarrow$  $\delta S = 0$ 对于$\forall $含 $\eta(t)$的单参路径族  $\Longleftrightarrow \eta(t)$的$\Lambda_i = 0(i = 1,\cdots N)$ 
+\end{theorem}
+\begin{proof}
+  第一个$\Longleftrightarrow$是哈密顿原理要求的,我们来证明第二个$\Longleftrightarrow$.
+
+  首先证明 $\Rightarrow$,假设存在$\tilde{t} \in (t_0,t_1)$ 使得$\Lambda_1(\tilde{t}) \neq 0$,不妨令$\Lambda_1(\tilde{t}) > 0$,
+  则其存在邻域满足$\Lambda_\Delta > 0$.对于单参族$q^i = q^i(t,\lambda)$,我们可以要求除去$\Delta$外的所有区间内使得 $\Lambda_1 = 0$,且 $\delta^1 > 0, \delta^2 \cdots \delta^N = 0$,则此时$\delta S > 0$,与假设矛盾,
+  对于 $\Lambda_\Delta < 0$的情况也与假设矛盾,现在摆在脑海里使得我们拒绝承认这个定理的想法是,我可以选择合适的$\Lambda \neq 0$,但是经过积分后$\delta S = 0$,这种情况我们该怎么排除掉,这种情况
+  建立在一个微妙的平衡上,正负相互抵消,看起来似乎是符合要求的,但是我们把这种情况下再延申一下,此时给出的$\eta(t)$在$(t_0,t_1)$ 范围内成立,但是如果在 $(t_0,t_1 -\Delta)$的范围内,这种微妙的平衡立马就被打破了,
+  我们要找的路径选择的点是任意的,如果$Q_0 \to Q_1$是正路,那么从端点到曲线的任意点也应该是正路,故 $\Lambda_1 = 0$,同样的道理给出$\Lambda_i = 0$.
+
+  其次$\Leftarrow$方向,只要我们代入计算就会给出 $\delta S = 0$
+\end{proof}
+定理\ref{thm:15-1-1}给出$\eta(t)$为正路的充要条件是它的拉式函数 $L = L(q^i,\dot{q}^i)$满足 
+\begin{equation}
+  \frac{\partial L}{ \partial q^i}  - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}^i} = 0 \quad i = 1, \cdots , N
+  \label{eq:15-1-2} 
+\end{equation}
+系统的$L$的函数形式给定后,式\ref{eq:15-1-2}的$N$个2阶常微分方程,称为\textbf{欧拉-拉格朗日方程},简称 \textbf{拉式方程}.给定初始条件后有唯一解,对应与 $\mathscr{C}$种
+以$t$为参数的曲线.
+
+当然拉式函数也可以显含时间,即$L= L(q^i,\dot{q}^i,t) $ 但是$t$不会与参数 $\lambda$有关,故以上讨论和结论仍然适用.
+
+一般而言,想要把某一理论(有限自由度)改编成拉式形式,就是在寻找合适的拉式函数,就比如牛顿引力理论的拉式函数就是\[
+L = T - V
+.\] 
+\subsection{经典场论的拉式形式}
+最为经典的场是电磁场,无源的电磁场在洛伦兹规范下满足如下方程\[
+\partial^a\partial_a A_b = 0
+.\] 
+还有两种重要的经典场.在早期研究量子力学中,薛定谔给出方程\[
+i\hbar \frac{\partial \psi}{\partial t} = H \psi
+.\] 
+以相对论的观点发现不是洛伦兹协变的,原因是还有对时间t的一阶导数,但对于坐标却是二阶导的,时空不平权.
+因此需要修改,有两种思路,一是把对时空坐标的导数改为两阶,给出的方程为\[
+\partial^a\partial_a \phi - m^2 \phi = 0 \quad m\text{为常数}
+.\] 
+称为Klein-Gordon方程,简称KG方程.但是KG方程存在两个问题:1.存在负能解;2.概率密度可以是负.这是无法接受的.第二种修改方案
+是Dirac方程,此时不存在负概率密度的问题,但仍然存在负能解.上面的问题都在量子场论中得到解释,更为详细的内容参考量子场论.
+
+我们还是回到经典场的拉式形式.我们首先来看闵式时空的实标量场.闵式时空可以指定坐标 $\{t,x^i\}$,指定 $t = \hat{t}$,就是
+指出了一个同时面,也是在$\hat{t}$时刻的全空间.随后还要指定$\phi$在空间各点的值,才能唯一指定 $\phi$的状态,即指定
+ $\phi$的位形.此时 $\hat{t}$的位形变量可以记为$\phi(x,\hat{t})$,不同于有限自由度的位形变量,由于$x$的连续取值
+ 导致场是一个无限自由度的系统.随着 $t$的不断变动, $\phi$的状态开始演化,我们指定系统在 $\Sigma_0 \to \Sigma_1$中间进行演化,
+ 并把满足相应规则的$\phi(x,t)$称为正路,其余称为旁路.此时我们可以指定拉式量随时间变化的函数关系 \[
+   L(t) = L[\phi(x,t),\dot{\phi}(x,t)]
+ .\] 
+ 其中$\dot{\phi}(x,t) = \frac{\partial \phi(x,t)}{\partial t}$,此时$L$已经是 $\phi,\dot{\phi}$的泛函了.我们可以给出
+ 路径的作用量为 \[
+   S = \int^{t_1}_{t_0} L(t)dt
+ .\] 
+ 但是$L(t)$依旧是一个不好确定的量,它不像第一节中的 $L(t)$是个函数,这里的$L(t)$空间场的泛函,我们可以引进
+ 拉式密度 $\mathscr{L}$ (单位体积的拉式量)的函数,来计算出$L(t)$.而$\mathscr{L}$的函数变量是什么,首先我们有\[
+   L(t) = \int_{\Sigma_t} \mathscr{L}(x) d^3x
+ .\] 
+ 这才是我们需要思考的问题,上面这个积分是计算在$t$时刻所有可能的$\mathscr{L}(t)$,如果给定$\phi(x,t),\partial_i\phi(x,t)$,场便确定了,
+ 不同的 $\phi(x,t),\partial_i\phi(x,t)$给定不同的场,故$\mathscr{L}$应该是$\phi(x,t),\partial_i\phi(x,t)$的函数,又因为
+ $L(t)$和 $\dot{\phi}(x,t)$有关,故我们最终给出 \[
+ \mathscr{L} = \mathscr{L}(\phi(x,t),\dot{\phi}(x,t),\partial_i\phi(x,t))
+ .\] 
+
+上面给出$\mathscr{L}$是默认把时间空间分开,实际上我们可以使用更为统一的表述.我们把作用量定义为 \[
+S:= \int_U \mathscr{L}
+.\] 
+其中 $U \subset  \mathbb{R}^4$ (且$U$的闭包$\overline{U}$紧致),$\mathscr{L}$就是场量$\phi$和时空导数 $\partial_a \phi$的局域函数.即 \[
+\mathscr{L} = \mathscr{L}(\phi,\partial_a\phi)
+.\] 
+\begin{note}
+  我们给出紧致的定义,首先给出有限子覆盖的定义
+  \begin{definition}
+    {finite subcover}{有限子覆盖}
+    设$\{O_\alpha\}$是 $A \subset X$的开覆盖.若$\{O_\alpha\}$的有限个元素构成的子集 $\{O_{\alpha_1} \cdots O_{\alpha_2}\}$ 也覆盖$A$,就说 $\{O_\alpha\}$有\textbf{有限子覆盖(finite subcover)}.
+  \end{definition}
+  其次是紧致的定义
+  \begin{definition}
+    {compact}{紧致}
+    $A\subset X$叫\textbf{紧致的(compact)},若它的任一开覆盖都有有限子覆盖.
+  \end{definition}
+  我们还有定理$A \subset \mathbb{R}$为紧致,当且仅当$A$为有界闭集,这里要求 $\overline{U}$是紧致的,就是要求其有界且为闭集.
+\end{note}
+求场的演化的问题具体表述就是:给定$\phi$场在 $U$的边界上 $\hat{U}$上的适当值$\phi|_{\hat{U}}$后,寻找定义在$\overline{U}$的正路满足一下条件
+\begin{enumerate}
+  \item 在$U$内满足对应的演化方程;
+  \item 在$\hat{U}$的值等于对应的边界值$\phi|_{\hat{U}}$
+\end{enumerate}
+有了这样定义的拉式密度$\mathscr{L}$后,$L(t)$的作用完全可以被 $\mathscr{L}$取代.$\mathbb{R}^4$上的标量场 $\phi$称为一个 \textbf{四维场位形}.
+给定四维场位形后, $\mathscr{L}$便确定了,进而可以求出作用量$S$,故 $S$是 $\phi$的泛函,紧接着根据哈式原理,可以求出对应的正路.
+
+我们这里同样引入参数 $\lambda$,上一节的单参曲线族变成了现在的单参4维场位形族 $\phi(\lambda)$.
+ $\phi$的变分的定义 $\delta \phi$定义为 \[
+   \delta \phi := \lim_{\lambda\to 0}\frac{\phi(\lambda)- \phi(0)}{\lambda} \equiv \left.\frac{d\phi(\lambda)}{d \lambda}\right|_{\lambda = 0} 
+ .\] 
+ $\phi(\lambda),\delta \phi$都是 $\mathbb{R}^4$上的标量场.给定 $\phi(\lambda)$后,映射 $S: \mathscr{F}\to \mathbb{R}$就可以给出$S(\lambda)$,则 $S$
+ 的变分是 \[
+ \delta S := \left.\frac{d S(\lambda)}{d \lambda}\right|_{\lambda = 0} 
+.\] 
+哈式原理要求在下面两个条件下给出$\delta S =0$\[
+  \phi(0) = \phi;\quad \phi(\lambda)|_{\hat{U}} = \phi(0)|_{\hat{U}},\forall\lambda 
+.\] 
+我们来看
+\begin{align*}
+  \delta S = \int_{U} \left.\frac{d \mathscr{L}}{d \lambda}\right|_{\lambda = 0} 
+.\end{align*}
+而
+\begin{align*}
+  \left.\frac{d \mathscr{L}}{d \lambda}\right|_{\lambda = 0}  &= \frac{\partial \mathscr{L}}{\partial \phi} \left.\frac{d \phi(\lambda)}{d\lambda}\right|_{\lambda=0} + \frac{\partial \mathscr{L}}{\partial (\partial_a \phi)} \left.\frac{d(\partial_a\phi(\lambda))}{d\lambda}\right|_{\lambda = 0}   \\
+                                                              & = \frac{\partial \mathscr{L}}{\partial \phi}\delta \phi + \frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\delta(\partial_a\phi)\\
+                                                              & = \frac{\partial \mathscr{L}}{\partial \phi}\delta \phi + \frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\partial_a(\delta\phi)
+.\end{align*}
+故
+\begin{align*}
+ \delta S = \int_U \frac{\partial \mathscr{L}}{\partial \phi}\delta \phi + \int_U\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\partial_a(\delta\phi)
+.\end{align*}
+而\[
+  \int_U\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\partial_a(\delta\phi) = \int_U\left[\partial_a\left(\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\delta\phi\right) - \delta \phi \partial_a \left( \frac{\partial \mathscr{L}}{\partial (\partial_a\phi}  \right)  \right]
+.\] 
+根据高斯定理我们有\[
+  \int_U\partial_a\left(\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\delta\phi\right) = \int_{\hat{U}}n_a\left(\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\delta\phi\right)
+.\] 
+其中$n_a$为边界的单位法矢量,又因为 $\delta \phi|_{\hat{U}} = 0$,故上式为0.最终我们给出\[
+\delta S = \int_U \left( \frac{\partial \mathscr{L}}{\partial \phi} - \partial_a\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}   \right) \delta\phi = 0
+.\] 
+而位形的变分$\delta \phi$一般不为0,故给出标量场$\phi$的演化方程 
+\begin{equation}
+  \frac{\partial \mathscr{L}}{\partial \phi} - \partial_a\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)} = 0
+  \label{eq:15-1-3}
+\end{equation}
+我们给出闵式时空的拉式密度\[
+  \mathscr{L} = - \frac{1}{2}[\eta^{ab}(\partial_a\phi)\partial_b\phi +m^2\phi^2]
+.\] 
+代入上式便可以给出KG方程.
+\section{有限自由度系统的哈式理论}
+\subsection{有限自由度系统的哈式理论}
+拉式理论的基本变量是广义坐标$q^i$和广义速度 $\dot{q}^i$,它们的一组值代表系统的一个状态.而哈式理论的基本变量是广义坐标 $q^i$和广义动量 $p_i$.
+给定拉式函数 $L(q^i,\dot{q}^i)$后, $p_i$由下面式子定义 \[
+  p_i := \frac{\partial L(q,\dot{q})}{\partial  \dot{q}^i}, \quad i = 1, \cdots , N 
+.\] 
+位形变量和动量变量称为互相共轭的一对\textbf{正则变量(canonical variables)},它们的一组值$(q^i,p_i)$代表系统的一个状态.量 $H = p_i\dot{q}^i - L(q,dot{q})$
+称为系统的 \textbf{哈式量(Hamiltonian)} \[
+  dH = \dot{q}^i dp_i + p_i d\dot{q}^i - \frac{\partial L}{\partial q^i}dq^i - \frac{\partial L}{\partial \dot{q}^i}d\dot{q}^i =\dot{q}^i dp_i-\frac{\partial L}{\partial \dot{q}^i}d\dot{q}^i
+.\] 
+上式右面不含有$d\dot{q}^i$,这就意味着 $H$与 $q^i,p^i$有关,即 $H = H(q,p)$.
+
+以下讨论取决于 $N$个 $q^i$可否全部反解出当已知 $p,L$时,即 \[
+  \dot{q}^i = \dot{q}^i(q,p),\quad i= 1,\cdots ,N
+.\] 
+满足以上要求的拉式函数$L(q^i,\dot{q}^i$称为\textbf{正规(regular)的},相应的哈式理论称为\textbf{有正规拉式量的哈式理论}.此时我们有 \[
+H(p,q) = p_i\dot{q}^i(q,p) - L(q,\dot{q}^i(q,p))
+.\] 
+故
+\begin{align*}
+  \frac{\partial H}{\partial p_i} &= \frac{\partial p_j}{\partial p_i}\dot{q}^j + p_j \frac{\partial \dot{q}^j}{\partial p_i} - \frac{\partial L}{\partial \dot{q}^j} \frac{\partial \dot{q}^j}{\partial p_i} = \delta^{i}{}_{j}\dot{q}^j= \dot{q}^i\\
+  \frac{\partial H}{\partial q^i}& = p_j \frac{\partial \dot{q}^j}{\partial q^i} - \frac{\partial L}{\partial q^i} - \frac{\partial L}{\partial \dot{q}^j}\frac{\partial \dot{q}^j}{\partial q^i} = -\frac{\partial L}{\partial q^i} = - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}^i} = -\frac{d}{dt}p_i = -\dot{p}_i
+.\end{align*}
+即
+\begin{equation}
+  \label{eq:15-1-1}
+  \dot{q}^i = \frac{\partial H}{\partial p_i},\quad \dot{p}_i = -\frac{\partial H}{\partial q^i}, \quad i = 1,\cdots , N   
+\end{equation}
+当给定系统的拉式函数,其哈式函数也就给定了,而拉式方程也就转变成了式\ref{eq:15-1-1}2N个一阶常微分方程,称为\textbf{哈式正则方程(Hamiltonian canonical equations)}.
+$(q^i,p_i)$代表一个状态,所有状态的集合称为系统的\textbf{相空间(phase space)},记作 $\Gamma$,是 $2N$维流形.在相空间中指定一点,可以以此为初值,结合微分方程组式\ref{eq:15-1-1},
+给出相空间的一条曲线,反应系统的运动状态.
+\section{未完待续}
+%TODO 哈密顿量暂时用不到,我们后续再补充.
+\chapter{物理场的整体规范不变性(Global Gauge Invariance of Physical Fields)}
+\section{阿贝尔情况(The Abelian Case)}
+设$\phi_1$和 $\pi_2$是闵式时空 $(\mathbb{R}^4,\eta_{ab})$中两个互相独立的,有相同质量参数 $m$的实标量场,则两者分别服从KG方程
+\begin{align*}
+  \partial^a\partial_a \phi_1 - m^2 \phi_1 &= 0 \\
+  \partial^a\partial_a \phi_2 - m^2\phi_2 & = 0
+.\end{align*}
+两者的总的拉式密度为\[
+  \mathscr{L} = \mathscr{L}_1 + \mathscr{L}_2 = -\frac{1}{2}[(\partial^a\phi_1)\partial_a \phi_1 + m^2 \phi_1^2+(\partial^a\phi_2)\partial_a \phi_2 + m^2 \phi_2^2]
+.\] 
+引入复标量场及其共轭\[
+\phi = \frac{1}{\sqrt{2}}(\phi_1 + i\phi_2),\quad \overline{\phi} = \frac{1}{\sqrt{2} }(\phi_1- i\phi_2)
+.\] 
+可以使用$\phi,\overline{\phi}$代替$\phi_1,\phi_2$,此时KG方程写为 \[
+\partial^a\partial_a \phi - m^2 \phi = 0,\quad \partial^a\partial_a \overline{\phi} - m^2 \overline{\phi} =0
+.\] 
+拉式密度改写为\[
+  \mathscr{L} = -[(\partial^a \overline{\phi})\partial_a \phi + m^2\phi \overline{\phi}]
+.\] 
+如果对复标量场$\{\phi,\overline{\phi}\}$按照下面式子进行场变换$\phi \mapsto \phi'$
+\begin{equation}
+  \label{eq:I-4-1}
+  \phi' = e^{-iq\theta}\phi, \quad \overline{\phi'} = e^{iq\theta}\overline{\phi}
+. \end{equation}
+其中$q$是整数 $\theta$为任意常实数,不难发现 \[
+\mathscr{L}' = \mathscr{L}
+.\]
+因为拉式密度$\mathscr{L}$ 在式\ref{eq:I-4-1}代表的场的变换下不变.这种不变性称为场的\textbf{内部对称性(internal symmertry)},以区别于由killing
+矢量场代表的\textbf{时空对称性(spacetime symmetry)}.根据Nother定理,时空对称性和内部对称性都会导致一种守恒律.我们可以得到一个定理.
+\begin{note}
+ Nother定理:每一个连续对称性,就会对应一种守恒律. 
+\end{note}
+\begin{theorem}
+  {电荷守恒律}{I-4-1}
+  复标量场$\phi$的拉式密度 $\mathscr{L}$在式\ref{eq:I-4-1}的内部对称性下的不变性导致一个守恒律(物理上解释为电荷守恒律).
+\end{theorem}
+\begin{proof}
+  以$\phi_0 \equiv \phi(0)$代表初始的复标量场,对场进行式\ref{eq:I-4-1}的变换,全体 $\phi'$的集合是 \[
+    \{\phi(\theta) = e^{-iq\theta }\phi_0: \mathbb{R}^4 \to \mathbb{R}\}
+  .\] 
+  上面集合是一个单参复标量场族,每给出$p$点的坐标,就会给出场在 $p$点的值.在上面的场族中,$\mathscr{L}$借助下式构成$\theta$的一元函数 \[
+  \mathscr{L}(\theta) = \mathscr{L}(\phi(\theta), \partial_a \phi(\theta); \overline{\phi}(\theta), \partial_a \overline{\phi}(\theta))
+  .\] 
+  因为内部对称性,$\frac{d \mathscr{L}(\theta)}{d \theta} = 0$,故
+  \begin{align*}
+    0 &= \left.\frac{d}{d \theta}\right|_{\theta = 0} \mathscr{L}(\theta)\\ 
+      & = \left[ \frac{\partial \mathscr{L}}{\partial \phi(\theta)} \frac{d \phi(\theta)}{d\theta} + \frac{\partial \mathscr{L}}{\partial (\partial_a \phi(\theta))} \frac{d(\partial_a \phi(\theta))}{d \theta} + \frac{\partial \mathscr{L}}{\partial \overline{\phi}(\theta)}\frac{d \overline{\phi}(\theta)}{d\theta} + \frac{\partial \mathscr{L}}{\partial (\partial_a \overline{\phi}(\theta))}\frac{d (\partial_a \overline{\phi}(\theta)}{d\theta} \right]_{\theta = 0}
+  .\end{align*}
+  我们先来求第一项,首先\[
+    \left.\frac{d \phi (\theta)}{d\theta}\right|_{\theta = 0} = \left.\frac{d}{d\theta}\right|_{\theta = 0}(e^{-iq\theta}\phi_0) = -iq\phi_0 
+  .\] 
+  其次,$\frac{\partial \mathscr{L}}{\partial \phi(\theta)} $ 是对第一宗量$\phi(\theta)$求偏导,与 $\theta$无关,我们可以先计算$\theta = 0$,故有
+  \begin{align*}
+    \left.\frac{\partial \mathscr{L}}{\phi(\theta)}\right|_{\theta = 0} =  \frac{\partial \mathscr{L}}{\partial\phi_0}
+                                                                        = \partial_a\frac{\partial \mathscr{L}}{\partial (\partial_a \phi_0)}\quad \text{第二个等号借用式}\ref{eq:15-1-3}
+  .\end{align*}
+  故\[
+    \left[\frac{\partial \mathscr{L}}{\partial \phi(\theta)} \frac{d \phi(\theta)}{d\theta}\right]_{\theta = 0} = -iq\phi_0 \partial_a\frac{\partial \mathscr{L}}{\partial (\partial_a \phi_0)}
+  .\] 
+  对于第二项,有\[
+    \left.\frac{d(\partial_a \phi(\theta))}{d \theta} \right|_{\theta = 0}= \partial_a(\left.\frac{d\phi(\theta)}{d \theta}\right|_{\theta = 0}) = -iq (\partial_a\phi_0)
+  .\] 
+  以及\[
+    \left.\frac{\partial \mathscr{L}}{\partial (\partial_a \phi(\theta))} \right|_{\theta = 0}= \frac{\partial \mathscr{L}}{\partial (\partial_a \phi_0)}
+ .\]
+ 故\[
+   \left[  \frac{\partial \mathscr{L}}{\partial (\partial_a \phi(\theta))} \frac{d(\partial_a \phi(\theta))}{d \theta} \right]_{\theta = 0} =-iq (\partial_a\phi_0) \frac{\partial \mathscr{L}}{\partial (\partial_a \phi_0)} 
+ .\] 
+ 前两项明显满足莱布尼兹律最终给出结果$-iq \partial_a (\phi_0 \frac{\partial \mathscr{L}}{\partial (\partial_a)\phi_0} )$,而$\mathscr{L}$的形式我们也知道,可以给出\[
+ \frac{\partial \mathscr{L}(0)}{\partial (\partial_a\phi_0)}  =   \frac{\partial (-[(\partial^a \overline{\phi}_0)\partial_a \phi_0 + m^2\phi_0 \overline{\phi}_0])}{\partial (\partial_a\phi_0)} = -(\partial^a \overline{\phi}_0)
+ .\] 
+ 故前两项之和为$iq\partial_a(\phi_0 \partial^a \overline{\phi}_0)$,第三项和第四项之和步骤和前面完全相同,不过需要添加负号,并对$\phi_0$取复共轭.最后给出\[
+ 0 = iq\partial_a(\phi_0 \partial^a \overline{\phi}_0 - \overline{\phi}_0 \partial^a \phi_0)
+ .\] 
+ 我们去掉下标$0$,以 $\phi$代表正路场.给出 \[
+ iq\partial_a(\phi \partial^a \overline{\phi} - \overline{\phi} \partial^a \phi) = 0
+ .\] 
+ 令 \[
+ J^a \equiv ieq (\phi \partial^a \overline{\phi} - \overline{\phi} \partial^a \phi)
+ .\] 
+ 其中$e$代表基本电荷.则有 $\partial_a J^a = 0$,故 $J^a$代表某种守恒流密度.
+\end{proof}
+\begin{remark}
+ \begin{enumerate}
+   \item 物理上把$J^0$解释为场的电荷密度, $\partial_\mu J^\mu$反应的是电荷守恒律.
+   \item 式\ref{eq:I-4-1}代表的场变换叫做\textbf{规范变换(gauge transformoration)}关键点聚焦于对称变换,而式\ref{eq:I-4-1}中的变换
+     因为与时空点无关,又叫做\textbf{整体规范变换}
+ \end{enumerate} 
+\end{remark}
+
+上面的整体规范变换也可以推广到多分量的复场,考虑含有$N$个复分量的复场$\{\phi_n, n = 1, \cdots ,N\}$,如果这个复场的拉式密度满足\[
+\mathscr{L} = \mathscr{L}(\phi_n \overline{\phi}_n, \partial_a \phi_n \partial^a \overline{\phi_n},\cdots)
+.\] 
+上述式子意思是$\mathscr{L}$依赖于场,但是每一含有$\phi_n$的项必有 $\overline{\phi}_n$,含$\partial_a \phi_n$的项必含 $\partial^a \overline{\phi}_n$,这样就会使得场在如下的变换下,保证拉式密度不变.\[
+  \phi'_n = e^{-iq_n \theta} \phi_n, \quad \overline{\phi'}_n = e^{-iq_n \theta} \overline{\phi}_n \quad i = 1, \cdots ,N
+.\] 
+上面的场变换也可以写成矩阵的形式\[
+\begin{bmatrix}  \phi_1'\\ \vdots \\ \phi'_N\end{bmatrix} = 
+\begin{bmatrix} e^{-iq_1\theta}&&0\\&\ddots& \\ 0 && e^{-iq_N \theta}  \end{bmatrix} 
+\begin{bmatrix} \phi_1 \\ \vdots \\ \phi_N \end{bmatrix} 
+.\] 
+\[
+\begin{bmatrix}  \phi_1'& \ldots & \phi'_N\end{bmatrix} = 
+\begin{bmatrix} \phi_1 & \ldots & \phi_N \end{bmatrix} 
+\begin{bmatrix} e^{iq_1\theta}&&0\\&\ddots& \\ 0 && e^{iq_N \theta}  \end{bmatrix} 
+.\] 
+
+从群论的角度来看,式\ref{eq:I-4-1}代表的变换是酉群$U(1)$,可见例\ref{ex:G-5-1}.
+事实上集合\[
+  \hat{G} \equiv \{\text{diag} (e ^{-iq \theta}, \cdots , e^{-i q_N \theta}) \mid \theta \in \mathbb{R} \}
+.\] 
+是群,而且同态映射\[
+  \rho : U(1) \to \hat{G}, \quad  e^{-i\theta} \mapsto \text{diag}(e^{-iq_1\theta},\cdots , e^{-iq_N \theta})
+.\] 
+是$U(1)$群的表示.注意分清李群和表示的维数,在本例而言第一个表示的维度是1,和 $U(1)$群一样,第二个是 $N$.注意辨别.
+\section{非阿贝尔情况(The Non-Abelian Case)}
+  上一小节的整体规范变换只涉及阿贝尔群$U(1)$,本节我们来看非阿贝尔群 $SU(2)$.在物理中质子与质子之间的强相互作用力
+  和中子与中子的强相互作用力是一样的,与粒子所带电荷不同.海森堡于是提出质子和中子可看作一种粒子(核子necleon)的不同状态(同位旋态).
+  核子的同位旋可以用以下波函数描述\[
+ \phi = \begin{bmatrix} \phi_1 \\ \phi_2 \end{bmatrix}  
+  .\] 
+  由于不同状态的核子的强相互作用力是相同的,也就意味着在同位旋态之间的变换保持拉式密度不变.我们先来看如何实现同位旋变换,应该满足方程\[
+    \begin{bmatrix} \phi'_1\\\phi'_2  \end{bmatrix}  
+    = \begin{bmatrix} U_{11}&U_{12}\\ U_{21}& U_{22} \end{bmatrix} 
+    \begin{bmatrix} \phi_1 \\\phi_2 \end{bmatrix} 
+    ,\quad U_{11},U_{12}, U_{21},U_{22} \in \mathbb{C} 
+  .\] 
+  以$U$代表矩阵,则上式可以写为 $\phi' = U \phi$,我们先来看 $U$满足什么条件,量子力学中要求波函数的概率是归一的,也就是 \[
+    (\phi,\phi) = 1 = (\phi',\phi') = (U\phi,U\phi) = (U^\dagger U\phi,\phi) 
+  .\] 
+  表明$U^\dagger U = I$,所以 $U\in U(2)$,对两边取行列式得\[
+    1 = \det{I}  = \det{(U^\dagger U)} = \det{U^\dagger} \det{U} = \overline{\det{U}}\det{U} =  |\det{U}|^2 
+  .\] 
+  故有$\det{U} = e^{i\alpha} , \alpha \in \mathbb{R}$.令$U = U_1U_2$,其中 $U_2 = \text{diag}(e^{i\frac{\alpha}{2}},e^{i \frac{\alpha}{2}})$,则$\det{U_2}=e^{i\alpha}$,我们有\[
+    e^{i\alpha} = \det{U} = \det{U_1 U_2} = \det{U_1} \det{U_2} = \det{U_1}e^{i\alpha}  
+  .\] 
+  故$\det{U_1} = 1$,又因为 $U_2 \phi = e^{i \frac{\alpha}{2}} \phi$,只给波函数带来相位变化,而又因为波函数的相位变化不会带来物理实质的改变,故$U_2\phi$和 $\phi$是同一量子态.
+  故我们可以使用 $U_1$代替 $U$实现同位旋状态的改变,并省略下标给出 \[
+    \phi' = U\phi,\quad \det{U} = 1 
+  .\] 
+  省略下标后的$U(\text{即}U_1) \in SU(2)$.
+
+$\phi$在量子场论中代表场算符,因此 $\phi' = U \phi$是场变换(内部变换),核子系统的拉式密度 $\mathscr{L}$在$SU(2)$变换下不变,对应的守恒律就是同位旋守恒.为了不过分陷于物理,这里点到即止.
+
+这里我们来看 $SU(2)$怎么样表达.因为 $U \in SU(2)$,故\[
+  U = \text{Exp}(A) \quad A\in \mathscr{SU}(2) = \text{span}(-\frac{i}{2}\tau_1,-\frac{i}{2}\tau_2,-\frac{i}{2}\tau_3)
+.\] 
+其中$\tau_1,\tau_2,\tau_3$见例\ref{ex:G-6-4},则$A$可以写为 \[
+  A = -\frac{i}{2}(\theta^1\tau_1 + \theta^2 \tau_2 +\theta^3 \tau_3) = -\frac{i}{2} \vec{\tau}\cdot \vec{\theta} 
+.\] 
+则$U$可以表示为 \[
+  U(\vec{\theta}) = \text{Exp}(- \frac{i}{2} \vec{\tau}\cdot \vec{\theta}) = e^{- \frac{i}{2} \vec{\tau}\cdot \vec{\theta}}
+.\] 
+因$\tau_1,\tau_2,\tau_3$是 $2\times 2$复矩阵,则$e^{-i \frac{i}{2}\vec{\tau}\cdot \vec{\theta}}$ 也是.把群元写成$e^{-\frac{i}{2} \vec{\tau}\cdot \vec{\theta}}$ 实际上采用的是 $3$维李群 $SU(2)$的(复)2维表示,也是 $SU(2)$的自身表示.表示的
+维数指的是李群可以使用李群的矩阵表示作用的表示空间的维数.表示空间在这里具体体现为$\phi$的维数,也就是2维.我们以$V$来代表表示空间.根据不同的物理需要,还会
+用到 $SU(2)$[或SU(3),SU(4),$\cdots$,SU(N)]等其它维的表示.
+ 
+一般而言,规范场论涉及一个李群(内部变换群)$G$和一个或多个矩阵李群 $\hat{G}$,而且存在同态映射$\rho$\[
+ \rho : G \to \hat{G} 
+  .\] 
+  \begin{note}
+    内部变换群不一定是矩阵群$G$,但是可以有矩阵表示,就是矩阵李群$\hat{G}$
+  \end{note}
+
+
+\end{document}
