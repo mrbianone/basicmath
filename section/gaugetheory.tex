@@ -3,417 +3,2332 @@
 \begin{document}
  \hypersetup{pageanchor=true}
  % add preface chapter here if needed
- \part{纤维丛在场论中的应用}
-本章部分进入纤维丛在物理场中的应用,前面三章是数学基础,纤维丛理论特别适用于规范场论,本章的目的
-还是架桥的工作.正式进入之前,先复习一下物理中的相关知识点.
-\chapter{拉式理论和哈式理论}
-\section{拉式理论}
-\subsection{有限自由度的拉式理论}
-$N$维系统有 $N$个独立的广义坐标,每组广义坐标 $(q^1,q^2,\cdots,q^N)$确定系统的一个\textbf{位形(configuration)},因此广义坐标又称为\textbf{位形变量(configuration variables)}.
-所有可能的位形的集合$\mathscr{C}$称为系统的\textbf{位形空间(configuration variables)},位形空间是一个$N$维流形.系统的演化无非就是位形随着时间而变化,对应到位形空间
-就是一条以 时间$t$为参数的曲线$\eta(t)$,可以给出参数式 \[q^i = q^i(t).\]曲线的切矢就是我们认知的\textbf{广义速度},其坐标分量可以表示为 \[
-\dot{q}^i(t) = \frac{d q^i(t)}{dt}
-.\] 
-在演化曲线上取两个点$Q_0,Q_1$,满足 $Q_0 = \eta(t_0), Q_1 = \eta(t_1)$且 $t_1>t_0$,则介于初位形 $Q_0$和 末位形$Q_1$之间的曲线 $\eta(t)$称为\textbf{路径(path)},两点
-之间的曲线有很多种情况,也就意味着路径不唯一,但是反应动力学规律的曲线只有一条,称为\textbf{正路},其余路径称为\textbf{旁路}. 
+\part{纤维丛在场论中的应用}
+ 本章部分进入纤维丛在物理场中的应用,前面三章是数学基础,纤维丛理论特别适用于规范场论,本章的目的
+ 还是架桥的工作.正式进入之前,先复习一下物理中的相关知识点.
+ \chapter{拉式理论和哈式理论}
+ \section{拉式理论}
+ \subsection{有限自由度的拉式理论}
+ $N$维系统有 $N$个独立的广义坐标,每组广义坐标 $(q^1,q^2,\cdots,q^N)$确定系统的一个\textbf{位形(configuration)},因此广义坐标又称为\textbf{位形变量(configuration variables)}.
+ 所有可能的位形的集合$\mathscr{C}$称为系统的\textbf{位形空间(configuration variables)},位形空间是一个$N$维流形.系统的演化无非就是位形随着时间而变化,对应到位形空间
+ 就是一条以 时间$t$为参数的曲线$\eta(t)$,可以给出参数式 \[q^i = q^i(t).\]曲线的切矢就是我们认知的\textbf{广义速度},其坐标分量可以表示为 \[
+ \dot{q}^i(t) = \frac{d q^i(t)}{dt}
+ .\] 
+ 在演化曲线上取两个点$Q_0,Q_1$,满足 $Q_0 = \eta(t_0), Q_1 = \eta(t_1)$且 $t_1>t_0$,则介于初位形 $Q_0$和 末位形$Q_1$之间的曲线 $\eta(t)$称为\textbf{路径(path)},两点
+ 之间的曲线有很多种情况,也就意味着路径不唯一,但是反应动力学规律的曲线只有一条,称为\textbf{正路},其余路径称为\textbf{旁路}. 
 
-如何在路径中找到正路便是引入拉式函数和作用量的目的.系统的\textbf{拉式函数[(Lagrangian function)(又叫拉式量)}]$L$ 是这样一个函数\[
-  L(t) = L(q^i(t), \dot{q}^i(t))
-.\] 
-其积分称为该路径的\textbf{作用量(action)}$S$,满足 \[
-  S := \int^{t_1}_{t_0} L(q^i(t), \dot{q}^i(t))dt
-.\] 
-正路与旁路的区别由\textbf{哈式原理 (Hamilton principle)(又称变分原理)} 给出, 哈式原理要求作用量取极值.
+ 如何在路径中找到正路便是引入拉式函数和作用量的目的.系统的\textbf{拉式函数[(Lagrangian function)(又叫拉式量)}]$L$ 是这样一个函数\[
+ L(t) = L(q^i(t), \dot{q}^i(t))
+ .\] 
+ 其积分称为该路径的\textbf{作用量(action)}$S$,满足 \[
+ S := \int^{t_1}_{t_0} L(q^i(t), \dot{q}^i(t))dt
+ .\] 
+ 正路与旁路的区别由\textbf{哈式原理 (Hamilton principle)(又称变分原理)} 给出, 哈式原理要求作用量取极值.
 
-$S$是一个关于函数的函数,称为\textbf{泛函(functional)},泛函的定义如下:
-\begin{definition}
-{Functional}{泛函}
-  一个\textbf{泛函(functional)} \( F \) 是从一个函数空间 \( \mathscr{F} \) 到实数集合（或复数集合）\( \mathbb{R} \) 的映射：
-\[
-F : \mathscr{F} \to \mathbb{R}
-\]
-其中，\( \mathscr{F} \) 是定义域中的函数空间，而 \( F(f) \) 是将 \( f \in \mathscr{F} \) 映射到一个实数或复数。
-\end{definition}
-\begin{note}
-例如，设 \( f(x) \) 是定义在区间 \( [a, b] \) 上的一个函数，则一个常见的积分型泛函为：
-\[
-F(f) = \int_a^b f(x) \, dx
-\]
-这个泛函将函数 \( f(x) \) 映射为它在区间 \( [a, b] \) 上的积分值。
-
-另一种常见的泛函形式是微分型泛函，它将一个函数映射到它的导数：
-\[
-F(f) = f'(x)
-\]
-$S$就是积分型泛函,普通的函数求极值只需要求微分并找到 $df = 0$时的参数值即可,但是泛函求极值需要涉及变分运算.
-\end{note}
-我们先来看看如何求$S$的极值.考虑任一 $Q_0\to Q_1$的单参路径族$q^i = (t, \lambda)$,满足当$\lambda = 0$时
-此时 $q^i$所给出的曲线是正路;$\lambda \neq 0$时,此时给出的曲线是旁路.这也是可以做到的,根据物理意义,总存在正路,
-对路径做微小偏移并用参数$\lambda$表示可以给出曲线族来.此时的 $S$是 $\lambda$的函数,用下式表示
-\begin{equation*}
-  S(\lambda) = \int^{t_1}_{t_0}L(q^i(t,\lambda),\dot{q}^i(t,\lambda))dt 
-\end{equation*}
-我们知道正路要求$S$取极值,那么也就意味着其在曲线族依旧取得极值,也就是说$S$在单参族内求极值问题转变为一元函数 $S(\lambda)$求导问题,即
+ $S$是一个关于函数的函数,称为\textbf{泛函(functional)},泛函的定义如下:
+ \begin{definition}
+ {Functional}{泛函}
+ 一个\textbf{泛函(functional)} \( F \) 是从一个函数空间 \( \mathscr{F} \) 到实数集合(或复数集合)\( \mathbb{R} \) 的映射：
  \[
-   \left.\frac{d S(\lambda)}{d\lambda}\right|_{\lambda = 0} = \int^{t_1}_{t_0}\left.\frac{\partial L}{\partial \lambda}\right|_{\lambda = 0}dt 
-       = \int^{t_1}_{t_0}\left.\left(\frac{\partial L}{\partial q^i}\frac{\partial q^i}{\partial \lambda}+ \frac{\partial L}{\partial \dot{q}^i} \frac{\partial \dot{q}^i}{\partial \lambda} \right)\right|_{\lambda = 0} dt
+ F : \mathscr{F} \to \mathbb{R}
+ \]
+ 其中，\( \mathscr{F} \) 是定义域中的函数空间，而 \( F(f) \) 是将 \( f \in \mathscr{F} \) 映射到一个实数或复数。
+ \end{definition}
+ \begin{note}
+ 例如，设 \( f(x) \) 是定义在区间 \( [a, b] \) 上的一个函数，则一个常见的积分型泛函为：
+ \[
+ F(f) = \int_a^b f(x) \, dx
+ \]
+ 这个泛函将函数 \( f(x) \) 映射为它在区间 \( [a, b] \) 上的积分值。
+
+ 另一种常见的泛函形式是微分型泛函，它将一个函数映射到它的导数：
+ \[
+ F(f) = f'(x)
+ \]
+ $S$就是积分型泛函,普通的函数求极值只需要求微分并找到 $df = 0$时的参数值即可,但是泛函求极值需要涉及变分运算.
+ \end{note}
+ 我们先来看看如何求$S$的极值.考虑任一 $Q_0\to Q_1$的单参路径族$q^i = (t, \lambda)$,满足当$\lambda = 0$时
+ 此时 $q^i$所给出的曲线是正路;$\lambda \neq 0$时,此时给出的曲线是旁路.这也是可以做到的,根据物理意义,总存在正路,
+ 对路径做微小偏移并用参数$\lambda$表示可以给出曲线族来.此时的 $S$是 $\lambda$的函数,用下式表示
+ \begin{equation*}
+ S(\lambda) = \int^{t_1}_{t_0}L(q^i(t,\lambda),\dot{q}^i(t,\lambda))dt 
+ \end{equation*}
+ 我们知道正路要求$S$取极值,那么也就意味着其在曲线族依旧取得极值,也就是说$S$在单参族内求极值问题转变为一元函数 $S(\lambda)$求导问题,即
+\[
+  \left.\frac{d S(\lambda)}{d\lambda}\right|_{\lambda = 0} = \int^{t_1}_{t_0}\left.\frac{\partial L}{\partial \lambda}\right|_{\lambda = 0}dt 
+      = \int^{t_1}_{t_0}\left.\left(\frac{\partial L}{\partial q^i}\frac{\partial q^i}{\partial \lambda}+ \frac{\partial L}{\partial \dot{q}^i} \frac{\partial \dot{q}^i}{\partial \lambda} \right)\right|_{\lambda = 0} dt
+ .\] 
+ 令
+ \begin{align*}
+ \delta S &\equiv \left.\frac{dS(\lambda)}{d \lambda}\right|_{\lambda = 0}\\
+   \delta q^i &\equiv \left.\frac{\partial q^i(t,\lambda)}{ \partial \lambda}\right|_{\lambda = 0}\\
+     \delta  \dot{q}^i&\equiv \left.\frac{\partial\dot{q}^i(t,\lambda)}{ \partial \lambda  }\right|_{\lambda = 0} 
+ \end{align*}
+ 把$\delta S, \delta q^i, \delta \dot{q}^i$分别称为$S, q^i, \dot{q}^i$在所选的单参组内的\textbf{变分(variation)},则我们得到变分关系 \[
+ \delta S = \int^{t_1}_{t_0} \left( \frac{\partial L}{ \partial q^i}\delta q^i + \frac{\partial L}{\partial \dot{q}^i} \delta \dot{q}^i   \right)dt 
+ .\] 
+ 我们可以把$\lambda = 0$简化不写,因为正路中要求了 $\lambda = 0$. 而且要求了$\delta S = 0$,我们来看可以给出什么,首先因为对$\lambda$求导和对 $t$求导可以交换顺序,我们有\[
+ \frac{\partial L}{\partial \dot{q}^i} \delta \dot{q}^i = \frac{\partial L}{\partial \dot{q}^i} \frac{d}{dt}\delta q^i
+ .\] 
+ 根据分部积分法有\[
+ \int^{t_1}_{t_0}[\frac{\partial L}{\partial \dot{q}^i}]dt \frac{d}{dt}\delta q^i = \int^{t_1}_{t_0}[\frac{d}{dt}(\frac{\partial L}{\partial \dot{q}^i} \delta q^i) - (\frac{d}{dt} \frac{\partial L}{\partial \dot{q}^i})\delta q^i]dt
+ .\] 
+ 我们要求的所有曲线族均是$Q_0 \to Q_1$,也就是说我们可以计算
+ \begin{align*}
+ \delta q^i |_{t_0} &= \lim_{\lambda \to 0} \frac{1}{\lambda}[q^i(t_0,\lambda) - q^i(t_0,0)] = 0 \\ 
+ \delta q^i |_{t_1} &= \lim_{\lambda \to 0} \frac{1}{\lambda}[q^i(t_1,\lambda) - q^i(t_1,0)] = 0
+ .\end{align*}
+ 故
+ \begin{align*}
+ \delta S &=  \int^{t_1}_{t_0} \left( \frac{\partial L}{ \partial q^i}\delta q^i  - (\frac{d}{dt} \frac{\partial L}{\partial \dot{q}^i})\delta q^i \right) dt  + \left.\frac{\partial L}{\partial \dot{q}^i} \delta q^i\right|^{t_1}_{t_0}\\
+          & = \int^{t_1}_{t_0} \left( \frac{\partial L}{ \partial q^i}  - (\frac{d}{dt} \frac{\partial L}{\partial \dot{q}^i}) \right) \delta q^i dt\\
+          & \equiv \int^{t_1}_{t_0}\Lambda_i \delta q^i dt 
+ .\end{align*}
+ 我们可以给出如下定理
+ \begin{theorem}
+ {}{15-1-1}
+$\eta(t)$为正路 $\Longleftrightarrow$  $\delta S = 0$ 对于$\forall $含 $\eta(t)$的单参路径族  $\Longleftrightarrow \eta(t)$的$\Lambda_i = 0(i = 1,\cdots N)$ 
+ \end{theorem}
+ \begin{proof}
+ 第一个$\Longleftrightarrow$是哈密顿原理要求的,我们来证明第二个$\Longleftrightarrow$.
+
+ 首先证明 $\Rightarrow$,假设存在$\tilde{t} \in (t_0,t_1)$ 使得$\Lambda_1(\tilde{t}) \neq 0$,不妨令$\Lambda_1(\tilde{t}) > 0$,
+ 则其存在邻域满足$\Lambda_\Delta > 0$.对于单参族$q^i = q^i(t,\lambda)$,我们可以要求除去$\Delta$外的所有区间内使得 $\Lambda_1 = 0$,且 $\delta^1 > 0, \delta^2 \cdots \delta^N = 0$,则此时$\delta S > 0$,与假设矛盾,
+ 对于 $\Lambda_\Delta < 0$的情况也与假设矛盾,现在摆在脑海里使得我们拒绝承认这个定理的想法是,我可以选择合适的$\Lambda \neq 0$,但是经过积分后$\delta S = 0$,这种情况我们该怎么排除掉,这种情况
+ 建立在一个微妙的平衡上,正负相互抵消,看起来似乎是符合要求的,但是我们把这种情况下再延申一下,此时给出的$\eta(t)$在$(t_0,t_1)$ 范围内成立,但是如果在 $(t_0,t_1 -\Delta)$的范围内,这种微妙的平衡立马就被打破了,
+ 我们要找的路径选择的点是任意的,如果$Q_0 \to Q_1$是正路,那么从端点到曲线的任意点也应该是正路,故 $\Lambda_1 = 0$,同样的道理给出$\Lambda_i = 0$.
+
+ 其次$\Leftarrow$方向,只要我们代入计算就会给出 $\delta S = 0$
+ \end{proof}
+ 定理\ref{thm:15-1-1}给出$\eta(t)$为正路的充要条件是它的拉式函数 $L = L(q^i,\dot{q}^i)$满足 
+ \begin{equation}
+ \frac{\partial L}{ \partial q^i}  - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}^i} = 0 \quad i = 1, \cdots , N
+ \label{eq:15-1-2} 
+ \end{equation}
+ 系统的$L$的函数形式给定后,式\ref{eq:15-1-2}的$N$个2阶常微分方程,称为\textbf{欧拉-拉格朗日方程},简称 \textbf{拉式方程}.给定初始条件后有唯一解,对应与 $\mathscr{C}$种
+ 以$t$为参数的曲线.
+
+ 当然拉式函数也可以显含时间,即$L= L(q^i,\dot{q}^i,t) $ 但是$t$不会与参数 $\lambda$有关,故以上讨论和结论仍然适用.
+
+ 一般而言,想要把某一理论(有限自由度)改编成拉式形式,就是在寻找合适的拉式函数,就比如牛顿引力理论的拉式函数就是\[
+ L = T - V
+ .\] 
+ \subsection{经典场论的拉式形式}
+ 最为经典的场是电磁场,无源的电磁场在洛伦兹规范下满足如下方程\[
+ \partial^a\partial_a A_b = 0
+ .\] 
+ 还有两种重要的经典场.在早期研究量子力学中,薛定谔给出方程\[
+ i\hbar \frac{\partial \psi}{\partial t} = H \psi
+ .\] 
+ 以相对论的观点发现不是洛伦兹协变的,原因是还有对时间t的一阶导数,但对于坐标却是二阶导的,时空不平权.
+ 因此需要修改,有两种思路,一是把对时空坐标的导数改为两阶,给出的方程为\[
+ \partial^a\partial_a \phi - m^2 \phi = 0 \quad m\text{为常数}
+ .\] 
+ 称为Klein-Gordon方程,简称KG方程.但是KG方程存在两个问题:1.存在负能解;2.概率密度可以是负.这是无法接受的.第二种修改方案
+ 是Dirac方程,此时不存在负概率密度的问题,但仍然存在负能解.上面的问题都在量子场论中得到解释,更为详细的内容参考量子场论.
+
+ 我们还是回到经典场的拉式形式.我们首先来看闵式时空的实标量场.闵式时空可以指定坐标 $\{t,x^i\}$,指定 $t = \hat{t}$,就是
+ 指出了一个同时面,也是在$\hat{t}$时刻的全空间.随后还要指定$\phi$在空间各点的值,才能唯一指定 $\phi$的状态,即指定
+$\phi$的位形.此时 $\hat{t}$的位形变量可以记为$\phi(x,\hat{t})$,不同于有限自由度的位形变量,由于$x$的连续取值
+导致场是一个无限自由度的系统.随着 $t$的不断变动, $\phi$的状态开始演化,我们指定系统在 $\Sigma_0 \to \Sigma_1$中间进行演化,
+并把满足相应规则的$\phi(x,t)$称为正路,其余称为旁路.此时我们可以指定拉式量随时间变化的函数关系 \[
+  L(t) = L[\phi(x,t),\dot{\phi}(x,t)]
+.\] 
+其中$\dot{\phi}(x,t) = \frac{\partial \phi(x,t)}{\partial t}$,此时$L$已经是 $\phi,\dot{\phi}$的泛函了.我们可以给出
+路径的作用量为 \[
+  S = \int^{t_1}_{t_0} L(t)dt
+.\] 
+但是$L(t)$依旧是一个不好确定的量,它不像第一节中的 $L(t)$是个函数,这里的$L(t)$空间场的泛函,我们可以引进
+拉式密度 $\mathscr{L}$ (单位体积的拉式量)的函数,来计算出$L(t)$.而$\mathscr{L}$的函数变量是什么,首先我们有\[
+  L(t) = \int_{\Sigma_t} \mathscr{L}(x) d^3x
+.\] 
+这才是我们需要思考的问题,上面这个积分是计算在$t$时刻所有可能的$\mathscr{L}(t)$,如果给定$\phi(x,t),\partial_i\phi(x,t)$,场便确定了,
+不同的 $\phi(x,t),\partial_i\phi(x,t)$给定不同的场,故$\mathscr{L}$应该是$\phi(x,t),\partial_i\phi(x,t)$的函数,又因为
+$L(t)$和 $\dot{\phi}(x,t)$有关,故我们最终给出 \[
+\mathscr{L} = \mathscr{L}(\phi(x,t),\dot{\phi}(x,t),\partial_i\phi(x,t))
+.\] 
+
+ 上面给出$\mathscr{L}$是默认把时间空间分开,实际上我们可以使用更为统一的表述.我们把作用量定义为 \[
+ S:= \int_U \mathscr{L}
+ .\] 
+ 其中 $U \subset  \mathbb{R}^4$ (且$U$的闭包$\overline{U}$紧致),$\mathscr{L}$就是场量$\phi$和时空导数 $\partial_a \phi$的局域函数.即 \[
+ \mathscr{L} = \mathscr{L}(\phi,\partial_a\phi)
+ .\] 
+ \begin{note}
+ 我们给出紧致的定义,首先给出有限子覆盖的定义
+ \begin{definition}
+   {finite subcover}{有限子覆盖}
+   设$\{O_\alpha\}$是 $A \subset X$的开覆盖.若$\{O_\alpha\}$的有限个元素构成的子集 $\{O_{\alpha_1} \cdots O_{\alpha_2}\}$ 也覆盖$A$,就说 $\{O_\alpha\}$有\textbf{有限子覆盖(finite subcover)}.
+ \end{definition}
+ 其次是紧致的定义
+ \begin{definition}
+   {compact}{紧致}
+   $A\subset X$叫\textbf{紧致的(compact)},若它的任一开覆盖都有有限子覆盖.
+ \end{definition}
+ 我们还有定理$A \subset \mathbb{R}$为紧致,当且仅当$A$为有界闭集,这里要求 $\overline{U}$是紧致的,就是要求其有界且为闭集.
+ \end{note}
+ 求场的演化的问题具体表述就是:给定$\phi$场在 $U$的边界上 $\hat{U}$上的适当值$\phi|_{\hat{U}}$后,寻找定义在$\overline{U}$的正路满足一下条件
+ \begin{enumerate}
+ \item 在$U$内满足对应的演化方程;
+ \item 在$\hat{U}$的值等于对应的边界值$\phi|_{\hat{U}}$
+ \end{enumerate}
+ 有了这样定义的拉式密度$\mathscr{L}$后,$L(t)$的作用完全可以被 $\mathscr{L}$取代.$\mathbb{R}^4$上的标量场 $\phi$称为一个 \textbf{四维场位形}.
+ 给定四维场位形后, $\mathscr{L}$便确定了,进而可以求出作用量$S$,故 $S$是 $\phi$的泛函,紧接着根据哈式原理,可以求出对应的正路.
+
+ 我们这里同样引入参数 $\lambda$,上一节的单参曲线族变成了现在的单参4维场位形族 $\phi(\lambda)$.
+$\phi$的变分的定义 $\delta \phi$定义为 \[
+  \delta \phi := \lim_{\lambda\to 0}\frac{\phi(\lambda)- \phi(0)}{\lambda} \equiv \left.\frac{d\phi(\lambda)}{d \lambda}\right|_{\lambda = 0} 
+.\] 
+$\phi(\lambda),\delta \phi$都是 $\mathbb{R}^4$上的标量场.给定 $\phi(\lambda)$后,映射 $S: \mathscr{F}\to \mathbb{R}$就可以给出$S(\lambda)$,则 $S$
+的变分是 \[
+\delta S := \left.\frac{d S(\lambda)}{d \lambda}\right|_{\lambda = 0} 
+ .\] 
+ 哈式原理要求在下面两个条件下给出$\delta S =0$\[
+ \phi(0) = \phi;\quad \phi(\lambda)|_{\hat{U}} = \phi(0)|_{\hat{U}},\forall\lambda 
+ .\] 
+ 我们来看
+ \begin{align*}
+ \delta S = \int_{U} \left.\frac{d \mathscr{L}}{d \lambda}\right|_{\lambda = 0} 
+ .\end{align*}
+ 而
+ \begin{align*}
+ \left.\frac{d \mathscr{L}}{d \lambda}\right|_{\lambda = 0}  &= \frac{\partial \mathscr{L}}{\partial \phi} \left.\frac{d \phi(\lambda)}{d\lambda}\right|_{\lambda=0} + \frac{\partial \mathscr{L}}{\partial (\partial_a \phi)} \left.\frac{d(\partial_a\phi(\lambda))}{d\lambda}\right|_{\lambda = 0}   \\
+                                                             & = \frac{\partial \mathscr{L}}{\partial \phi}\delta \phi + \frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\delta(\partial_a\phi)\\
+                                                             & = \frac{\partial \mathscr{L}}{\partial \phi}\delta \phi + \frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\partial_a(\delta\phi)
+ .\end{align*}
+ 故
+ \begin{align*}
+\delta S = \int_U \frac{\partial \mathscr{L}}{\partial \phi}\delta \phi + \int_U\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\partial_a(\delta\phi)
+ .\end{align*}
+ 而\[
+ \int_U\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\partial_a(\delta\phi) = \int_U\left[\partial_a\left(\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\delta\phi\right) - \delta \phi \partial_a \left( \frac{\partial \mathscr{L}}{\partial (\partial_a\phi}  \right)  \right]
+ .\] 
+ 根据高斯定理我们有\[
+ \int_U\partial_a\left(\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\delta\phi\right) = \int_{\hat{U}}n_a\left(\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\delta\phi\right)
+ .\] 
+ 其中$n_a$为边界的单位法矢量,又因为 $\delta \phi|_{\hat{U}} = 0$,故上式为0.最终我们给出\[
+ \delta S = \int_U \left( \frac{\partial \mathscr{L}}{\partial \phi} - \partial_a\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}   \right) \delta\phi = 0
+ .\] 
+ 而位形的变分$\delta \phi$一般不为0,故给出标量场$\phi$的演化方程 
+ \begin{equation}
+ \frac{\partial \mathscr{L}}{\partial \phi} - \partial_a\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)} = 0
+ \label{eq:15-1-3}
+ \end{equation}
+ 我们给出闵式时空的拉式密度\[
+ \mathscr{L} = - \frac{1}{2}[\eta^{ab}(\partial_a\phi)\partial_b\phi +m^2\phi^2]
+ .\] 
+ 代入上式便可以给出KG方程.
+ \section{有限自由度系统的哈式理论}
+ \subsection{有限自由度系统的哈式理论}
+ 拉式理论的基本变量是广义坐标$q^i$和广义速度 $\dot{q}^i$,它们的一组值代表系统的一个状态.而哈式理论的基本变量是广义坐标 $q^i$和广义动量 $p_i$.
+ 给定拉式函数 $L(q^i,\dot{q}^i)$后, $p_i$由下面式子定义 \[
+ p_i := \frac{\partial L(q,\dot{q})}{\partial  \dot{q}^i}, \quad i = 1, \cdots , N 
+ .\] 
+ 位形变量和动量变量称为互相共轭的一对\textbf{正则变量(canonical variables)},它们的一组值$(q^i,p_i)$代表系统的一个状态.量 $H = p_i\dot{q}^i - L(q,\dot{q})$
+ 称为系统的 \textbf{哈式量(Hamiltonian)} \[
+ dH = \dot{q}^i dp_i + p_i d\dot{q}^i - \frac{\partial L}{\partial q^i}dq^i - \frac{\partial L}{\partial \dot{q}^i}d\dot{q}^i =\dot{q}^i dp_i-\frac{\partial L}{\partial \dot{q}^i}d\dot{q}^i
+ .\] 
+ 上式右面不含有$d\dot{q}^i$,这就意味着 $H$与 $q^i,p^i$有关,即 $H = H(q,p)$.
+
+ 以下讨论取决于 $N$个 $q^i$可否全部反解出当已知 $p,L$时,即 \[
+ \dot{q}^i = \dot{q}^i(q,p),\quad i= 1,\cdots ,N
+ .\] 
+ 满足以上要求的拉式函数$L(q^i,\dot{q}^i)$称为\textbf{正规(regular)的},相应的哈式理论称为\textbf{有正规拉式量的哈式理论}.此时我们有 \[
+ H(p,q) = p_i\dot{q}^i(q,p) - L(q,\dot{q}^i(q,p))
+ .\] 
+ 故
+ \begin{align*}
+ \frac{\partial H}{\partial p_i} &= \frac{\partial p_j}{\partial p_i}\dot{q}^j + p_j \frac{\partial \dot{q}^j}{\partial p_i} - \frac{\partial L}{\partial \dot{q}^j} \frac{\partial \dot{q}^j}{\partial p_i} = \delta^{i}{}_{j}\dot{q}^j= \dot{q}^i\\
+ \frac{\partial H}{\partial q^i}& = p_j \frac{\partial \dot{q}^j}{\partial q^i} - \frac{\partial L}{\partial q^i} - \frac{\partial L}{\partial \dot{q}^j}\frac{\partial \dot{q}^j}{\partial q^i} = -\frac{\partial L}{\partial q^i} = - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}^i} = -\frac{d}{dt}p_i = -\dot{p}_i
+ .\end{align*}
+ 即
+ \begin{equation}
+ \label{eq:15-1-1}
+ \dot{q}^i = \frac{\partial H}{\partial p_i},\quad \dot{p}_i = -\frac{\partial H}{\partial q^i}, \quad i = 1,\cdots , N   
+ \end{equation}
+ 当给定系统的拉式函数,其哈式函数也就给定了,而拉式方程也就转变成了式\ref{eq:15-1-1}2N个一阶常微分方程,称为\textbf{哈式正则方程(Hamiltonian canonical equations)}.
+ $(q^i,p_i)$代表一个状态,所有状态的集合称为系统的\textbf{相空间(phase space)},记作 $\Gamma$,是 $2N$维流形.在相空间中指定一点,可以以此为初值,结合微分方程组式\ref{eq:15-1-1},
+ 给出相空间的一条曲线,反应系统的运动状态.
+ \subsection{未完待续}
+ %TODO 哈密顿量暂时用不到,我们后续再补充.
+ \chapter{物理场的整体规范不变性(Global Gauge Invariance of Physical Fields)}
+ \section{阿贝尔情况(The Abelian Case)}
+ 设$\phi_1$和 $\pi_2$是闵式时空 $(\mathbb{R}^4,\eta_{ab})$中两个互相独立的,有相同质量参数 $m$的实标量场,则两者分别服从KG方程
+ \begin{align*}
+ \partial^a\partial_a \phi_1 - m^2 \phi_1 &= 0 \\
+ \partial^a\partial_a \phi_2 - m^2\phi_2 & = 0
+ .\end{align*}
+ 两者的总的拉式密度为\[
+ \mathscr{L} = \mathscr{L}_1 + \mathscr{L}_2 = -\frac{1}{2}[(\partial^a\phi_1)\partial_a \phi_1 + m^2 \phi_1^2+(\partial^a\phi_2)\partial_a \phi_2 + m^2 \phi_2^2]
+ .\] 
+ 引入复标量场及其共轭\[
+ \phi = \frac{1}{\sqrt{2}}(\phi_1 + i\phi_2),\quad \overline{\phi} = \frac{1}{\sqrt{2} }(\phi_1- i\phi_2)
+ .\] 
+ 可以使用$\phi,\overline{\phi}$代替$\phi_1,\phi_2$,此时KG方程写为 \[
+ \partial^a\partial_a \phi - m^2 \phi = 0,\quad \partial^a\partial_a \overline{\phi} - m^2 \overline{\phi} =0
+ .\] 
+ 拉式密度改写为
+ \begin{equation}
+ \mathscr{L} = -[(\partial^a \overline{\phi})\partial_a \phi + m^2\phi \overline{\phi}]G
+ \label{eq:I-4-1}
+ \end{equation}
+ 如果对复标量场$\{\phi,\overline{\phi}\}$按照下面式子进行场变换$\phi \mapsto \phi'$
+ \begin{equation}
+ \label{eq:I-4-2}
+ \phi' = e^{-iq\theta}\phi, \quad \overline{\phi'} = e^{iq\theta}\overline{\phi}
+ . \end{equation}
+ 其中$q$是整数 $\theta$为任意常实数,不难发现 \[
+ \mathscr{L}' = \mathscr{L}
+ .\]
+ 因为拉式密度$\mathscr{L}$ 在式\ref{eq:I-4-2}代表的场的变换下不变.这种不变性称为场的\textbf{内部对称性(internal symmertry)},以区别于由killing
+ 矢量场代表的\textbf{时空对称性(spacetime symmetry)}.根据Nother定理,时空对称性和内部对称性都会导致一种守恒律.我们可以得到一个定理.
+ \begin{note}
+Nother定理:每一个连续对称性,就会对应一种守恒律. 
+ \end{note}
+ \begin{theorem}
+ {电荷守恒律}{I-4-1}
+ 复标量场$\phi$的拉式密度 $\mathscr{L}$在式\ref{eq:I-4-2}的内部对称性下的不变性导致一个守恒律(物理上解释为电荷守恒律).
+ \end{theorem}
+ \begin{proof}
+ 以$\phi_0 \equiv \phi(0)$代表初始的复标量场,对场进行式\ref{eq:I-4-2}的变换,全体 $\phi'$的集合是 \[
+   \{\phi(\theta) = e^{-iq\theta }\phi_0: \mathbb{R}^4 \to \mathbb{R}\}
+ .\] 
+ 上面集合是一个单参复标量场族,每给出$p$点的坐标,就会给出场在 $p$点的值.在上面的场族中,$\mathscr{L}$借助下式构成$\theta$的一元函数 \[
+ \mathscr{L}(\theta) = \mathscr{L}(\phi(\theta), \partial_a \phi(\theta); \overline{\phi}(\theta), \partial_a \overline{\phi}(\theta))
+ .\] 
+ 因为内部对称性,$\frac{d \mathscr{L}(\theta)}{d \theta} = 0$,故
+ \begin{align*}
+   0 &= \left.\frac{d}{d \theta}\right|_{\theta = 0} \mathscr{L}(\theta)\\ 
+     & = \left[ \frac{\partial \mathscr{L}}{\partial \phi(\theta)} \frac{d \phi(\theta)}{d\theta} + \frac{\partial \mathscr{L}}{\partial (\partial_a \phi(\theta))} \frac{d(\partial_a \phi(\theta))}{d \theta} + \frac{\partial \mathscr{L}}{\partial \overline{\phi}(\theta)}\frac{d \overline{\phi}(\theta)}{d\theta} + \frac{\partial \mathscr{L}}{\partial (\partial_a \overline{\phi}(\theta))}\frac{d (\partial_a \overline{\phi}(\theta)}{d\theta} \right]_{\theta = 0}
+ .\end{align*}
+ 我们先来求第一项,首先\[
+   \left.\frac{d \phi (\theta)}{d\theta}\right|_{\theta = 0} = \left.\frac{d}{d\theta}\right|_{\theta = 0}(e^{-iq\theta}\phi_0) = -iq\phi_0 
+ .\] 
+ 其次,$\frac{\partial \mathscr{L}}{\partial \phi(\theta)} $ 是对第一宗量$\phi(\theta)$求偏导,与 $\theta$无关,我们可以先计算$\theta = 0$,故有
+ \begin{align*}
+   \left.\frac{\partial \mathscr{L}}{ \partial\phi(\theta)}\right|_{\theta = 0} =  \frac{\partial \mathscr{L}}{\partial\phi_0}
+                                                                       = \partial_a\frac{\partial \mathscr{L}}{\partial (\partial_a \phi_0)}\quad \text{第二个等号借用式}\ref{eq:15-1-3}
+ .\end{align*}
+ 故\[
+   \left[\frac{\partial \mathscr{L}}{\partial \phi(\theta)} \frac{d \phi(\theta)}{d\theta}\right]_{\theta = 0} = -iq\phi_0 \partial_a\frac{\partial \mathscr{L}}{\partial (\partial_a \phi_0)}
+ .\] 
+ 对于第二项,有\[
+   \left.\frac{d(\partial_a \phi(\theta))}{d \theta} \right|_{\theta = 0}= \partial_a(\left.\frac{d\phi(\theta)}{d \theta}\right|_{\theta = 0}) = -iq (\partial_a\phi_0)
+ .\] 
+ 以及\[
+   \left.\frac{\partial \mathscr{L}}{\partial (\partial_a \phi(\theta))} \right|_{\theta = 0}= \frac{\partial \mathscr{L}}{\partial (\partial_a \phi_0)}
+.\]
+故\[
+  \left[  \frac{\partial \mathscr{L}}{\partial (\partial_a \phi(\theta))} \frac{d(\partial_a \phi(\theta))}{d \theta} \right]_{\theta = 0} =-iq (\partial_a\phi_0) \frac{\partial \mathscr{L}}{\partial (\partial_a \phi_0)} 
+.\] 
+前两项明显满足莱布尼兹律最终给出结果$-iq \partial_a (\phi_0 \frac{\partial \mathscr{L}}{\partial (\partial_a)\phi_0} )$,而$\mathscr{L}$的形式我们也知道,可以给出\[
+\frac{\partial \mathscr{L}(0)}{\partial (\partial_a\phi_0)}  =   \frac{\partial (-[(\partial^a \overline{\phi}_0)\partial_a \phi_0 + m^2\phi_0 \overline{\phi}_0])}{\partial (\partial_a\phi_0)} = -(\partial^a \overline{\phi}_0)
+.\] 
+故前两项之和为$iq\partial_a(\phi_0 \partial^a \overline{\phi}_0)$,第三项和第四项之和步骤和前面完全相同,不过需要添加负号,并对$\phi_0$取复共轭.最后给出\[
+0 = iq\partial_a(\phi_0 \partial^a \overline{\phi}_0 - \overline{\phi}_0 \partial^a \phi_0)
+.\] 
+我们去掉下标$0$,以 $\phi$代表正路场.给出 \[
+iq\partial_a(\phi \partial^a \overline{\phi} - \overline{\phi} \partial^a \phi) = 0
+.\] 
+令 \[
+J^a \equiv ieq (\phi \partial^a \overline{\phi} - \overline{\phi} \partial^a \phi)
+.\] 
+其中$e$代表基本电荷.则有 $\partial_a J^a = 0$,故 $J^a$代表某种守恒流密度.
+ \end{proof}
+ \begin{remark}
+\begin{enumerate}
+  \item 物理上把$J^0$解释为场的电荷密度, $\partial_\mu J^\mu$反应的是电荷守恒律.
+  \item 式\ref{eq:I-4-2}代表的场变换叫做\textbf{规范变换(gauge transformoration)}关键点聚焦于对称变换,而式\ref{eq:I-4-2}中的变换
+    因为与时空点无关,又叫做\textbf{整体规范变换}
+\end{enumerate} 
+ \end{remark}
+
+ 上面的整体规范变换也可以推广到多分量的复场,考虑含有$N$个复分量的复场$\{\phi_n, n = 1, \cdots ,N\}$,如果这个复场的拉式密度满足\[
+ \mathscr{L} = \mathscr{L}(\phi_n \overline{\phi}_n, \partial_a \phi_n \partial^a \overline{\phi_n},\cdots)
+ .\] 
+ 上述式子意思是$\mathscr{L}$依赖于场,但是每一含有$\phi_n$的项必有 $\overline{\phi}_n$,含$\partial_a \phi_n$的项必含 $\partial^a \overline{\phi}_n$,这样就会使得场在如下的变换下,保证拉式密度不变.\[
+ \phi'_n = e^{-iq_n \theta} \phi_n, \quad \overline{\phi'}_n = e^{-iq_n \theta} \overline{\phi}_n \quad i = 1, \cdots ,N
+ .\] 
+ 上面的场变换也可以写成矩阵的形式\[
+ \begin{bmatrix}  \phi_1'\\ \vdots \\ \phi'_N\end{bmatrix} = 
+ \begin{bmatrix} e^{-iq_1\theta}&&0\\&\ddots& \\ 0 && e^{-iq_N \theta}  \end{bmatrix} 
+ \begin{bmatrix} \phi_1 \\ \vdots \\ \phi_N \end{bmatrix} 
+ .\] 
+ \[
+ \begin{bmatrix}  \phi_1'& \ldots & \phi'_N\end{bmatrix} = 
+ \begin{bmatrix} \phi_1 & \ldots & \phi_N \end{bmatrix} 
+ \begin{bmatrix} e^{iq_1\theta}&&0\\&\ddots& \\ 0 && e^{iq_N \theta}  \end{bmatrix} 
+ .\] 
+
+ 从群论的角度来看,式\ref{eq:I-4-2}代表的变换是酉群$U(1)$,可见例\ref{ex:G-5-1}.
+ 事实上集合\[
+ \hat{G} \equiv \{\text{diag} (e ^{-iq \theta}, \cdots , e^{-i q_N \theta}) \mid \theta \in \mathbb{R} \}
+ .\] 
+ 是群,而且同态映射\[
+ \rho : U(1) \to \hat{G}, \quad  e^{-i\theta} \mapsto \text{diag}(e^{-iq_1\theta},\cdots , e^{-iq_N \theta})
+ .\] 
+ 是$U(1)$群的表示.注意分清李群和表示的维数,在本例而言第一个表示的维度是1,和 $U(1)$群一样,第二个是 $N$.注意辨别.
+ \section{非阿贝尔情况(The Non-Abelian Case)}
+ 上一小节的整体规范变换只涉及阿贝尔群$U(1)$,本节我们来看非阿贝尔群 $SU(2)$.在物理中质子与质子之间的强相互作用力
+ 和中子与中子的强相互作用力是一样的,与粒子所带电荷不同.海森堡于是提出质子和中子可看作一种粒子(核子necleon)的不同状态(同位旋态).
+ 核子的同位旋可以用以下波函数描述\[
+\phi = \begin{bmatrix} \phi_1 \\ \phi_2 \end{bmatrix}  
+ .\] 
+ 由于不同状态的核子的强相互作用力是相同的,也就意味着在同位旋态之间的变换保持拉式密度不变.我们先来看如何实现同位旋变换,应该满足方程\[
+   \begin{bmatrix} \phi'_1\\\phi'_2  \end{bmatrix}  
+   = \begin{bmatrix} U_{11}&U_{12}\\ U_{21}& U_{22} \end{bmatrix} 
+   \begin{bmatrix} \phi_1 \\\phi_2 \end{bmatrix} 
+   ,\quad U_{11},U_{12}, U_{21},U_{22} \in \mathbb{C} 
+ .\] 
+ 以$U$代表矩阵,则上式可以写为 $\phi' = U \phi$,我们先来看 $U$满足什么条件,量子力学中要求波函数的概率是归一的,也就是 \[
+   (\phi,\phi) = 1 = (\phi',\phi') = (U\phi,U\phi) = (U^\dagger U\phi,\phi) 
+ .\] 
+ 表明$U^\dagger U = I$,所以 $U\in U(2)$,对两边取行列式得\[
+   1 = \det{I}  = \det{(U^\dagger U)} = \det{U^\dagger} \det{U} = \overline{\det{U}}\det{U} =  |\det{U}|^2 
+ .\] 
+ 故有$\det{U} = e^{i\alpha} , \alpha \in \mathbb{R}$.令$U = U_1U_2$,其中 $U_2 = \text{diag}(e^{i\frac{\alpha}{2}},e^{i \frac{\alpha}{2}})$,则$\det{U_2}=e^{i\alpha}$,我们有\[
+   e^{i\alpha} = \det{U} = \det{U_1 U_2} = \det{U_1} \det{U_2} = \det{U_1}e^{i\alpha}  
+ .\] 
+ 故$\det{U_1} = 1$,又因为 $U_2 \phi = e^{i \frac{\alpha}{2}} \phi$,只给波函数带来相位变化,而又因为波函数的相位变化不会带来物理实质的改变,故$U_2\phi$和 $\phi$是同一量子态.
+ 故我们可以使用 $U_1$代替 $U$实现同位旋状态的改变,并省略下标给出 \[
+   \phi' = U\phi,\quad \det{U} = 1 
+ .\] 
+ 省略下标后的$U(\text{即}U_1) \in SU(2)$.
+
+ $\phi$在量子场论中代表场算符,因此 $\phi' = U \phi$是场变换(内部变换),核子系统的拉式密度 $\mathscr{L}$在$SU(2)$变换下不变,对应的守恒律就是同位旋守恒.为了不过分陷于物理,这里点到即止.
+
+ 这里我们来看 $SU(2)$怎么样表达.因为 $U \in SU(2)$,故\[
+ U = \text{Exp}(A) \quad A\in \mathscr{SU}(2) = \text{span}(-\frac{i}{2}\tau_1,-\frac{i}{2}\tau_2,-\frac{i}{2}\tau_3)
+ .\] 
+ 其中$\tau_1,\tau_2,\tau_3$见例\ref{ex:G-6-4},则$A$可以写为 \[
+ A = -\frac{i}{2}(\theta^1\tau_1 + \theta^2 \tau_2 +\theta^3 \tau_3) = -\frac{i}{2} \vec{\tau}\cdot \vec{\theta} 
+ .\] 
+ 则$U$可以表示为 \[
+ U(\vec{\theta}) = \text{Exp}(- \frac{i}{2} \vec{\tau}\cdot \vec{\theta}) = e^{- \frac{i}{2} \vec{\tau}\cdot \vec{\theta}}
+ .\] 
+ 因$\tau_1,\tau_2,\tau_3$是 $2\times 2$复矩阵,则$e^{-i \frac{i}{2}\vec{\tau}\cdot \vec{\theta}}$ 也是.把群元写成$e^{-\frac{i}{2} \vec{\tau}\cdot \vec{\theta}}$ 实际上采用的是 $3$维李群 $SU(2)$的(复)2维表示,也是 $SU(2)$的自身表示.表示的
+ 维数指的是李群可以使用李群的矩阵表示作用的表示空间的维数.表示空间在这里具体体现为$\phi$的维数,也就是2维.我们以$V$来代表表示空间.根据不同的物理需要,还会
+ 用到 $SU(2)$[或SU(3),SU(4),$\cdots$,SU(N)]等其它维的表示.
+
+ 一般而言,规范场论涉及一个李群(内部变换群)$G$和一个或多个矩阵李群 $\hat{G}$,而且存在同态映射$\rho$\[
+\rho : G \to \hat{G} 
+ .\] 
+ \begin{note}
+   内部变换群不一定是矩阵群$G$,但是可以有矩阵表示,就是矩阵李群$\hat{G}$
+ \end{note}
+
+ 因而$\hat{G}$ 是$G$的表示.设 $R \equiv \dim{G}$,以 $\{e_1, \cdots ,e_R\}$代表李群 $G$的李代数 $\mathscr{G}$的一组基矢,则任一$A \in \mathscr{G}$可以写为
+ \[
+   A = \theta^r e_R = \vec{\theta}\cdot \vec{e}, \quad \theta^r \in \mathbb{R} 
+ .\] 
+ %对于紧致连通李群而言,定义\ref{def:指数映射}总是满射的,故对于紧致连通李群而言总有
+ 在李群$G$ 中$\exists $ $g$可以写成如下形式.
+ \[
+   g = \exp{(\theta^re_r)}
+ .\]
+ \begin{remark}
+   存在不能表示为指数形式的李群,但是以下讨论的实质性内容和结论仍然成立
+ \end{remark}
+ 以$V$代表 $\rho: G\to \hat{G}$的表示空间,设$N \equiv \dim{V}$,我们在 $V$上选定基底,则矩阵 $\hat{G}$可以表示为$N \times N$矩阵.
+ 以 $\hat{\mathscr{G}}$代表$\hat{G}$的李代数,则同态映射$\rho:G \to \hat{G}$在恒等元的推前映射是李代数同态,使用了\ref{thm:G-3-2}.
+ $U$作为群元 $g$的表示可以写作 \[
+   U(\vec{\theta}) = \text{Exp}[\rho_*(\theta_r e_r)] = \text{Exp}(\theta^r \rho_* e_r)
+ .\] 
+ \begin{note}
+   上面内容利用了附录$G$习题10的结论,这里主要说一下思路:首先$\rho(g) \in \hat{G}$,而$g$可以写作 $\exp(A)$,习题10给的结论是\[
+     \rho(\exp{(A)}) = \exp{(\rho_*A)}
+   .\] 
+   我们给一个简单的证明,首先对于等式的左方,$\exp{(tA)}$是 $G$上的单参子群,通过映射 $\rho$成为 $\hat{G}$的单参子群.
+   $\exp{(t\rho_*A)}$很明显是$ \hat{G}$上的单参子群,而又因为$\rho$是同态映射,则借助群乘法诱导的
+   推前映射给出的矢量场与 $G$上的矢量场一致.接下来只要我们证明二者在恒等元处的切矢量相同,便可以
+   给出 $\exp{(tA)}=\exp{(t\rho_*A)}$,再令$t = 1$即可.
+    \begin{align*}
+      \left.\frac{d}{dt}\right|_{t = 0} (\rho(\exp{tA})) = \rho_* \left.\frac{d}{dt}\right|_{t = 0} (\exp{tA}) = \rho_* A 
+   .\end{align*}
+   证明结束.
+ \end{note}
+ 引入符号令
+ \begin{equation}
+-i L_r \equiv \rho_* e_r \in \hat{\mathscr{G}} 
+\label{eq:I-4-3}
+ \end{equation}
+  则有\[
+ U(\vec{\theta}) = \text{Exp}(-iL_r \theta^r) = e^{-i \vec{L}\cdot \vec{\theta}} 
+ .\] 
+ 相应的整体变换可以表示为\[
+ \phi' = U(\vec{\theta})\phi = e^{-i \vec{L} \cdot \vec{\theta}}\phi
+ .\] $\phi \in V$代表有$N$个复分量的场量,是 $\phi_1,\cdots,\phi_N$排成列阵.对于$\overline{\phi}$ 我们在后续章节讨论,详情见节\ref{sec:I-5-2}.现在所要知道的是\[
+ \overline{\phi'} = \overline{\phi} U(\vec{\theta}) = \phi e^{i \vec{L} \cdot \vec{\theta}}
+ .\] 
+ \chapter{物理场的局域不变性(Local Gauge Invariance of Physical Fields)}
+ 在上一节,我们讨论的是一个整体单位一个规范变换,即对于时空整体进行的变换,也就是$U(\vec{\theta})$中 $\theta$是一个常数.这样的变换足够简单,甚至不会
+ 带来物理效应的改变,但是还存在 $\theta$依赖于时空点的变换(局域规范变换)这会带来什么样的结果？(历史部分见书P1122) 
+ \section{阿贝尔情况下的局域规范不变性}
+ 以$\phi(x)$代表复标量场 $\phi$与坐标系结合而得的4元函数,则 $\phi'(x),\overline{\phi'}(x)$满足下式
+\[
+  \phi'(x) = e^{-iq\theta(x)}\phi(x), \quad \overline{\phi'}(x) = e^{iq \theta(x)}\overline{\phi}(x)
+.\] 
+我们再次考虑复标量场的拉式密度(式\ref{eq:I-4-1}),观察局域规范变换下的拉式密度是如何变换的.首先$m^2\phi \overline{\phi}$ 肯定是不变的,
+问题是另一项$[\partial^\mu \overline{\phi}(x)]\partial_\mu\phi(x)$,由于存在对$\theta(x)$项的导数,附加项的存在导致不变性丢失.即$\mathscr{L}' \neq \mathscr{L}$,物理上是这么理解
+这一现象的.定理\ref{thm:I-4-1}中把$\mathscr{L}$的规范不变性解释为电荷守恒律,而局域的拉式密度的改变,也就意味着有电荷的变动,而有电荷的变动就会辐射电磁场.
+应该期望不变的是结合上电磁场的拉式密度给出的总的拉式密度.我们还用$\mathscr{L}$代表总的拉式密度,而$\mathscr{L}_0$代表$\phi(x)$原来的拉式密度,故有 \[
+  \mathscr{L} = \mathscr{L}_0 + \mathscr{L}_{int} + \mathscr{L}_{EM}
+.\] 
+电磁场的拉式密度$L_{EM} = - \frac{1}{16\pi}F^{ab}F_{ab}$,$\mathscr{L}_{int}$代表相互作用项.
+\begin{note}
+  我还没有学过电磁场的拉式密度,有机会了会补充到这里.上面式子来源于P838例1.%TODO 记得补充
+\end{note}
+ 令$\mathscr{L}_1 \equiv \mathscr{L}_0 + \mathscr{L}_{int}$,如何寻找$\mathscr{L}_1$的表达式,书上给出的方法是替换$\partial_\mu$,为 \[
+ \partial_\mu \mapsto \partial_\mu - ieqA_\mu
+ .\] 
+ 令$D_\mu = \partial_\mu - ieq A_\mu$,拉式密度$\mathscr{L}_1$便用以下式子表述 \[
+ \mathscr{L}_1 = -[(D^\mu \overline{\phi})D_\mu \phi + m^2 \phi \overline{\phi}]
+ .\] 
+ $D_\mu$其实是协变导数算符,定义如下
+ \begin{equation}
+ \label{eq:I-5-1} 
+ D_\mu\phi(x) \equiv (\partial_\mu - ieqA_\mu)\phi(x)\quad D_\mu \overline{\phi}(x) \equiv (\partial_\mu + ieq A_\mu)\overline{\phi}(x)
+ \end{equation}
+ 在这样的替代下,规范变换可以满足$\mathscr{L}_0,\mathscr{L}_{EM}$都不变,我们来看,$U(1)$群作用于 $\phi$要保证$\mathscr{L}_1$不变性的话就要满足下式 \[
+ D'_\mu \phi'(x) = e^{-iq\theta(x)}D_\mu\phi(x)
+ \quad D'^\mu \overline{\phi'}(x) = e^{iq\theta(x)}D^\mu \overline{\phi}(x)
+ .\] 
+ 对于左面式子括号的左面我们有
+ \begin{align*}
+ D'_\mu \phi'(x) &= (\partial_\mu - ieq A'_\mu)\phi'(x) = (\partial_\mu -i eq A'_\mu)(e^{-iq\theta(x)}\phi(x))\\
+                 & = -iq e^{-iq\theta(x)}\phi(x)(\partial_\mu \theta(x)) + e^{-iq\theta(x)}\partial_\mu \phi(x) -ieqA'_\mu e^{-iq \theta(x)}\phi(x)
+ .\end{align*}
+ 对于左面式子括号的右面我们有
+ \begin{align*}
+ e^{-iq\theta(x)}D_\mu\phi(x) & = e^{-iq\theta(x)} (\partial_\mu - ieqA_\mu)\phi(x)\\
+                              & = e^{-iq\theta(x)} \partial_\mu \phi(x) - ieq A_\mu e^{-iq\theta(x)} \phi(x)
+ .\end{align*}
+ 故左面式子给出\[
+ A'_\mu = A_\mu - \frac{1}{e}(\partial_\mu \theta(x))
+ .\] 
+ 对于右面式子括号的右面我们有
+ \begin{align*}
+ D'^\mu \overline{\phi'}(x) & =  (\partial^\mu + ieq A'^\mu)(e^{iq\theta(x)}\overline{\phi}(x))\\
+                            & = iq e^{iq\theta(x)} \overline{\phi}(x) e^{iq\theta(x)}(\partial^\mu \theta(x)) + e^{iq\theta(x)} \partial^\mu \overline{\phi}(x) + ieqA'^\mu e^{iq\theta(x)} \overline{\phi}(x)
+ .\end{align*}
+ 对于右面式子括号的右面我们有
+ \begin{align*}
+ e^{iq\theta(x)} D^\mu \overline{\phi}(x) & = e^{iq\theta(x)}(\partial^\mu + ieq A^\mu)\overline{\phi}(x)\\
+                                          & = e^{iq\theta(x)} \partial^\mu \overline{\phi}(x) + ieqA^\mu e^{iq\theta(x)} \overline{\phi}(x)
+ .\end{align*}
+ 我们可以给出\[
+ A'^\mu = A^\mu - \frac{1}{e}(\partial^\mu \theta(x))
+ .\] 
+ 要使得$\mathscr{L}_1$不变,只需要满足$A'_\mu = A_\mu - \frac{1}{e}(\partial_\mu \theta(x))$ 不变,而这个式子就是我们认知的电磁4势的规范变换.也就是说 $\mathscr{L}_1,L_{EM}$不变都要要求
+ 规范变换,这就是我们本节所要介绍的局域规范变换的阿贝尔情况.
+
+ 经过以上讨论,我们对电磁理论有了更深刻的认识,首先分布在闵式时空中的复标量场的整体规范变换不变性告诉我们电荷守恒律,也就是时空中存在电荷,而局域规范不变性又要求电磁场的存在,且
+ 其电磁四势$A^\mu$按照规范变换也有了来源.
+
+ 我们可以根据自由带电粒子场的拉式密度 $\mathscr{L}_0$求出受到电磁场约束的粒子的拉式密度$\mathscr{L}_1$,只需要$\partial_\mu \mapsto D_\mu$,这种思想称为\textbf{最小替代法则(minimal replacement)}或
+ \textbf{最小耦合原则(principle of minimal coupling)}
+ \section{非阿贝尔情况下的局域规范不变性}
+ \label{sec:I-5-4}
+ 我们把复标量场推广到多分量粒子场$\phi(x)$,$\phi(x)$的自由拉式密度 $\mathscr{L}_0$在整体规范下不变;现在我们有内部变换群$G$,它的表示为 $\hat{G}$,表示群会给粒子场带来如下变换
+ \[
+ \phi'(x) = U(\vec{\theta}(x))\phi(x) = e^{-i \vec{L}\cdot \vec{\theta}(x)}\phi(x),\quad
+ \overline{\phi'}(x) = \overline{\phi}(x) U(\vec{\theta}(x))^{-1}= \overline{\phi}(x)e^{i \vec{L}\cdot \vec{\theta}(x)}
+ .\] 
+ 上一节中为了保证系统在局域规范变换下的不变性,引进附加场.受此启发,可以猜想
+ \begin{enumerate}
+ \item 多分量复粒子场$\phi(x)$也伴有 $R(\dim {G})$个附加场,称为\textbf{规范场(gauge field)}或 \textbf{YM场},相应地也会有 $R$个4势,称作 \textbf{规范势}, 是集合\[
+     \left\{ A^r_a \mid r = 1, \cdots ,R \right\}   
+ .\] 
+ \item 全系统总的拉式密度$\mathscr{L}$也可以表示为\[
+ \mathscr{L} = \mathscr{L}_1 + \mathscr{L}_{Y\!M}
+ .\] 
+ $\mathscr{L}_1$为粒子在场中运动的拉式密度,$\mathscr{L}_{Y\!M}$代表YM场的拉式密度.
+ \end{enumerate}
+ 仿照上一节我们给出\[
+ \mathscr{L}_1 = \mathscr{L}(D_\mu \phi, \phi; D_\mu \overline{\phi}, \overline{\phi})
+ .\] 
+ 这里协变导数算符作用于$\phi(x),\overline{\phi}(x)$ 定义为\[
+ D_\mu \phi(x) \equiv (\partial_\mu - ik \vec{L}\cdot \vec{A}_\mu(x))\phi(x)\quad
+ D_\mu \overline{\phi}(x) \equiv (\partial_\mu + ik \vec{L}\cdot \vec{A}_\mu(x))\overline{\phi}(x)
+ .\] 
+ $k$是耦合常数(当内部结构群是U(1)时$k = e$),$\vec{L}$ 就是上一节的$q$,而 $\vec{A}_\mu(x)$ 代表四势的第$\mu$分量,这里带着 $(x)$是为了叙述更清晰,上一节
+ 其实也应该带着 $(x)$,且带着$\vec{ }$ 是为了反应\[
+ \vec{L} \cdot  \vec{A}_\mu = L_\nu A^\nu_\mu = L_1 A^1_\mu + \cdots + L_R A^R_\mu
+ .\] 
+ 内部变换群对场给出的诱导变换写作如下形式\[
+ \phi'(x) = U(\vec{\theta}(x))\phi(x) = e^{-i \vec{L}\cdot \vec{\theta}(x)}\phi(x), \quad  
+ \overline{\phi'}(x) = \overline{\phi}(x)U(\vec{\theta}(x))^{-1} = \overline{\phi}(x) e^{i \vec{L}\cdot \vec{\theta}(x)}
+ .\] 
+ 如果局部规范变换要满足拉式密度不变的话,要给出如下要求
+ \[
+ D'_\mu \phi'(x) = U(\vec{\theta}(x)) D_\mu \phi(x), \quad D'_\mu \overline{\phi'}(x) = [D_\mu \overline{\phi}(x)]U (\vec{\theta}(x))^{-1}
+ .\] 
+ 接下来我们来看局部规范变换会带来什么要求,下面我们来看左面式子等号左方
+ \begin{align*}
+ D'_\mu \phi'(x) &= (\partial_\mu - ik \vec{L}\cdot \vec{A'}_\mu(x))\phi'(x) = (\partial_\mu - ik \vec{L}\cdot \vec{A'}_\mu(x)) U(\vec{\theta}(x)) \phi(x)\\
+                 & =  (\partial_\mu U(\vec{\theta}(x)) \phi(x)+ U(\vec{\theta}(x)) \partial_\mu(\phi(x)) - ik \vec{L} \cdot \vec{A'}_\mu(x) U(\vec{\theta}(x))\phi(x)
+ .\end{align*}
+ 随后是右方
+ \begin{align*}
+ U(\vec{\theta}(x)) D_\mu \phi(x) &= U(\vec{\theta}(x))(\partial_\mu - ik \vec{L}\cdot \vec{A}_\mu(x))\phi(x) \\
+                                  & = U(\vec{\theta}(x))\partial_\mu \phi(x) - ik U(\vec{\theta}(x))\vec{L}\cdot\vec{A}_\mu(x)  \phi(x)
+ .\end{align*}
+ 最后给出\[
+- i  \vec{L} \cdot\vec{A'}_\mu(x)U(\vec{\theta}(x)) = -i U(\vec{\theta}(x))\vec{L} \cdot \vec{A}_\mu(x)   - k^{-1}(\partial_\mu U(\vec{\theta(x)}))
+ .\] 
+ 右乘$U(\vec{\theta}(x))^{-1}$给出\[
+- i  \vec{L} \cdot\vec{A'}_\mu(x) = -i U(\vec{\theta}(x))\vec{L} \cdot \vec{A}_\mu(x) U(\vec{\theta}(x))^{-1}  - k^{-1}(\partial_\mu U(\vec{\theta(x)}))U(\vec{\theta}(x))^{-1}
+ .\] 
+ 接下来我们来看共轭项还是先看左方
+ \begin{align*}
+ D'_\mu \overline{\phi'}(x)&=  (\partial_\mu + ik \vec{L}\cdot \vec{A'}_\mu(x))(\overline{\phi}(x) U(\vec{\theta}(x))^{-1})\\
+        & = [\partial_\mu \overline{\phi}(x)]U(\vec{\theta}(x))^{-1} + \overline{\phi}(x) \partial_\mu(U(\vec{\theta}(x))^{-1}) + ik \vec{L}\cdot \vec{A'}_\mu(x)\overline{\phi}(x) U(\vec{\theta}(x))^{-1}
+ .\end{align*}
+ 接下来是右方
+ \begin{align*}
+ [D_\mu \overline{\phi}(x)]U (\vec{\theta}(x))^{-1}& = [\partial_\mu + ik \vec{L}\cdot \vec{A}_\mu(x) \overline{\phi}(x)]U(\vec{\theta}(x))^{-1}\\
+                                                   & = (\partial_\mu \overline{\phi}(x))U(\vec{\theta}(x))^{-1} + ik \vec{L}\cdot \vec{A}_\mu(x) \overline{\phi}(x)U(\vec{\theta}(x))^{-1}
+ .\end{align*}
+ 根据共轭项我们同样可以给出
+ \[
+  ik \vec{L}\cdot \vec{A'}_\mu(x)\overline{\phi}(x) U(\vec{\theta}(x))^{-1}
+ =ik \vec{L}\cdot \vec{A}_\mu(x) \overline{\phi}(x)U(\vec{\theta}(x))^{-1} - \overline{\phi}(x) \partial_\mu(U(\vec{\theta}(x))^{-1}) 
+ .\] 
+ 乍一看,共轭项给出的等式似乎与$\phi$给出的等式不同,但是其本质上是一样的,要牢记非阿贝尔的情况体现在$\overline{\phi}$ 和变换群$U(\theta)$之间的不可交换,但是对于数而言是可以交换位置的.而$\vec{L} \cdot \vec{A}_\mu$ 在$\mu$取定时就是一个数.我们可以在左方提出公因相 $\overline{\phi}(x)$,并在左侧乘以$U(\vec{\theta}(x))$,给出\[
+  ik \vec{L}\cdot \vec{A'}_\mu(x)
+ =U(\vec{\theta}(x))ik \vec{L}\cdot \vec{A}_\mu(x)U(\vec{\theta}(x))^{-1} - U(\vec{\theta}(x)) \partial_\mu(U(\vec{\theta}(x))^{-1}) 
+ .\] 
+ 接下来还有最后一项似乎不一致实际上,我们有\[
+ 0 = \partial_\mu[U(\vec{\theta}(x))U(\vec{\theta}(x))^{-1}] = U(\vec{\theta}(x)) \partial_\mu(U(\vec{\theta}(x))^{-1})  +  \partial_\mu(U(\vec{\theta}(x)))U(\vec{\theta}(x))^{-1}
+ .\] 
+ 结合后我们最后给出满足拉式密度不变的规范变换是
+ \begin{equation*}
+  - i  \vec{L} \cdot\vec{A'}_\mu(x)U(\vec{\theta}(x)) = -i U(\vec{\theta}(x))\vec{L} \cdot \vec{A}_\mu(x)   - k^{-1}(\partial_\mu U(\vec{\theta(x)}))U(\vec{\theta(x)})^{-1}
+ \end{equation*}
+ 引入简化记号\[
+ \hat{A}_\mu(x) \equiv -i \vec{L} \cdot \vec{A}_\mu(x) = -i L_r A^r_\mu(x) \in \hat{\mathscr{G}} 
+ .\] 
+ 最后规范变换给出
+ \begin{equation}
+ \label{eq:I-5-2} 
+ \hat{A}'_\mu(x) = U(\vec{\theta}(x))\hat{A}_\mu(x)U(\vec{\theta}(x))^{-1} - k^{-1}(\partial_\mu U(\vec{\theta(x)}))U(\vec{\theta(x)})^{-1}
+ \end{equation}
+ 当内部群是$U(1)$时回到 阿贝尔的情况.我们给出了$\mathscr{L}_1$的规范变换,可是对于$\mathscr{L}_{Y\!M}$我们没有一点认知.不过可以从电磁场中得到一些启发,电磁场的拉式密度与电磁场张量
+ 有关,电磁场作为特殊情况,当内部变换群是$U(1)$时, 理应回到电磁场的拉式密度,接下来的问题是如何根据规范势 $A^r_\mu(x)$给出规范场强.书中的定义为
+\begin{equation}
+  \label{eq:I-5-3}
+F^r_{\mu\nu}(x) := \partial_\mu A^r_\nu(x) - \partial_\nu A^r_\mu(x) + k \sum^{R}_{s,t = 1} C^{r}{}_{st}A^s_\mu(x)A^t_\nu(x) \quad r = 1 ,\cdots ,R
+ \end{equation}
+ 其中$C^{r}{}_{st}$ 是$\hat{\mathscr{G}}$在基底$\left\{ e_r \right\} $下的结构常数(可见定义\ref{def:结构常数}).
+ 我们给出$\mathscr{L}_{Y\!M}$的定义\[
+ \mathscr{L}_{Y\!M} = -\frac{1}{16\pi}\sum_{r = 1}^{R} F^r_{\mu\nu}F^{r}{}^{\mu\nu}
+ .\]
+
+ 这里同样引入简化记号$\hat{F}_{\mu\nu}(x) = -i L_r F^r_{\mu\nu}(x)$,我们先把式\ref{eq:I-5-3}中的$R$个等式乘以对应的 $-iL_r$,并对 $r$求和,给出
+ \begin{equation}
+ \label{eq:I-5-4}
+-iL_r F^r_{\mu\nu}(x) = -iL_r\partial_\mu A^r_\nu(x) + iL_r\partial_\nu A^r_\mu(x) -i k L_r C^{r}{}_{st}A^s_\mu(x)A^t_\nu(x) 
+ \end{equation} 
+ 我们来看项$-i k L_r C^{r}{}_{st}A^s_\mu(x)A^t_\nu(x)$,根据式子 \ref{eq:I-4-3}我们有\[
+ (-iL^r)(-iL_r) = (\rho_* e^r)(\rho_* e_r) = \rho_* (e^r e_r) = I
+ .\] 
+ 故
+ \begin{align*}
+ -i k L_r C^{r}{}_{st}A^s_\mu(x)A^t_\nu(x) &= -i k L_r C^{r}{}_{st} (-i(L^s)_a( \hat{A}_\mu(x))^a( -i (L^t)_b (\hat{A}_\nu(x))^b\\
+                                           & =  k C^{r}{}_{st}(-iL_r)^c(-iL^s)_a(-iL^t)_b (\hat{A}_\mu(x))^a (\hat{A}_\nu(x))^b\\
+                                           & =  k C^{r}{}_{st}(\rho_* e_r)^c(\rho_*e^s)_a(\rho_* e^t)_b (\hat{A}_\mu(x))^a (\hat{A}_\nu(x))^b\\
+                                           & = k C^{c}{}_{ab} (\hat{A}_\mu(x))^a (\hat{A}_\nu(x))^b\\
+                                           & = k[ \hat{A}_\mu(x) ,\hat{A}_\nu(x)]
+ .\end{align*}
+ \begin{note}
+上面式子表达有些乱,我这里说明一下思路,首先$\rho_*$ 是李代数同态映射,故其保证了李代数不变,而$-iL_r$就是通过 $\rho_*$映射过来的基矢量,李群$G$上的结构常数结合上 表示群上
+的基矢$-iL_r$给出可以作用在$\hat{A}$ 上的结构张量,故最后给出李括号.
+ \end{note}
+ \noindent 把简化记号和对最后一项的讨论代入式\ref{eq:I-5-4}后给出\[
+ \hat{F}^r_{\mu\nu} = \partial_\mu \hat{A}_\nu(x) - \partial_\nu \hat{A}_\mu(x) + k [ \hat{A}_\mu(x) ,\hat{A}_\nu(x)]
+ .\] 
+
+ 接下来我们来看式\ref{eq:I-5-2}给出的变换关系如何给出$\hat{F'}_{\mu\nu}$,我们逐项来看,第一项
+ \begin{align*}
+ \partial_\mu \hat{A}'_\nu(x)  = &\partial_\mu(U(\vec{\theta}(x))\hat{A}_\nu(x)U(\vec{\theta}(x))^{-1} - k^{-1}(\partial_\nu U(\vec{\theta(x)}))U(\vec{\theta(x)})^{-1}) \\
+ = &[\partial_\mu U(\vec{\theta}(x))]\hat{A}_\nu(x)U(\vec{\theta}(x))^{-1} + U(\vec{\theta}(x))[\partial_\mu \hat{A}_\nu(x)]U(\vec{\theta}(x))^{-1} + U(\vec{\theta}(x))\hat{A}_\nu(x)[\partial_\mu U(\vec{\theta}(x))^{-1}] \\
+   & - k^{-1}(\partial_\mu\partial_\nu U(\vec{\theta(x)}))U(\vec{\theta(x)})^{-1} - k^{-1}(\partial_\nu U(\vec{\theta(x)}))[\partial_\mu U(\vec{\theta(x)})^{-1}]
+ .\end{align*}
+ 第二项
+ \begin{align*}
+ \partial_\nu \hat{A}'_\mu(x)  = &\partial_\nu(U(\vec{\theta}(x))\hat{A}_\mu(x)U(\vec{\theta}(x))^{-1} - k^{-1}(\partial_\mu U(\vec{\theta(x)}))U(\vec{\theta(x)})^{-1}) \\
+ = &[\partial_\nu U(\vec{\theta}(x))]\hat{A}_\mu(x)U(\vec{\theta}(x))^{-1} + U(\vec{\theta}(x))[\partial_\nu \hat{A}_\mu(x)]U(\vec{\theta}(x))^{-1} + U(\vec{\theta}(x))\hat{A}_\mu(x)[\partial_\mu U(\vec{\theta}(x))^{-1}] \\
+   & - k^{-1}(\partial_\nu\partial_\mu U(\vec{\theta(x)}))U(\vec{\theta(x)})^{-1} - k^{-1}(\partial_\mu U(\vec{\theta(x)}))[\partial_\nu U(\vec{\theta(x)})^{-1}]
+ \end{align*}
+ 第三项,计算过程较长,这里简化一下符号,原则是不写输入的参数,只保留主体.
+ \begin{align*}
+ k [\hat{A'}_\mu ,\hat{A'}_\nu]  =& k[U \hat{A}_\mu U^{-1} - k^{-1}(\partial_\mu U)U^{-1},U \hat{A}_\nu U^{-1} - k^{-1}(\partial_\nu U)U^{-1}]\\
+                                 =& k\{ [U \hat{A}_\mu U^{-1},U \hat{A}_\nu U^{-1}] - [U \hat{A}_\mu U^{-1},k^{-1}(\partial_\nu U)U^{-1}] \\
+                                  & - [k^{-1}(\partial_\mu U)U^{-1},U \hat{A}_\nu U^{-1}] + [k^{-1}(\partial_\mu U)U^{-1},k^{-1}(\partial_\nu U)U^{-1}]\}
+ .\end{align*}
+ 根据定理\ref{thm:G-5-3}结合$\hat{A}\in \hat{\mathscr{G}}$,可以确定上面的李括号就是对易子.故有\[
+ [U \hat{A}_\mu U^{-1},U \hat{A}_\nu U^{-1}] = U \hat{A}_\mu \hat{A}_\nu U^{-1} - U \hat{A}_\nu \hat{A}_\mu U^{-1} = U[\hat{A}_\mu, \hat{A}_\nu]U^{-1}
+ .\] 
+ \begin{align*}
+ [U \hat{A}_\mu U^{-1},k^{-1}(\partial_\nu U)U^{-1}] & = U \hat{A}_\mu U^{-1} k^{-1}(\partial_\nu U)U^{-1}-k^{-1}(\partial_\nu U)U^{-1} U \hat{A}_\mu U^{-1}\\
+                                                     & =- k^{-1} U \hat{A}_\mu (\partial_\nu U^{-1}) - k^{-1}(\partial_\nu U) \hat{A}_\mu U^{-1}
+ .\end{align*}
+ 第二部用了分部积分.
+
+ \begin{align*}
+ [k^{-1}(\partial_\mu U)U^{-1},U \hat{A}_\nu U^{-1}] &=  k ^{-1}(\partial_\mu U) \hat{A}_\nu U^{-1} + k^{-1}U \hat{A}_\nu (\partial_\mu U^{-1}) 
+ .\end{align*}
+ \begin{align*}
+ [k^{-1}(\partial_\mu U)U^{-1},k^{-1}(\partial_\nu U)U^{-1}] &= -k^{-2} (\partial_\mu U) (\partial_\nu U^{-1}) + k ^{-2}(\partial_\nu U)(\partial_\mu U^{-1}) 
+ .\end{align*}
+ 所以对易子项给出的结果是
+ \begin{align*}
+ k [\hat{A'}_\mu ,\hat{A'}_\nu]  =& k U[\hat{A}_\mu, \hat{A}_\nu]U^{-1} +  U \hat{A}_\mu (\partial_\nu U^{-1}) + (\partial_\nu U) \hat{A}_\mu U^{-1}\\
+                                  & - (\partial_\mu U) \hat{A}_\nu U^{-1} - U \hat{A}_\nu (\partial_\mu U^{-1}) -k^{-1} (\partial_\mu U) (\partial_\nu U^{-1}) + k ^{-1}(\partial_\nu U)(\partial_\mu U^{-1})
+ .\end{align*}
+ 我们沿用省略的记法并综合以上式子给出
+ \begin{align*}
+ \hat{F'}^r_{\mu\nu} = &(\partial_\mu U)\hat{A}_\nu U^{-1} + U (\partial_\mu \hat{A}_\nu )U^{-1} + U \hat{A}_\nu(\partial_\mu U^{-1}) - k^{-1}(\partial_\mu \partial_\nu U) U^{-1} - k^{-1} (\partial_\nu U)(\partial_\mu U^{-1}) \\
+                 &  - (\partial_\nu U)\hat{A}_\mu U^{-1} - U (\partial_\nu \hat{A}_\mu )U^{-1} - U \hat{A}_\mu(\partial_\nu U^{-1}) + k^{-1}(\partial_\nu \partial_\mu U) U^{-1} + k^{-1} (\partial_\mu U)(\partial_\nu U^{-1}) \\
+                 &+ k U[\hat{A}_\mu, \hat{A}_\nu]U^{-1} +  U \hat{A}_\mu (\partial_\nu U^{-1}) + (\partial_\nu U) \hat{A}_\mu U^{-1}\\
+                  & - (\partial_\mu U) \hat{A}_\nu U^{-1} - U \hat{A}_\nu (\partial_\mu U^{-1}) -k^{-1} (\partial_\mu U) (\partial_\nu U^{-1}) + k ^{-1}(\partial_\nu U)(\partial_\mu U^{-1})\\
+ =& U(\partial_\mu A_\nu) U ^{-1} - U(\partial_\nu A_\mu) U^{-1} + U (k^{-1} [\hat{A}_\mu, \hat{A}_\nu]) U^{-1}
+ = U \hat{F'}^r_{\mu\nu} U^{-1}
+ .\end{align*}
+ 结论就是式\ref{eq:I-5-2}带来的变换使得YM场的场强张量带来
+ \begin{equation}
+ \label{eq:I-5-8}
+ \hat{F}^r_{\mu\nu} \mapsto \hat{F'}^r_{\mu\nu} = U \hat{F'}^r_{\mu\nu} U^{-1}
+ \end{equation} 
+ 拉式密度不变我们稍后证明.见\ref{sec:I-5-3}
+ \section{选读部分}
+ \subsection{推前映射的进一步解释}
+ \label{sec:I-5-1}
+ 一般的规范场涉及一个内部变换群$G$和几个表示群$\hat{G}_i(i = 1, \cdots , I)$,有表示群也就意味着存在$I$个同态映射 $\rho_i: G \to  \hat{G}_i$,当$G = U(1)$,且只有一个表示群$\hat{G}$表示为 \[
+ \hat{G} = \{\text{diag}(e^{-iq_1 \theta}, \cdots , e^{-iq_N \theta} \mid \theta \in \mathbb{R}\}
+ .\] 
+ \begin{enumerate}
+ \item $q_1,\cdots ,q_N$不全为零时,这时$\rho:G \to \hat{G}$是同构映射.
+ \item 当$q_1= \cdots = q_N = 0$,此时$\hat{G}$只含有恒等元,$\rho$不能保证同构映射,但是同态还满足,只是群乘法的作用让 $0$隐藏掉了.说明这个情况旨在表示 $\rho: G \to \hat{G}$不是同构的情况.
+ \end{enumerate}
+ 我们回到最一般的情况,虽然无法保证所有的$\rho_i$是同构映射,但是规范场论有这样一个默认前提.
+\begin{proposition}
+  {默认前提}{}
+  若$g\in G$满足$\rho_i(g) = \hat{e}_i \in \hat{G}_i, i = 1, \cdots ,I$,则$g = e \in G$
+ \end{proposition}
+ 我们来说明默认前提的理由:假设这一前提不成立,即$G$包含满足如下条件的非独点子集 $N \subset G$\[
+ n \in N \Leftrightarrow \rho_i(n) = \hat{e}_i \in \hat{G}_i, \quad i = 1, \cdots , I
+ .\] 
+ 假设$g \in G, n\in N$,则有\[
+ \rho_i(g n g^{-1}) = \rho_i(g) \rho_i(n) \rho_i(g^{-1}) = \rho_i(g) \hat{e}_i \rho_i(g^{-1}) = \rho_i(g)\rho_i(g^{-1}) = \rho_i{e} = \hat{e}_i
+ .\] 
+ 根据定义\ref{def:正规子群},可见$N$是正规子群.由此可见把$G$选为内部变换群太大, 应该使用商群$G' \equiv  G / N$,根据定理\ref{thm:G-8-4},正规子群的地位和理想的地位一致,可以根据理想构造商代数
+ 给出商群.
+ \begin{definition}
+ {quotient group}{商群}
+ \textbf{商群(quotient group)},写为 G/N 并念作 G mod N (mod 是模的简写)，在数学中，给定一个群 G 和 G 的正规子群 N，G 在 N 上的商群或因子群，在直觉上是把正规子群 N“萎缩”为单位元的群。
+ \end{definition}
+ 随后可以定义商群$G'$的表示,定义同态映射 $\rho'_i: G'\to \hat{G}_i$,商群自然满足默认前提.默认前提指定的是李群与表示的关系.可以翻译成李代数的要求
+ \begin{equation}
+ \label{eq:I-5-5}
+ \rho'_{i*}(A) = 0, \quad i = 1,\cdots,I \Rightarrow A = 0 \in \mathscr{G}
+ .\end{equation} 
+ \subsection{加强共轭的理解}
+ \label{sec:I-5-2}
+ 本部分加深对$\overline{\phi}(x)$ 的理解,规范场论中的内部变换群$G$的表示$\hat{G}$的表示空间 是$N$维复矢量空间 $V$,每一$\hat{g} \in \hat{G}$是$V\to V$的可逆线性映射.为了适应规范场论的需要,对$V$
+ 和 $\hat{G}$还应提出要求.要求$V$是(复)内积空间.见 书P667,且$\hat{g}$作用后内积是不变的,则 $\hat{G}$构成酉群.使用$\tilde{U}(V)$ 代表V上全体保内积映射的群.
+
+ 我们仔细来看$\overline{\phi}(x)$ 到底代表什么.当$\dim V = 1$时, $\phi(x)$就是简单的复数,
+ 故 $\overline{\phi}(x)$ 自然就是$\phi(x)$的共轭复数.而对于 $\dim V = 1$时,问题就变得复杂起来.因为我们并未给 $\overline{\phi}(x)$ 下过任何定义.既然$\phi(x) \in V$,我们就规定$\overline{\phi}(x) \in V^*$,定义为((x)省略)
+ \begin{equation}
+ \label{eq:I-5-6}
+\overline{\phi}(\psi) = (\phi,\psi), \quad \forall\psi \in V 
+ \end{equation}
+ 上面这个式子给出了$\phi\mapsto \overline{\phi}$ 的一一到上映射.($\overline{\phi},\phi$ 就是狄拉克记号中的左矢和右矢),一一到上的映射说明两者矢量空间是同构的,我们可以借助$V$定义 $V*$上的内积为 \[
+ (\overline{\phi},\overline{\psi}) := (\psi,\phi)
+ .\] 
+ \begin{note}
+上面这样的定义也隐含着$(\overline{\phi},\overline{\psi}) = \overline{(\phi,\psi)}$ 的意思. 
+ \end{note}
+ 因为我们要求$\hat{G}$是保内积的,故同态映射$\rho$又可以认为是 $\rho: G \to  \tilde{U}(V)$.根据$\rho$可以诱导出 $\overline{\rho}: G \to \hat{G}(V^*)$,$\hat{G}(V^*)$ 代表$V^* \to V^*$上的可逆线性映射.定义为\[
+ \overline{\rho}(g)\overline{\phi} := \overline{\rho(g)\phi}, \quad \forall g\in G, \overline{\phi} \in V^* 
+ .\] 因为$\rho(g)$是保内积的,我们有 \[
+ (\overline{\rho}(g)\overline{\phi},\overline{\rho}(g)\overline{\psi}) = (\overline{\rho(g)\phi},\overline{\rho(g)\psi}) = (\rho(g)\psi,\rho(g)\phi) = (\psi,\phi) = (\overline{\phi}, \overline{\psi})
+ .\]
+ 故$\overline{\rho}(g)$我们可以认为$\overline{\rho}: G \to \tilde{U}(V^*)$.
+ \begin{theorem}
+ {}{I-5-1}
+ $\overline{\rho}: G\to \tilde{U}(V^*)$ 是同态,因而也是$G$的表示.
+ \end{theorem}
+ \begin{proof}
+ 我们先来证明一个等式,考虑$[\overline{\rho}(g)\overline{\phi}](\psi)$,故我们有
+ \begin{align*}
+   [\overline{\rho}(g)\overline{\phi}](\psi) & = [\overline{\rho(g)\phi}](\psi) =  (\rho(g)\phi,\psi) \quad \text{式}\ref{eq:I-5-6}\\
+                                             & = (\rho(g)^{-1}\rho(g) \phi, \rho(g)^{-1}\psi)\quad \text{保护内积不变}\\
+                                             & = (\phi, \rho(g)^{-1}\psi)\\
+                                             &=  \overline{\phi}(\rho(g)^{-1} \psi) \quad \text{式}\ref{eq:I-5-6}\\
+                                             & = [\overline{\phi}\circ \rho(g)^{-1}](\psi)
+ .\end{align*}
+ 则我们有
+ \begin{equation}
+ \label{eq:I-5-7}
+ \overline{\rho}(g)\overline{\phi} = \overline{\phi}\circ \rho(g)^{-1}
+ \end{equation}
+ 我们来看如何满足同态
+ \begin{align*}
+ [\overline{\rho}(g_1) \overline{\rho}(g_2)]\overline{\phi} &=  \overline{\rho}(g_1)[\overline{\rho}(g_2)\overline{\phi}]  = [\overline{\rho}(g_2)\overline{\phi}] \circ \rho(g_1)^{-1} = \overline{\phi} \circ \rho(g_2)^{-1} \circ \rho(g_1)^{-1}\\
+                                                            & = \overline{\phi}\circ\rho(g_2 ^{-1} g_1^{-1}) = \overline{\phi} \circ \rho((g_1g_2)^{-1}) = \overline{\phi} \rho(g_1g_2)^{-1} = \overline{\rho}(g_1 g_2) \overline{\phi}
+ .\end{align*} 
+ 即\[
+ \overline{\rho(g_1g_2)} = \overline{\rho} (g_1)\overline{\rho}(g_2)
+ .\] 
+ 我们给出同态性成立.
+ \end{proof}
+
+ 在表示空间$V$选定基底 $\{\varepsilon_n\}$后, $\phi \in V$可以表示为列阵,对偶空间$V^*$的矢量作用到$V$给出的是实数或复数,这也就要求着$\overline{\phi}$ 是行阵,直观上感觉应该满足\[
+ \overline{\phi} = \begin{bmatrix} \overline{\phi}_1, \cdots, \overline{\phi}_N \end{bmatrix} 
+ .\]事实上,该式的成立应该满足一定的条件.我们知道$\phi^\dagger $满足上式,所以更详细的应该是在什么条件下,$\overline{\phi} = \phi^\dagger $.
+ 假设$\phi,\psi \in V$,借助基矢展开应该有\[
+ \phi = \sum^N_{n=1} \phi_n \varepsilon_n,\quad \psi = \sum^N_{m = 1} \psi_m \varepsilon_m
+ .\] 
+ 故有\[
+ \overline{\phi}(\psi) = (\sum^N_{n = 1} \phi_n \varepsilon_n, \sum^N_{m = 1} \phi_m \varepsilon_m) = \sum^N_{m,n = 1} \overline{\phi}_n \psi_n(\varepsilon_n,\varepsilon_m) = \sum^N_{n,m = 1} \overline{\phi}_n \psi_m H_{nm}
+ .\] 
+ 其中$H_{nm}= (\varepsilon_n,\varepsilon_m)$
+ \begin{note}
+注意内积第一个槽想要提出数来,应该加复共轭. 
+ \end{note}
+ 如果$H_{nm}$正定,则总可以选择正交归一基底使得 $H_{nm} = \delta_{nm}$,此时有$\overline{\phi}(\psi) = \sum^N_{n = 1} = \phi^\dagger (\psi)$,故$\overline{\phi} = \phi^\dagger $,但是如果内积非正定,
+ 我们不能使得$H_{nm} = \delta_{nm}$,因为总有一项或几项和其它符号不同.我们在用一行或一列矩阵表示矢量时,通常只使用一个指标,但是在本质上应该是 \[
+ \psi_{m 1} = \psi_{m}, \quad \phi^\dagger_{1n} = \overline{\phi}_n
+ .\] 
+ 结合上式$\overline{\phi}(\psi)$ 可以有全新的表述\[
+ \overline{\phi}(\psi) = \sum^N_{n,m = 1} \phi^\dagger _{1n} H_{nm}\psi_{m1} = \phi^\dagger H \psi 
+ .\] 
+ 故 \[
+ \overline{\phi} = \phi^\dagger H 
+ .\] 
+ 当内积正定并选择正交归一基底时$H = I$,上式回到 $\overline{\phi} = \phi^\dagger $.我们来看不相等的情况下的内积\[
+ (\phi,\psi) = \overline{\phi}(\psi) = \phi^\dagger H \psi 
+ .\] 
+ 当表示群$\rho(g)$作用在其上我们来看保内积条件又有怎样的表述.
+\[
+  (\rho(g)\phi,\rho(g)\psi) = [\rho(g)\phi]^\dagger H \rho(g)\psi =  \phi^\dagger \rho(g)^\dagger  H \rho(g) \psi 
+ .\] 
+ 我们给出保证内积不变的条件为$H = \rho(g) ^\dagger H \rho(g)$,对形式做一些变化得出\[
+ \rho(g)^{-1} = H^{-1} \rho(g)^\dagger H 
+ .\] 
+ 当内积正定时选择正交归一基底的话,可以给出 $\rho(g)$ 是酉矩阵.
+
+ 现在我们可以重新给出局域规范变换$\phi' = U\phi$,我们前文直接给出对偶量的变化,现在我们遗忘以前的结论,推导出 $\overline{\phi'}$ 应该怎么变.
+ \[
+ \overline{\phi'} = \phi'^\dagger H = (U \phi)^\dagger H = \phi^\dagger U^\dagger H = \phi^\dagger H H^{-1} U^\dagger H = \phi^\dagger H U^{-1} = \overline{\phi} U^{-1} 
+ .\] 
+ \subsection{YM场拉式密度不变性简略证明}
+ \label{sec:I-5-3}
+ 物理学常见的内部变换群$G$通常有 $U(1)$和单紧李群以及更为复杂的群(即若干个U(1)的和或若干个单紧李群的直积)
+ \begin{note}{\color{red}(内容来自deepseek-R1,注意辨别真假)}
+   \textbf{单紧李群}是兼具紧致性和单性的李群，其核心特征如下：
+
+   \begin{itemize}
+       \item {李群结构}：光滑流形，群运算(乘法和取逆)均为光滑映射。例如：
+           \begin{itemize}
+               \item 特殊正交群 $\text{SO}(n)$
+               \item 酉群 $\text{SU}(n)$
+           \end{itemize}
+
+       \item {紧致性}：作为拓扑空间是紧致的(欧氏空间中闭合且有界)。例如：
+           \begin{itemize}
+               \item $\text{SO}(n)$ 和 $\text{SU}(n)$ 的矩阵元素模长受限
+               \item 反例：一般线性群 $\text{GL}(n, \mathbb{R})$ 因行列式可无限大而\textbf{非紧}
+           \end{itemize}
+
+       \item {单性}：李代数为单李代数(无非平凡理想)，对应李群无闭连通正规子群。例如：
+           \begin{itemize}
+               \item $\mathfrak{su}(2)$ 无理想，故 $\text{SU}(2)$ 单
+               \item 反例：$\mathfrak{so}(4) \cong \mathfrak{so}(3) \oplus \mathfrak{so}(3)$ 可分解，故 $\text{SO}(4)$ 非单
+           \end{itemize}
+   \end{itemize}
+ \end{note}
+ 这里只给出单紧李群下的$\mathscr{L}'_{Y\!M} = \mathscr{L}_{Y\!M}$.规范场论通常有多个物质场,通常每个场都有一个
+ 表示,不妨令$A$场有表示 \[
+ \rho_A : G \to \hat{g}_A 
+ .\] 
+ 我们知道\[
+ \mathscr{L}_{Y\!M} = -\frac{1}{16\pi}\sum_{r = 1}^{R} F^r_{\mu\nu}F^{r}{}^{\mu\nu}
+ .\] 
+ 可见$\mathscr{L}_{YM}$与表示无关,单李群的性质要求没有正规子群,参考节\ref{sec:I-5-1}给的例子,这时李群的表示要么是忠实的,要么就是平凡的.
+ 而平凡表示没有任何意义,我们总会选择另一种情况,忠实表示$\rho$,也就是线性同构.由此给出的切映射$\rho_*: \mathscr{G} \to \mathscr{L}(V)$是同构的.
+ 那么李代数$\mathscr{G}$上的广义嘉当度规$K$,和 李代数$\mathscr{L}(V)$上的广义嘉当度规$\tilde{K}$只会相差一个非0实数的程度.即\[
+ \tilde{K} = \lambda_\rho K
+ .\] 
+ 前置工作已经准备完成,接下来我们分为两步证明 $\mathscr{L}'_{YM} = \mathscr{L}_{YM}$,首先选定内部变换群的李代数内的一组正交基底$\{e_r\}\quad r = 1 ,\cdots ,R =\dim{G}$, 将基底与$F^r_{\mu\nu}(x)$结合给出
+\[
+  F_{\mu\nu}(x) = e_r F^r_{\mu\nu}(x)  
+ .\] 
+ 因为$F^r_{\mu \nu}(x)$只是一组数,故 $F_{\mu \nu} \in \mathscr{G}$,而\[
+ \rho_* F_{\mu\nu}(x) = F^r_{\mu\nu}(x)\rho_* e_r = -iL_r F^r_{\mu \nu}(x) = \hat{F}_{\mu\nu}(x)
+ .\] 我们后续省略掉$(x)$并给出如下等式
+\begin{align*}
+  \text{tr}(\hat{F}_{\mu\nu},\hat{F}^{\mu\nu}) &= \text{tr}[(\rho_* F_{\mu\nu}),(\rho_*F^{\mu\nu})] = \text{tr}[(\rho_* \sum^R_{r = 1})F^r_{\mu\nu}e_r,(\rho_* \sum^R_{s = 1} F^{s\mu\nu}e_s)]\\
+                                              & = \sum^R_{r,s = 1}F^r_{\mu\nu}F^{s\mu\nu}\text{tr}[\rho_*(e_r)\rho_*(e_s)] = \sum^R_{r,s = 1}F^r_{\mu\nu}F^{s\mu\nu}\tilde{K}(e_r,e_s) \text{见广义嘉当度规定义}\\
+                                              &= \lambda_\rho  \sum^R_{r,s = 1}F^r_{\mu\nu}F^{s\mu\nu}K(e_r,e_s)\\
+                                              & = - \lambda_\rho\sum^R_{r,s = 1}F^r_{\mu\nu}F^{s\mu\nu}\delta_{rs}\text{见定理\ref{thm:G-8-8}上方内容}\\
+                                              & = 16\pi \mathscr{L}_{YM}
+ .\end{align*}
+ 有了如上等式便可以利用求迹的性质给出
+ \begin{align*}
+ \text{tr}(\hat{F}'_{\mu\nu}\hat{F}'^{\mu\nu})& = \text{tr}(U \hat{F}_{\mu\nu}U^{-1}U \hat{F}^{\mu\nu}U^{-1}) \quad \text{式}\ref{eq:I-5-8}\\
+                                              & = \text{tr}(U U^{-1}\hat{F}_{\mu\nu}\hat{F}^{\mu\nu})\\
+                                              & = tr (\hat{F}_{\mu\nu} \hat{F}^{\mu\nu})
+ .\end{align*}
+ 故最后给出$\mathscr{L}$不变.
+ \begin{note}
+ 关于规范场论的内容大部分还是浅尝辄止的,主要是我目前没有系统的了解过规范场论,对电磁场还算了解,更复杂的情况还有待学习,最后我总结一下关于这部分我的体会和认识.
+
+ 关于拉式理论和哈式理论这里就不再详细说明,关于哈式理论还有约束的问题,我还是有所欠缺.
+
+ 对于规范我个人的认识是只要变换不影响物理实质我们就可以把它们认为是同一件事物,感觉在数学上比较相似的点在于伴丛上的元素生成时把轨道认同为同一点.
+
+ 其次是阿贝尔情况和非阿贝尔情况,区别还是在于是否能否满足交换律的行为,满足交换律的情况一般为数,这也是讨论阿贝尔情况时主要讨论$U(1)$群的情况,对于非阿贝尔情况需要注意的是到底哪些项不满足交换律,这一点特别容易算错,主要是我们接触阿贝尔的情况最多.
+
+ 最后叙述一下我在本次学习中形成的物理图像.整个系统处于四维闵式时空中,我们给出了每一点的拉式密度,由于拉式密度的构型我们发现整体存在内部对称性,由于我们讨论物理系统不能总是那整体讨论,这样会忽略细节,故希望把内部的对称拓展到局域并探讨了局域成立的
+ 条件;其中,阿贝尔情况较为简单,而非阿贝尔的情况较为复杂.非阿贝尔的情况涉及的场在时空点的构造不再是一个数,而是多个变量,我们把它理解为矢量,并表示为列向量的形式.但是要注意,每个变量依旧是独立变化的,也就是说内部变换群可以单独作用到某个元素上,为了满足
+ 这样的情况,我们引入了群的矩阵表示,主要目的还是为了研究某一自变量的变换满足什么样的情况,不会导致拉式密度变化.对于拉式密度的构造还是需要一些基本认识,我们再论.
+ \end{note}
+\chapter{截面的物理意义(Physical Meaning of Cross Sections)}
+给定李群$G$,其表示群为 $\hat{G}$,并满足同态映射$\rho:G\to \hat{G}$,表示空间是复$N$维矢量空间 $V$.我们使用丛语言重新表述规范变换理论,那么底流形为 $\mathbb{R}^4$,选择结构群为 $G$并构造平凡主丛 $P = \mathbb{R}^4 \times G$,还需要定义右作用 $R: (\mathbb{R} \times G) \to \mathbb{R}^4 \times G$为\[
+  R_{g_1}(x,g_2):=(x,g_2g_1),\quad \forall g_1 \in G,\forall (x,g_1)\in \mathbb{R}^4\times G
+.\] 
+
+设$\sigma: \mathbb{R}^4\to P$和$\sigma': \mathbb{R}^4 \to P$的两个(整体截面),则在同一根fiber上会有群元满足\[
+  \sigma'(x)= \sigma(x)g^{-1}(x) 
+.\]
+$g$可以看作映射 $g:\mathbb{R}^4\to G$.$g^{-1}$同样也是这样一个映射,其定义是
+\begin{equation}
+  \label{eq:I-6-1}
+  g^{-1}(x):= g(x)^{-1}
+\end{equation}
+\begin{note}
+式\ref{eq:I-1-2}也给出了截面之间应该满足的式子,对比一下有$g_{UV}(x) = g^{-1}(x)$这里只是符号的一点差异.
+\end{note}
+对于每个$fiber$我们可以给出一个群元场,使得任何 $g(x)\in G$满足上式.通过同态映射我们可以给出$\rho(g(x)) \in \hat{G}$,作为表示群可以给出一个局域规范变换,只需要令$U(x) = \rho(x)$.故对于粒子场 $\phi(g(x)) \in V$可以给出\[
+\phi'(x) = U(x)\phi(x) = \rho(g(x))\phi(x)
+.\] 
+
+为了进一步得到物理结果,我们需要给$P$一个伴丛,令 典型纤维$F = V$,则任一 $f_1 \in F$是一个$N\times 1$的列阵.并定义左作用 $\chi:G \times F \to F$为\[
+  \chi_{g_1}(f_1) := \rho(g_1)f_1,\quad \forall g_1 \in G,f_1 \in F
+.\] 
+我们得到了一个伴矢丛$Q$.
+
+我们对于底流形上给定一个 $F$值映射 $f$,即 $f:\mathbb{R}^4 \to F$,我们可以给出一个伴丛上的元素$\sigma(x) \cdot f(x)$,可以记作\[
+  \Phi(x) \equiv \sigma(x)\cdot f(x) \in \hat{\pi}^{-1}[x] \subset Q
+.\] 
+通过群元$g(x)$我们给以给 $\Phi(x)$进行一个变换,即\[
+\Phi'(x) = \sigma'(x)\cdot f'(x)
+.\] 
+其中$\sigma'(x) = \sigma(x)g^{-1}(x),f'(x) = \rho(g(x))f(x)$.我们在上一节猜测规范变换和轨道认同为同一点相似,体现就在这里.我们来看
+\begin{align*}
+  \Phi'(x) &= \sigma'(x)\cdot f'(x) = \sigma(x)g^{-1}(x)\cdot \rho(g(x))f(x) \\
+           & = \sigma(x)\cdot \rho(g^{-1}(x))\rho(g(x))f(x)\quad \text{看下方笔记}\\
+           & = \sigma(x) \cdot \rho(g^{-1}(x)g(x))f(x) \quad \text{同态}\\
+           & = \sigma(x) \cdot \rho(e)f(x) \\
+           & = \sigma(x)\cdot f(x) = \Phi(x)
+.\end{align*}
+\begin{note}
+  可能会对第二行代表的等式产生疑问,我们在前文中讲的是可以把$g$在 $\cdot $左右移动,不需要施加变换,为什么这里还要加上同态映射.我们从两个角度
+  理解问题,首先$f(x)$属于 $V$作用它时自然需要表示群 $\hat{G}$作用;第二两次的区别主要在于定义$\chi_{g(x)}$不同,真正可以移动的应该是定义的作用.
+\end{note}
+
+我们来看$\Phi(x)$有什么样的说法:$\Phi(x) \in Q$,通过群元作用得到$\Phi'(x)$我们证明了不会使得$\Phi(x)$在 $Q$上的位置发生改变.但是$\sigma(x),f(x)$均进行了变换.
+从整体来看是某一群元作用到某一系统,只改变系统内的表示,但是实质没有改变.这不就是我们对规范的要求吗？在说明伴丛时我们提到,当给定 $q$ 和$p$, $f$便唯一确定
+下来.翻译成物理语言就是我们研究某一系统,当选定某一规范,可使用具体的数来表示整个系统,而规范改变,数也会随之改变.也就是说选定主丛上的截面也就是给物理
+系统选定了规范.当我们固定规范,并使得 $f(x)$在同一 fiber上流动时,改变的只有这些数.同时也代表着物理场的改变.
+
+我们把$\sigma(x)$命名为\textbf{内部标架(internal frame)},并把 $\Phi(x)$命名为\textbf{内部矢量(internal vector)}. 这是因为两者之间的行为和矢量与标架的
+行为十分相似.称为内部代表着二者又区别于标架和矢量.因为这里的$\sigma(x)$是规范,我们只需要注意这一点,后完全可以按照矢量和标架的关系来理解它.更为深刻的一点
+是因为二者的行为十分相似,我们可以认为标架也是某一种规范.而 $f(x)$在这里我们就可以认为是 $\Phi(x)$在内部标架的分量.我们令 $\phi(x)\equiv \Phi(x)$来体现二者
+之间的联系.
+
+我们对本章作一个总结:并给出如下定理
+ \begin{theorem}
+   {局域截面的物理意义}{I-6-1}
+   给定李群$G$作为物理系统的内部变换群, $\mathbb{R}^4$作为底流形$M$,同时典型纤维$F$也选择 $\mathbb{R}^4$,按照如下方式定义左右作用
+   \begin{enumerate}
+     \item 左作用: $R_{g_1}(x,g_2) = (x,g_1g_2)$
+     \item 右作用: $\chi_{g_1}(f_1) = \rho(g_1)f_1$, $\rho$是群的表示映射.
+   \end{enumerate}
+   则由此构造的主丛上的局域截面是一个规范选择,而伴丛上的局域截面则是一个粒子场.
+\end{theorem}
+\chapter{规范势与联络(Gauge Potential and Connection)}
+给定平凡主丛$P = \mathbb{R}^4 \times G$.在物理中规范选择会导致规范势$A^r_\mu \to A'^r_\mu$,我们希望$A^r_\mu$也能使用丛语言表述,我们来看如何实现.
+我们目前已有的结论规范变换就是截面之间的变换,规范变换会导致规范势的变换,而且$A$是李群 $G$上面的矢量.根据联络的定义\ref{def:联络-1},我们完全可以实现
+规范势和联络的对应.那怎么实现规范变换呢,可以借助联络的定义\ref{def:联络-3}给出.
+
+在引进规范势时(见节\ref{sec:I-5-4}),给出的是$A^r_a$,其中 $r$代表数量,而下标$a$代表的是1形式场.$A^r_a$结合李代数$\hat{G}$上的基矢$e_r$可以给出 李群上的$\lambda(1,\mathscr{G})$,我们应该指定其和联络之间
+的映射,令\[
+  \omega_\mu(x) \equiv ke_r A^r_\mu(x), \quad k\in\mathbb{C}
+.\] 
+$A^r_\mu(x) \in \mathbb{R}$,$e_r \in \mathscr{G}$,则$\omega_\mu(x) \in \mathscr{G}$,更详细一点$\omega_\mu \in \Lambda_{\mathbb{R}^4}(0,\mathscr{G})$.设$\{x^\mu\}$是 $(\mathbb{R}^4,\eta_{ab})$的洛伦兹系,对偶矢量(1形式)可以写为 
+\begin{equation}
+  \label{eq:I-7-1} 
+  \bm{\omega} = \omega_\mu dx^\mu \in \Lambda_{\mathbb{R}^4}(1,\mathscr{G}).
+\end{equation}
+\begin{note}
+  上面的形式只是利用$A^r_\mu$,构造了 $\bm{\omega} $,注意这个是联络的水平分量为0.
+\end{note}
+设$\tilde{\bm{\omega}}$ 是$P$上的联络,$U,V$都是 $\mathbb{R}^4$上的开子集, $U\cap V \neq \varnothing$.其次我们会有截面$\sigma_U,\sigma_V$,按照定义\ref{def:联络-3}附近定义底流形上联络场的方式给出 $\bm{\omega}_U \equiv \sigma^*_U \bm{\tilde{\omega}} $, $\bm{\omega}_V \equiv \sigma^*_V \bm{\tilde{\omega}}$ 由于$U\cap V \neq \varnothing$
+二者必有交集,交集部分应该满足转换关系
+\[
+         \bm{\omega}_V(Y)= \mathscr{A}\!d_{g_{UV}(x)^{-1}}\bm{\omega}_U(Y) + L^{-1}_{g_{UV}(x)*}g_{UV*}(Y)
+.\] 
+我们令$V$是带 $'$的系统,修改一下符号使之更适用于现在的符号
+\begin{equation}
+  \label{eq:I-7-2}
+  \bm{\omega}'(Y) = \mathscr{A}\!d_{g(x_0)}\bm{\omega}(Y)   + L_{g(x_0)*} g^{-1}_*(Y)
+.
+\end{equation}
+
+到目前为止我们只是凭借主观构造的式\ref{eq:I-7-1},我们如果能够验证\ref{eq:I-7-1}满足\ref{eq:I-7-2}.那么一切皆大欢喜.$Y$是底流形上的任意矢量,但是根据线性性只需要坐标基矢满足即可.
+令$Y = \left.\frac{\partial}{\partial x^\mu}\right|_{x_0} $ 并把式\ref{eq:I-7-1}代入式\ref{eq:I-7-2} 我们有
+\begin{align*}
+ \bm{\omega}(Y) = \omega_\nu(x_0)dx^\nu \left.\frac{\partial}{\partial x^\mu}\right|_{x_0} = \omega_\mu(x_0)  
+.\end{align*}
+故我们只需要验证
+\begin{equation}
+  \label{eq:I-7-3} 
+  \omega'_\mu(x_0) = \mathscr{A}\!d_{g(x_0)} \omega_\mu(x_0) + L_{g(x_0)*} g^{-1}_*(\left.\frac{\partial}{\partial x^\mu}\right|_{x_0} )
+\end{equation}
+根据 \ref{eq:I-5-2}关于 $\hat{A}_\mu$的规范变换(省略括号中的符号)给出\[
+\hat{A}_\mu(x) = U(x) \hat{A}_\mu(x) U(x)^{-1} - k^{-1}(\partial_\mu U(x))U(x)^{-1}
+.\] 
+我们定义$\hat{\omega}_\mu(x)$ 为\[
+\hat{\omega}_\mu (x):= k \hat{A}_\mu(x) \equiv k(\rho_*(e_r) A^r_\mu(x)) = \rho_*(k e_r A^r_\mu(x)) = \rho_*(\omega_\mu(x))
+.\] 
+这样我们就可以给出$\hat{A}_\mu$ 的变换诱导的$\hat{\omega}_\mu$ 满足的关系式\[
+  \hat{\omega}_\mu(x) = \rho(g(x)) \hat{\omega}_\mu(x)\rho(g(x))^{-1} - [\partial_\mu \rho(g(x))]\rho(g(x))^{-1} = \rho(g(x)) \hat{A}_\mu(x)\rho(g(x))^{-1} + \rho(g(x))[\partial_\mu \rho(g(x))^{-1}]
+.\] 
+\begin{note}
+  U作为群的表示,自然可以写作$\rho(g(x))$
+\end{note}
+令$x = x_0$,给出\[
+  \hat{\omega}_\mu(x_0) =  \rho(g(x_0)) \hat{\omega}_\mu(x_0)\rho(g(x_0))^{-1} + \rho(g(x_0))[\partial_\mu|_{x_0} \rho(g(x))^{-1}]
+.\] 
+我们先来看较为复杂的第二项,其中$\rho(g(x_0))[\partial_\mu|_{x_0} \rho(g(x))^{-1}]$,我们改写一下
+\begin{align*}
+  \rho(g(x_0))[\partial_\mu|_{x_0} \rho(g(x))^{-1}]& = \rho(g(x_0)) \rho_* (\partial_\mu|_{x_0}(g^{-1}(x)) \quad \text{$g^{-1}$是一种映射,定义见式\ref{eq:I-6-1}}\\
+                                                   &= \rho(g(x_0)) \rho_* g^{-1}_*(\partial_\mu|_{x_0}x)\\
+                                                   &  = \rho(g(x_0)) \rho_* g^{-1}_*(\left.\frac{d}{d t}\right|_{t = 0} \eta(t))
+.\end{align*}
+$\partial_\mu|_{x_0} \rho(g(x)^{-1})$,只是$x$在 $x_0$的切矢推前到李群中的像,我们换一种表示就是在底流形上的一条坐标线$\eta(t)$(满足 $t = 0$时, $\eta(t) = x_0$,$\left.\frac{d}{dt}\right|_{t=0}\eta(t) = \frac{\partial}{\partial x^\mu}  $)被同态映射
+到李群,可以根据李群中的曲线求得切矢.有了这么一个操作后第二项便可以进行操作
+\begin{align*}
+   \rho(g(x_0))[\partial_\mu|_{x_0} \rho(g(x))^{-1}] & = \rho(g(x_0)) \rho_* g^{-1}_*\left.\frac{d}{d t}\right|_{t = 0} \eta(t) )\\
+                                                     & = \rho(g(x_0))  (\left.\frac{d}{d t}\right|_{t = 0} [\rho g^{-1}(\eta(t)) ])\\
+                                                     & = \left.\frac{d}{d t}\right|_{t = 0} \rho(g(x_0))[\rho g^{-1}(\eta(t)) ]\quad \text{常数提进来}\\
+                                                     & = \left.\frac{d}{d t}\right|_{t = 0} L_{\rho(g(x_0))}[\rho g^{-1}(\eta(t)) ]\\
+                                                     & =L_{\rho(g(x_0))*} \left.\frac{d}{d t}\right|_{t = 0} [\rho g^{-1}(\eta(t)) ]\\
+                                                     & = L_{\rho(g(x_0))*} \rho_*g^{-1}\left.\frac{d}{d t}\right|_{t = 0} \eta(t) \\
+                                                     & =  L_{\rho(g(x_0))*} \rho_*g^{-1} \frac{\partial}{\partial x^\mu} \\
+                                                     & = \rho_*\left[ (L_{g(x_0)*} g^{-1}_*) \frac{\partial}{\partial x^\mu} \right] 
+.\end{align*}
+最后一步比较简单利用$\rho$的同态便可以证明,又因为是 $G$的习题,这里就不再证明了.
+
+接下来我们来看第一项
+\begin{align*}
+  \rho(g(x_0)) \hat{\omega}_\mu(x_0)\rho(g(x_0))^{-1} &= \rho(g(x_0)) \rho_*(\omega_\mu(x_0)) \rho(g(x_0))^{-1} \\
+                                                      & = \rho(g(x_0)) \rho_*(\left.\frac{d}{dt}\right|_{t = 0}e^{t \omega_\mu(x_0)} ) \rho(g(x_0))^{-1} \quad \text{e指数是构造的}\\
+                                                      & =  \left.\frac{d}{dt}\right|_{t = 0} \rho(g(x_0)\rho e^{t \omega_\mu(x_0)}  \rho(g(x_0))^{-1} \quad \text{提入常数}\\
+                                                      & =   \left.\frac{d}{dt}\right|_{t = 0} \rho[(g(x_0)e^{t \omega_\mu(x_0)} (g(x_0))^{-1} ] \quad\text{同态保群乘法}\\
+                                                      & =  \rho_*[\left.\frac{d}{dt}\right|_{t = 0} (g(x_0)e^{t \omega_\mu(x_0)} (g(x_0))^{-1} ]\\
+                                                      & = \rho_*\left[ (g(x_0)\left[\left.\frac{d}{dt}\right|_{t = 0}e^{t \omega_\mu(x_0)}\right] (g(x_0))^{-1} \right]\\
+                                                      & = \rho_*[g(x_0)\omega_\mu(x_0)(g(x_0))^{-1}]\\
+                                                      & = \rho_*(\mathscr{A}\!d_{g(x_0)}\omega_\mu(x_0))\quad \text{伴随表示定义}
+.\end{align*}
+我们就可以给出等式\[
+\rho_* \omega_\mu(x_0)= \hat{\omega}(x_0) = \rho_*(\mathscr{A}\!d_{g(x_0)}\omega_\mu(x_0)) + \rho_*\left[ (L_{g(x_0)*} g^{-1}_*) \frac{\partial}{\partial x^\mu} \right]
+.\] 
+根据式子\ref{eq:I-5-5}可以给出\[
+\omega_\mu(x_0)= \hat{\omega}(x_0) = (\mathscr{A}\!d_{g(x_0)}\omega_\mu(x_0)) + \left[ (L_{g(x_0)*} g^{-1}_*) \frac{\partial}{\partial x^\mu} \right]
+.\] 
+就是式子\ref{eq:I-7-3},最后我们可以给出$\bm{\omega}$是联络,而且是底流形上的联络,规范势的变换实际上是因为,选择不同的截面导致主丛上的联络场$\bm{\tilde{\omega}}$会映射出不同的$\bm{\omega} $,
+总而言之,主丛上的联络就是一个规范势.
+
+\chapter{规范场强与曲率(Gauge Field Strength and Curvature)}
+先探究如何定义主丛上的曲率,给定流形$K$是流形,则 $\Lambda_K(i,\mathscr{G})$是流形K上$\mathscr{G}$取值的$i$形式场.
+\begin{definition}
+  {Bracket}{括号}
+  $\forall \bm{\phi} \in \Lambda_K(i,\mathscr{G}),\bm{\psi}\in \Lambda_K(j,\mathscr{G})$,定义\textbf{括号}$\llbracket   \bm{\phi},\bm{\psi}\rrbracket \in \Lambda_K(i+j,\mathscr{G})$为\[
+    \llbracket\bm{\phi},\bm{\psi}\rrbracket(X_1,\cdots ,X_{i+j}) := \frac{1}{i!j!}\sum_\pi \delta_\pi[\bm{\phi}(X_{\pi(1)},\cdots ,X_{\pi(i)}),\bm{\psi}(X_{\pi(i+1)}),\cdots,X_{\pi(i+j)}]
   .\] 
-令
+  $X_1,\cdots,X_{i+j}$是 $K$上的矢量场, $\pi$代表 $(1,\cdots,i+j)$的一种排列, $\delta_\pi$偶排列取 $+1$,奇排列取 $-1$.右面的方括号是李群 $\mathscr{G}$的李括号.
+\end{definition}
+\begin{example}
+  \label{ex:I-8-1}
+  计算$i = 2,j = 1$的括号.
 \begin{align*}
-  \delta S &\equiv \left.\frac{dS(\lambda)}{d \lambda}\right|_{\lambda = 0}\\
-    \delta q^i &\equiv \left.\frac{\partial q^i(t,\lambda)}{ \partial \lambda}\right|_{\lambda = 0}\\
-      \delta  \dot{q}^i&\equiv \left.\frac{\partial\dot{q}^i(t,\lambda)}{ \partial \lambda  }\right|_{\lambda = 0} 
-\end{align*}
-把$\delta S, \delta q^i, \delta \dot{q}^i$分别称为$S, q^i, \dot{q}^i$在所选的单参组内的\textbf{变分(variation)},则我们得到变分关系 \[
-  \delta S = \int^{t_1}_{t_0} \left( \frac{\partial L}{ \partial q^i}\delta q^i + \frac{\partial L}{\partial \dot{q}^i} \delta \dot{q}^i   \right)dt 
-.\] 
-我们可以把$\lambda = 0$简化不写,因为正路中要求了 $\lambda = 0$. 而且要求了$\delta S = 0$,我们来看可以给出什么,首先因为对$\lambda$求导和对 $t$求导可以交换顺序,我们有\[
-\frac{\partial L}{\partial \dot{q}^i} \delta \dot{q}^i = \frac{\partial L}{\partial \dot{q}^i} \frac{d}{dt}\delta q^i
-.\] 
-根据分部积分法有\[
-  \int^{t_1}_{t_0}[\frac{\partial L}{\partial \dot{q}^i}]dt \frac{d}{dt}\delta q^i = \int^{t_1}_{t_0}[\frac{d}{dt}(\frac{\partial L}{\partial \dot{q}^i} \delta q^i) - (\frac{d}{dt} \frac{\partial L}{\partial \dot{q}^i})\delta q^i]dt
-.\] 
-我们要求的所有曲线族均是$Q_0 \to Q_1$,也就是说我们可以计算
-\begin{align*}
-  \delta q^i |_{t_0} &= \lim_{\lambda \to 0} \frac{1}{\lambda}[q^i(t_0,\lambda) - q^i(t_0,0)] = 0 \\ 
-  \delta q^i |_{t_1} &= \lim_{\lambda \to 0} \frac{1}{\lambda}[q^i(t_1,\lambda) - q^i(t_1,0)] = 0
+  &\llbracket\bm{\phi},\bm{\psi}\rrbracket (X_1,X_2 ,X_3) \\
+  = &  \frac{1}{2!1!} \left\{ [(\bm{\phi}(X_1,X_2)),\bm{\psi}(X_3) ]+[(\bm{\phi}(X_2,X_3)),\bm{\psi}(X_1) ]+[(\bm{\phi}(X_3,X_1)),\bm{\psi}(X_2) ] \right\} \\
+   & - \frac{1}{2!1!} \left\{ [(\bm{\phi}(X_2,X_1)),\bm{\psi}(X_3) ]+[(\bm{\phi}(X_1,X_3)),\bm{\psi}(X_2) ]+[(\bm{\phi}(X_3,X_2)),\bm{\psi}(X_1) ] \right\} 
 .\end{align*}
-故
+\end{example}
+\begin{example}
+  \label{ex:I-8-2}
+  $\bm{\omega} \in \Lambda_K(1,\mathscr{G}) $,计算$[\bm{\omega},\bm{\omega}](X_1,X_2)  $
 \begin{align*}
-  \delta S &=  \int^{t_1}_{t_0} \left( \frac{\partial L}{ \partial q^i}\delta q^i  - (\frac{d}{dt} \frac{\partial L}{\partial \dot{q}^i})\delta q^i \right) dt  + \left.\frac{\partial L}{\partial \dot{q}^i} \delta q^i\right|^{t_1}_{t_0}\\
-           & = \int^{t_1}_{t_0} \left( \frac{\partial L}{ \partial q^i}  - (\frac{d}{dt} \frac{\partial L}{\partial \dot{q}^i}) \right) \delta q^i dt\\
-           & \equiv \int^{t_1}_{t_0}\Lambda_i \delta q^i dt 
+  \llbracket \bm{\omega},\bm{\omega}\rrbracket(X_1,X_2)& = [\bm{\omega}(X_1),\bm{\omega}(X_2)  ] -[\bm{\omega}(X_2),\bm{\omega}(X_1)  ] \\
+                                    & = 2[\bm{\omega}(X_1),\bm{\omega}(X_2)  ]
 .\end{align*}
-我们可以给出如下定理
+\end{example}
+\begin{definition}
+  {Graded Lie Algrbra}{阶化李代数}
+  流形$K$上全体 $\mathscr{G}$值形式场的集合并定义\ref{def:括号}给出的括号形成的数学结构称为\textbf{阶化李代数}.
+\end{definition}
+在定义\ref{def:联络-2}之前我们补充了关于矢量空间的形式场的知识.在这里我们给出普通取值的$i$-form-field $\phi^r$,并结合上李代数上的基矢$\left\{ e_r \right\} $,给出 $\mathscr{G}$取值的
+$i$-form-field $\phi$.具体关系为\[
+  \bm{\phi} = e_r \bm{\phi}^r  
+.\] 
+也就是说任意一个$\mathscr{G}$取值的$\bm{\phi} $ 可以表示为$R(= \dim{\mathscr{G}})$项之和,每一项可以写成李代数元乘以$\mathbb{R}(\mathbb{C})$取值的 $i$-form-field.我们给出\[
+  \bm{\phi} = A \alpha,\quad A\in \mathscr{G}, \alpha\in \Lambda_{K}(i,\mathbb{R}(\mathbb{C})) 
+.\] 
+我们有如下定理
 \begin{theorem}
-  {}{15-1-1}
- $\eta(t)$为正路 $\Longleftrightarrow$  $\delta S = 0$ 对于$\forall $含 $\eta(t)$的单参路径族  $\Longleftrightarrow \eta(t)$的$\Lambda_i = 0(i = 1,\cdots N)$ 
+  {}{I-8-1} 
+  设$A,B \in \mathscr{G},\alpha \in \Lambda_K(i,\mathbb{R}(\mathbb{C})),\beta \in \Lambda_K(j,\mathbb{R}(\mathbb{C}))$,则我们可以计算括号得 \[
+    \llbracket A\alpha, B\beta\rrbracket = [A,B](\alpha \wedge \beta) 
+  .\] 
 \end{theorem}
 \begin{proof}
-  第一个$\Longleftrightarrow$是哈密顿原理要求的,我们来证明第二个$\Longleftrightarrow$.
-
-  首先证明 $\Rightarrow$,假设存在$\tilde{t} \in (t_0,t_1)$ 使得$\Lambda_1(\tilde{t}) \neq 0$,不妨令$\Lambda_1(\tilde{t}) > 0$,
-  则其存在邻域满足$\Lambda_\Delta > 0$.对于单参族$q^i = q^i(t,\lambda)$,我们可以要求除去$\Delta$外的所有区间内使得 $\Lambda_1 = 0$,且 $\delta^1 > 0, \delta^2 \cdots \delta^N = 0$,则此时$\delta S > 0$,与假设矛盾,
-  对于 $\Lambda_\Delta < 0$的情况也与假设矛盾,现在摆在脑海里使得我们拒绝承认这个定理的想法是,我可以选择合适的$\Lambda \neq 0$,但是经过积分后$\delta S = 0$,这种情况我们该怎么排除掉,这种情况
-  建立在一个微妙的平衡上,正负相互抵消,看起来似乎是符合要求的,但是我们把这种情况下再延申一下,此时给出的$\eta(t)$在$(t_0,t_1)$ 范围内成立,但是如果在 $(t_0,t_1 -\Delta)$的范围内,这种微妙的平衡立马就被打破了,
-  我们要找的路径选择的点是任意的,如果$Q_0 \to Q_1$是正路,那么从端点到曲线的任意点也应该是正路,故 $\Lambda_1 = 0$,同样的道理给出$\Lambda_i = 0$.
-
-  其次$\Leftarrow$方向,只要我们代入计算就会给出 $\delta S = 0$
+  \begin{align*}
+    \llbracket A\alpha ,B\beta \rrbracket (X_1,\cdots,X_j) & = \frac{1}{i!j!} \sum_{\pi} \delta_\pi[A\alpha(X_{\pi(1)},\cdots,X_{\pi(i)}),B\beta(X_{\pi(i+1)} \cdots X_{\pi(i+j)})]\\
+                                                           & = \frac{1}{i!j!} \sum_{\pi} \delta_\pi[A,B]\alpha(X_{\pi(1)},\cdots,X_{\pi(i)})\beta(X_{\pi(i+1)} \cdots X_{\pi(i+j)}) \quad \text{李括号是双线性的}\\
+                                                           & = [A,B]\frac{1}{i!j!} \sum_{\pi} \delta_\pi \alpha(X_{\pi(1)},\cdots,X_{\pi(i)})\beta(X_{\pi(i+1)} \cdots X_{\pi(i+j)}) \\
+                                                           & = [A,B] \frac{1}{i!j!} \sum_{\pi} \delta_\pi \alpha_{\pi(1),\cdots,\pi(i)}\beta_{\pi(i+1)\cdots\pi_{i+j}} X_{\pi(1)} \cdots X_{\pi(i+j)}
+  .\end{align*}
+我们可以借助代表反称的方括号来表述上面式子
+\begin{align*}
+  \llbracket A\alpha ,B\beta \rrbracket (X_1,\cdots,X_j) & =  [A,B]\frac{(i+j)!}{i!j!} \alpha_{[1\cdots i}\beta_{i+1,\cdots i+j]}(X_1,\cdots X_{i+j})\\
+                                                         & = [A,B](\alpha \wedge \beta)_{1,\cdots i+j}(X_1,\cdots,X_{i+j})
+.\end{align*}
+最后我们给出结论\[
+  \llbracket A\alpha,B\beta \rrbracket = [A,B](\alpha\wedge \beta) 
+.\] 
 \end{proof}
-定理\ref{thm:15-1-1}给出$\eta(t)$为正路的充要条件是它的拉式函数 $L = L(q^i,\dot{q}^i)$满足 
-\begin{equation}
-  \frac{\partial L}{ \partial q^i}  - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}^i} = 0 \quad i = 1, \cdots , N
-  \label{eq:15-1-2} 
-\end{equation}
-系统的$L$的函数形式给定后,式\ref{eq:15-1-2}的$N$个2阶常微分方程,称为\textbf{欧拉-拉格朗日方程},简称 \textbf{拉式方程}.给定初始条件后有唯一解,对应与 $\mathscr{C}$种
-以$t$为参数的曲线.
 
-当然拉式函数也可以显含时间,即$L= L(q^i,\dot{q}^i,t) $ 但是$t$不会与参数 $\lambda$有关,故以上讨论和结论仍然适用.
-
-一般而言,想要把某一理论(有限自由度)改编成拉式形式,就是在寻找合适的拉式函数,就比如牛顿引力理论的拉式函数就是\[
-L = T - V
-.\] 
-\subsection{经典场论的拉式形式}
-最为经典的场是电磁场,无源的电磁场在洛伦兹规范下满足如下方程\[
-\partial^a\partial_a A_b = 0
-.\] 
-还有两种重要的经典场.在早期研究量子力学中,薛定谔给出方程\[
-i\hbar \frac{\partial \psi}{\partial t} = H \psi
-.\] 
-以相对论的观点发现不是洛伦兹协变的,原因是还有对时间t的一阶导数,但对于坐标却是二阶导的,时空不平权.
-因此需要修改,有两种思路,一是把对时空坐标的导数改为两阶,给出的方程为\[
-\partial^a\partial_a \phi - m^2 \phi = 0 \quad m\text{为常数}
-.\] 
-称为Klein-Gordon方程,简称KG方程.但是KG方程存在两个问题:1.存在负能解;2.概率密度可以是负.这是无法接受的.第二种修改方案
-是Dirac方程,此时不存在负概率密度的问题,但仍然存在负能解.上面的问题都在量子场论中得到解释,更为详细的内容参考量子场论.
-
-我们还是回到经典场的拉式形式.我们首先来看闵式时空的实标量场.闵式时空可以指定坐标 $\{t,x^i\}$,指定 $t = \hat{t}$,就是
-指出了一个同时面,也是在$\hat{t}$时刻的全空间.随后还要指定$\phi$在空间各点的值,才能唯一指定 $\phi$的状态,即指定
- $\phi$的位形.此时 $\hat{t}$的位形变量可以记为$\phi(x,\hat{t})$,不同于有限自由度的位形变量,由于$x$的连续取值
- 导致场是一个无限自由度的系统.随着 $t$的不断变动, $\phi$的状态开始演化,我们指定系统在 $\Sigma_0 \to \Sigma_1$中间进行演化,
- 并把满足相应规则的$\phi(x,t)$称为正路,其余称为旁路.此时我们可以指定拉式量随时间变化的函数关系 \[
-   L(t) = L[\phi(x,t),\dot{\phi}(x,t)]
- .\] 
- 其中$\dot{\phi}(x,t) = \frac{\partial \phi(x,t)}{\partial t}$,此时$L$已经是 $\phi,\dot{\phi}$的泛函了.我们可以给出
- 路径的作用量为 \[
-   S = \int^{t_1}_{t_0} L(t)dt
- .\] 
- 但是$L(t)$依旧是一个不好确定的量,它不像第一节中的 $L(t)$是个函数,这里的$L(t)$空间场的泛函,我们可以引进
- 拉式密度 $\mathscr{L}$ (单位体积的拉式量)的函数,来计算出$L(t)$.而$\mathscr{L}$的函数变量是什么,首先我们有\[
-   L(t) = \int_{\Sigma_t} \mathscr{L}(x) d^3x
- .\] 
- 这才是我们需要思考的问题,上面这个积分是计算在$t$时刻所有可能的$\mathscr{L}(t)$,如果给定$\phi(x,t),\partial_i\phi(x,t)$,场便确定了,
- 不同的 $\phi(x,t),\partial_i\phi(x,t)$给定不同的场,故$\mathscr{L}$应该是$\phi(x,t),\partial_i\phi(x,t)$的函数,又因为
- $L(t)$和 $\dot{\phi}(x,t)$有关,故我们最终给出 \[
- \mathscr{L} = \mathscr{L}(\phi(x,t),\dot{\phi}(x,t),\partial_i\phi(x,t))
- .\] 
-
-上面给出$\mathscr{L}$是默认把时间空间分开,实际上我们可以使用更为统一的表述.我们把作用量定义为 \[
-S:= \int_U \mathscr{L}
-.\] 
-其中 $U \subset  \mathbb{R}^4$ (且$U$的闭包$\overline{U}$紧致),$\mathscr{L}$就是场量$\phi$和时空导数 $\partial_a \phi$的局域函数.即 \[
-\mathscr{L} = \mathscr{L}(\phi,\partial_a\phi)
-.\] 
+\begin{theorem}
+  {}{I-8-2}
+  $\forall \bm{\phi}\in \Lambda_K(i,\mathscr{G}) ,\bm{\psi} \in \Lambda_K(j,\mathscr{G}),\bm{\rho} \in \Lambda_K(k,\mathscr{G}) $,有
+  \begin{enumerate}
+    \item $\llbracket \bm{\phi} ,\bm{\psi}  \rrbracket = -(-1)^{ij} \llbracket \bm{\psi},\bm{\phi} \rrbracket $ 
+    \item $(-1)^{ik} \llbracket \llbracket \bm{\phi} ,\bm{\psi}  \rrbracket ,\bm{\rho}  \rrbracket + (-1)^{kj}\llbracket \llbracket \bm{\rho},\bm{\phi} \rrbracket ,\bm{\psi}  \rrbracket  + (-1)^{ji} \llbracket \llbracket \bm{\psi} ,\bm{\rho}  \rrbracket ,\bm{\phi}  \rrbracket = 0$
+  \end{enumerate}
+\end{theorem}
 \begin{note}
-  我们给出紧致的定义,首先给出有限子覆盖的定义
-  \begin{definition}
-    {finite subcover}{有限子覆盖}
-    设$\{O_\alpha\}$是 $A \subset X$的开覆盖.若$\{O_\alpha\}$的有限个元素构成的子集 $\{O_{\alpha_1} \cdots O_{\alpha_2}\}$ 也覆盖$A$,就说 $\{O_\alpha\}$有\textbf{有限子覆盖(finite subcover)}.
-  \end{definition}
-  其次是紧致的定义
-  \begin{definition}
-    {compact}{紧致}
-    $A\subset X$叫\textbf{紧致的(compact)},若它的任一开覆盖都有有限子覆盖.
-  \end{definition}
-  我们还有定理$A \subset \mathbb{R}$为紧致,当且仅当$A$为有界闭集,这里要求 $\overline{U}$是紧致的,就是要求其有界且为闭集.
+  上面两个性质分明对应于李代数的两个最基本的代数结构.
 \end{note}
-求场的演化的问题具体表述就是:给定$\phi$场在 $U$的边界上 $\hat{U}$上的适当值$\phi|_{\hat{U}}$后,寻找定义在$\overline{U}$的正路满足一下条件
-\begin{enumerate}
-  \item 在$U$内满足对应的演化方程;
-  \item 在$\hat{U}$的值等于对应的边界值$\phi|_{\hat{U}}$
+  \begin{proof}
+    选择李代数$\mathscr{G}$上的基矢$\{e_r\}$, 给出$\phi^a \in \Lambda_K(i,\mathbb{R}(\mathbb{C}))$, $\psi^b \in \Lambda_K(j,\mathbb{R}(\mathbb{C}))$,$\rho^r \in \Lambda_K(k,\mathbb{R}(\mathbb{C}))$,则有
+    \begin{align*}
+      \bm{\phi} &= e_a \phi^a \\ 
+      \bm{\psi} &= e_b \psi^b \\ 
+      \bm{\rho} &= e_r \rho^r 
+    .\end{align*}
+    \begin{enumerate}
+      \item 第一项对应于李括号的第一条性质$[A,B] = -[B,A]$,证明如下
+        \begin{align*}
+      \llbracket \bm{\phi} ,\bm{\psi}  \rrbracket  & = \llbracket e_a \phi^a ,e_b \psi^b \rrbracket  \\
+                                                   & = [e_a,e_b ](\phi^a \wedge \psi^b)\\
+                                                   & = - [e_b,e_a] (-1)^{ij}(\phi^b \wedge \psi^a)\\
+                                                   & = -(-1)^{ij} \llbracket e_b\psi^b,e_a \phi^a \rrbracket \\
+                                                   & = -(-1)^{ij}\llbracket \bm{\psi} ,\bm{\phi}  \rrbracket 
+    .\end{align*}
+  \item 第二条则是对应于雅可比恒等式$[A,[B,C]] + [C,[A,B]] + [B,[C,A]] = 0$,这里选择验证的方法.
+     \begin{align*}
+      &\quad(-1)^{ik} \llbracket \llbracket \bm{\phi} ,\bm{\psi}  \rrbracket ,\bm{\rho}  \rrbracket + (-1)^{kj}\llbracket \llbracket \bm{\rho},\bm{\phi} \rrbracket ,\bm{\psi}  \rrbracket  + (-1)^{ji} \llbracket \llbracket \bm{\psi} ,\bm{\rho}  \rrbracket ,\bm{\phi}  \rrbracket \\
+       =& \quad(-1)^{ik}\llbracket [e_a,e_b](\phi^a)\wedge(\psi^b)] ,e_r \rho^r  \rrbracket + \cdots \\
+       =& \quad[[e_a,e_b],e_r](-1)^{ik}(\phi^a \wedge \psi^b)\wedge \rho^r +\cdots \\
+       =& \quad[[e_a,e_b],e_r](-1)^{ik}(\phi^a \wedge \psi^b\wedge \rho^r) + [[e_r,e_a],e_b] (-1)^{kj}(\rho^r\wedge \phi^a\wedge \psi^b) + [[e_b,e_r],e_a] (-1)^{ji}(\psi^b\wedge \rho^r\wedge \phi^a)\\
+       =& \quad(-1)^{ik}(\phi^a \wedge \psi^b \wedge \rho^r)([[e_a,e_b],e_r] + [[e_r,e_a],e_b] +[[e_b,e_r],e_a])\\
+       =& \quad0
+    .\end{align*}
 \end{enumerate}
-有了这样定义的拉式密度$\mathscr{L}$后,$L(t)$的作用完全可以被 $\mathscr{L}$取代.$\mathbb{R}^4$上的标量场 $\phi$称为一个 \textbf{四维场位形}.
-给定四维场位形后, $\mathscr{L}$便确定了,进而可以求出作用量$S$,故 $S$是 $\phi$的泛函,紧接着根据哈式原理,可以求出对应的正路.
-
-我们这里同样引入参数 $\lambda$,上一节的单参曲线族变成了现在的单参4维场位形族 $\phi(\lambda)$.
- $\phi$的变分的定义 $\delta \phi$定义为 \[
-   \delta \phi := \lim_{\lambda\to 0}\frac{\phi(\lambda)- \phi(0)}{\lambda} \equiv \left.\frac{d\phi(\lambda)}{d \lambda}\right|_{\lambda = 0} 
- .\] 
- $\phi(\lambda),\delta \phi$都是 $\mathbb{R}^4$上的标量场.给定 $\phi(\lambda)$后,映射 $S: \mathscr{F}\to \mathbb{R}$就可以给出$S(\lambda)$,则 $S$
- 的变分是 \[
- \delta S := \left.\frac{d S(\lambda)}{d \lambda}\right|_{\lambda = 0} 
+  \end{proof} 
+\begin{theorem}
+  {}{I-8-3}
+  设$M,N$是流形, $\mathscr{G}$是李代数,$A \in \mathscr{G}$,$f:M \to N$是$C^\infty$映射,$\bm{\alpha} \in \Lambda_N(i,\mathbb{R}(\mathbb{C}))$,则
+  \begin{enumerate}
+    \item $d(A\bm{\alpha}) = A d\bm{\alpha}  $
+    \item $f^*(A \bm{\alpha} ) = A f^* \bm{\alpha} $
+    \item $f^*(d\bm{\alpha}) = d(f^* \bm{\alpha} ) $
+  \end{enumerate}
+  $f^*(A\bm{\alpha}) $ 是拉回映射,目的是诱导出$M$上的 $i$-form-field.
+\end{theorem}
+\begin{proof}
+  在定义\ref{def:联络-2}前面给出了$\mathscr{V}$值的微分形式的定义,具体体现到这里就是第一条.对于第二条,拉回映射
+  是线性映射,对于这里对于不是形式场的$A$而言,可以通过线性关系把 $A$提出映射,这一点由拉回映射的线性性保证.对于第三条我们假设$X^i$是流形$M$上
+  的矢量场,故有
+   \begin{align*}
+     d(f^*\bm{\alpha})(X^1,\cdots,X^i)& = [d\circ f^*\bm{\alpha}]  (X^1,\cdots,X^i)\\
+                                      & = d\circ [f^*\bm{\alpha}(X^1,\cdots,X^i) ]\\
+                                      & = d\bm{\alpha}(X^1_*,\cdots X^i_*) \\
+                                      & = f^*(d\bm{\alpha})(X^1,\cdots X^i)
+  .\end{align*}
+  故$d(f^* \bm{\alpha}) = f^*(d \bm{\alpha})$
+\end{proof}
+\begin{theorem}
+  {}{I-8-4}
+  设$\bm{\phi}\in \Lambda_K(i,\mathscr{G})$,$\bm{\psi} \in \Lambda_K(j,\mathscr{G})$,则\[
+    d\llbracket \bm{\phi} ,\bm{\psi}  \rrbracket = \llbracket d\bm{\phi} ,\bm{\psi}  \rrbracket + (-1)^i \llbracket \bm{\phi} ,d \bm{\psi} \rrbracket 
+  .\] 
+\end{theorem}
+\begin{proof}
+  我们还是选择李代数$\mathscr{G}$上的基矢$\{e_r\}$, 给出$\phi^a \in \Lambda_K(i,\mathbb{R}(\mathbb{C}))$,$\psi^b \in \Lambda_K(i,\mathbb{R}(\mathbb{C}) )$
+  \begin{align*}
+    \bm{\phi} = e_a \phi^a ,\quad \bm{\psi} = e_b \psi^b 
+  .\end{align*}
+  则
+  \begin{align*}
+    d \llbracket \bm{\phi} ,\bm{\psi}  \rrbracket &= d \llbracket e_a \phi^a,e_b \psi^b \rrbracket = d([e_a,e_b](\phi^a \wedge \psi^b)) \\
+                                                  & = [e_a,e_b] d(\phi^a \wedge \psi^b)\\
+                                                  & = [e_a,e_b] d(\phi^a \wedge \psi^b) = [e_a,e_b]d((\phi^a \wedge \phi^b)_{c_1,\cdots,c_i,d_{i+1},\cdots d_{i+j}})\\
+                                                  & = [e_a,e_b] d( \frac{(i+j)!}{i!j!}\phi^a_{[c_1,\cdots,c_i}\phi^b_{d_{i+1},\cdots,d_{i+j}]})
+  .\end{align*}
+  作为形式场我们借助流形上的对偶坐标基矢场可以给出
+  \begin{align*}
+    & d \llbracket \bm{\phi} ,\bm{\psi}  \rrbracket\\ =&  [e_a,e_b] d( \frac{(i+j)!}{i!j!}\phi^a_{[c_1,\cdots,c_i}\psi^b_{d_{i+1},\cdots,d_{i+j}]})\\
+                                                  =&  [e_a,e_b] d( \frac{(i+j)!}{i!j!}\phi^a_{\mu_1,\cdots,\mu_i}\psi^b_{\nu_{i+1},\cdots,\nu_{i+j}}(dx^{\mu_1}_{[c_1})\cdots (dx^{\mu_i})_{c_i}(dx^{\nu_{i+1}})_{d_{i+1}}\cdots(dx^{\nu_{i+j}})_{d_{i+j}]})\\
+                                                  =& [e_a,e_b] d(\frac{1}{i!j!})\phi^a_{\mu_1,\cdots,\mu_i}\psi^b_{\nu_{i+1},\cdots,\nu_{i+j}} (dx^{\mu_1}_{c_1} \wedge \cdots \wedge (dx^{\mu_i})_{c_i}\wedge(dx^{\nu_{i+1}})_{d_{i+1}}\wedge\cdots\wedge(dx^{\nu_{i+j}})_{d_{i+j}})\\
+                                                  =& [e_a,e_b] d\sum_{C}\phi^a_{\mu_1,\cdots,\mu_i}\psi^b_{\nu_{i+1},\cdots,\nu_{i+j}} (dx^{\mu_1}_{c_1} \wedge \cdots \wedge (dx^{\mu_i})_{c_i}\wedge(dx^{\nu_{i+1}})_{d_{i+1}}\wedge\cdots\wedge(dx^{\nu_{i+j}})_{d_{i+j}})\\
+                                                  = & [e_a,e_b]\sum_{C}\left(((d\phi^a_{\mu_1,\cdots,\mu_i})\wedge(dx^{\mu_1})_{c_1}\cdots\wedge(dx^{\mu_i})_{c_i}\right)\wedge\left(\psi^b_{\nu_{i+1},\cdots,\nu_{i+j}}(dx^{\nu_{i+1}})_{d_{i+1}}\wedge\cdots\wedge(dx^{\nu_{i+j}})_{d_{i+j}})\right)\\ 
+                                                  & + (-1)^i[e_a,e_b]\sum_{C}\left((\phi^a_{\mu_1,\cdots,\mu_i}(dx^{\mu_1})_{c_1}\cdots\wedge(dx^{\mu_i})_{c_i}\right)\wedge\left((d\psi^b_{\nu_{i+1},\cdots,\nu_{i+j}})\wedge(dx^{\nu_{i+1}})_{d_{i+1}}\wedge\cdots\wedge(dx^{\nu_{i+j}})_{d_{i+j}})\right)\\
+                                                  =& [e_a,e_b](d \phi)^a \wedge \psi^b +(-1)^i[e_a,e_b](\phi^a \wedge \psi^b)\\
+                                                  =& \llbracket d\bm{\phi} ,\bm{\psi}  \rrbracket + (-1)^i \llbracket \bm{\phi} ,d \bm{\psi} \rrbracket
+  .\end{align*}
+\end{proof}
+\begin{note}
+  上面证明过程用了许多第五章的内容,如果看不懂,建议结合第五章内容看,这里说一些从证明中学到的一些东西,我们定义的微分形式,是一个全反称的量交换指标存在等式关系,而楔形积的定义其实是定义了一种映射$\Lambda_{K}(l,\mathbb{R}(\mathbb{C})) \times \Lambda_{K}(m,\mathbb{R}(\mathbb{C})) \to \Lambda_{K}(l+m,\mathbb{R}(\mathbb{C}))$
+  由于微分形式的特殊定义我们给出了微分形式场的展开形式为\[
+    \bm{\omega}_{a_1 \cdots a_n} = \sum_{C} \omega_{\mu_1\cdots \mu_2}(e^{\mu_1})_{a_1} \wedge \cdots \wedge (e^{\mu_l})_{a_l}   
+  .\] 
+  其中$\omega_{\mu_1\cdots \mu_2}$只是一组数,$(e^{\mu_1})_{a_1} \wedge \cdots \wedge (e^{\mu_l})_{a_l}$是使用对偶基底($1$形式)映射上来的 $l$形式场. $\sum_{C}$是对 $n$个数中 $l$个进行求和,也就是$\mu$的取值.我们通常习惯爱因斯坦求和约定,希望把
+  求和号约去,爱因斯坦求和是每个 $\mu$均能取到 $n$个数,但是由于微分形式的特殊性,相同的数会约去,且不同的数的排列也被反称消掉,故上面式子又可以写为 \[
+    \bm{\omega}_{a_1 \cdots a_n} =\frac{1}{l!} \omega_{\mu_1\cdots \mu_2}(e^{\mu_1})_{a_1} \wedge \cdots \wedge (e^{\mu_l})_{a_l}   
+  .\] 这里可以看书P123选读部分.之后借用微分算符的性质给出了最后的证明.(书上定理5-1-14)实际上最后一步本质上是外微分算符满足的莱布尼兹律\[
+  d(\bm{\alpha}\wedge \bm{\beta}  ) = d \bm{\alpha} \wedge \bm{\beta} + (-1)^i \bm{\alpha} \wedge d\bm{\beta}    
+  .\] 
+\end{note}
+\begin{theorem}
+  {}{I-8-5}
+  设$f : M\to  N$是$C^\infty$映射,$\bm{\phi}  \in \Lambda_N(1,\mathscr{G}),\bm{\psi} \in \Lambda_N(j,\mathscr{G})$,则
+  \begin{enumerate}
+    \item $f^* \llbracket \bm{\phi} ,\bm{\psi}  \rrbracket  = \llbracket f^* \bm{\phi} ,f^* \bm{\psi}  \rrbracket $ 
+    \item $d(f^* \bm{\phi}) = f^*(d \bm{\phi} ) $
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+ \begin{enumerate}
+   \item  我们先来看第一个
+     \begin{align*}
+       f^* \llbracket \bm{\phi} ,\bm{\psi}  \rrbracket &= f^* [e_a,e_b] \phi^a \wedge \psi^b \\
+                                                       & = [e_a,e_b]f^*(\phi^a \wedge \psi^b)\\
+                                                       & = [e_a,e_b] (f^*\phi^a \wedge f^* \psi^b)\text{借助基矢变换一下就得到了}\\
+                                                       &=  \llbracket f^* \bm{\phi} ,f^*\bm{\psi}  \rrbracket 
+     .\end{align*}
+   \item 这个就更简单了,代入定理\ref{thm:I-8-3}第三条验证即可.
+ \end{enumerate} 
+\end{proof}
+\begin{definition}
+  {}{协变外微分and曲率}
+设$P(M,G)$是带联络 $\tilde{\bm{\omega} }$ 的主丛.
+\begin{enumerate}
+  \item $\forall \bm{\varphi} \in \Lambda_P(i,\mathscr{G}) $,定义$\bm{\varphi}^H \in \Lambda_P(i,\mathscr{G}) $ 为\[
+  \bm{\varphi}^H(X_1,\cdots ,X_i) := \bm{\varphi}(X_1^H, \cdots ,X_i^H) 
+  .\]  
+  $X_1,\cdots,X_i$是 $P$上任意矢量场, $X_1^H,\cdots ,X_i^H$,是前面矢量场的水平分量. 
+\item $\bm{\phi} \in \Lambda_P(i,\mathscr{G}) $ 的\textbf{协变外微分(exterior covariant differential)} $D \bm{\varphi} $ 定义为\[
+D \bm{\varphi} = (d\bm{\varphi} )^H \in \Lambda_P (I+1,\mathscr{G}) 
 .\] 
-哈式原理要求在下面两个条件下给出$\delta S =0$\[
-  \phi(0) = \phi;\quad \phi(\lambda)|_{\hat{U}} = \phi(0)|_{\hat{U}},\forall\lambda 
+\item 联络$\tilde{\bm{\omega} } \in \Lambda_P(1,\mathscr{G})$ 的曲率$\tilde{\bm{\Omega} }$ 定义为\[
+\tilde{\bm{\Omega} }: = D\tilde{\bm{\omega} } = (d\tilde{\bm{\omega} })^H
+.\] 
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+  {嘉当第二结构方程}{I-8-6}\[
+ \tilde{\bm{\Omega} } = d \tilde{\bm{\omega} }  + \frac{1}{2} \llbracket \tilde{\bm{\omega} } ,\tilde{\bm{\omega} } \rrbracket 
+  .\] 
+\end{theorem}
+\begin{proof}
+  $\tilde{\bm{\Omega} }$ 是一个二形式场,作用到$p$点的 $X,Y$矢量可以有
+   \[
+  \tilde{\bm{\Omega} }_p(X,Y) = (d\tilde{\bm{\omega} })^H_p(X,Y) = (d\tilde{\bm{\omega} })_p(X^H,Y^H)
+  .\] 
+  而参考例\ref{ex:I-8-2}等号右面第二项可以写为\[
+    \frac{1}{2} \llbracket \tilde{\bm{\omega} } ,\tilde{\bm{\omega} } \rrbracket_p(X,Y) = [\tilde{\bm{\omega} }|_p(X), \tilde{\bm{\omega} }|_p(Y)]
+  .\] 
+  故我们要证明的式子就变为
+  \begin{equation}
+    \label{eq:I-8-1}
+    (d\tilde{\bm{\omega} })_p(X^H,Y^H) =d \tilde{\bm{\omega} }_p(X,Y)+ [\tilde{\bm{\omega} }|_p(X), \tilde{\bm{\omega} }|_p(Y)]
+  .\end{equation}
+  接下来我们分类讨论这一问题
+  \begin{enumerate}
+    \item $X,Y \in H_p$:作为水平矢量不难给出$\bm{\tilde{\omega}}(X) = 0 = \tilde{\bm{\omega} }_p(Y) $,而且作为水平矢量我们有$X^H = X,Y^H = Y$,故这种情况下成立.
+    \item  $X,Y \in V_p$:根据竖直矢量的定义(\ref{def:基本矢量场}) 可以给出\[
+    X = A^*_p , Y = B^*_p
+  .\] 作为竖直矢量场,水平分量为$0$,即 $(d\tilde{\bm{\omega} })_p(X^H,Y^H) = (d\tilde{\bm{\omega} })_p(0,0) = 0$,那么式子\ref{eq:I-8-1}就转变为\[
+  d \tilde{\bm{\omega} }_p(A^*_p,B^*_p) = - [\tilde{\bm{\omega} }|_p(A^*_p), \tilde{\bm{\omega} }|_p(B^*_p)]
+  .\] 
+  开始之前我们先证明一个有用的等式,设$\omega $ 是$\Lambda(1,\mathbb{R}(\mathbb{C})$,当其作用到矢量$u,v$上我们有
+   \begin{align*}
+     d\omega(u,v) &= u^av^b 2 \nabla_{[a} \omega_{b]} = u^a v^b (\nabla_a \omega_b - \nabla_b \omega_a)\\
+                       & = u^a(\nabla_av^b \omega_b - \omega_b \nabla_a v^b) - v^b(\nabla_b u^a\omega_b - \omega_a \nabla _bu^a)\\
+                       & = u^a\nabla_av^b \omega_b - u^a\omega_b \nabla_a v^b - v^b\nabla_b u^a\omega_b + v^b\omega_a \nabla _bu^a\\
+                       & = u(\omega(v)) - v(\omega(u)) - \omega_b(u(v^b)) + \omega_a v(u^a)\\
+                       & = u(\omega(v)) - v(\omega(u)) -\omega_a(u(v^a)) + \omega_a v(u^a) \quad \text{修改哑指标}\\
+                       & = u(\omega(v)) - v(\omega(u)) -\omega_a(u(v^a) -  v(u^a))\\
+                       & = u(\omega(v)) - v(\omega(u)) -\omega([u,v])
+  .\end{align*}
+  我们使用了导数算符的定义中的要求$u^a \nabla _a v = u(v)$,以及矢量场的对易子(李括号).
+我们知道对于$\bm{} \tilde{\omega} \in \Lambda(1,\mathscr{G})$ 总可以写为\[
+\bm{\tilde{\omega}} = e_r \tilde{\omega}^r 
+.\] 
+对于普通取值的形式场我们给出\[
+  d \tilde{\omega}_p(A^*_p,B^*_p) = A^*_p(\tilde{\omega}(B^*_p)) - B^*_p(\tilde{\omega}(A^*_p)) -\tilde{\omega}([A^*_p,B^*_p])
+.\] 
+对两边同乘以$e_r$得 \[
+  d \tilde{\bm{\omega}}_p(A^*_p,B^*_p) = e_rA^*_p(\tilde{\omega}(B^*_p)) - e_rB^*_p(\tilde{\omega}(A^*_p)) -\tilde{\bm{\omega}}([A^*_p,B^*_p])
+.\]
+ 到目前为止我们还没有给过矢量作用于$\mathscr{G}$值的定义,我们这里进行补充
+ \begin{definition}
+   对于流形$M$上的矢量场 $X$,和 $F\in \Lambda_M(0,\mathscr{G})$定义
+      \[X(F) := dF(X).\]
+ \end{definition}
+我们补充一个定理
+\begin{theorem}
+  {}{BI-8-1} 设$X$是流形 $M$上得一个矢量场, $e_r$是李代数 $\mathscr{G}$的基矢量,$f$是流形上的标量场.有\[
+  e_rX(f) = X(e_r f)
+  .\] 
+\end{theorem}
+\begin{proof}
+  令$F \equiv e_r f \in \Lambda(0,\mathscr{G})$,只需下式对$\forall p\in M$成立即可\[
+  e_rX_p(f) = X_p(F)
 .\] 
 我们来看
 \begin{align*}
-  \delta S = \int_{U} \left.\frac{d \mathscr{L}}{d \lambda}\right|_{\lambda = 0} 
+  e_rX_p(f) = e_r df|_p (X_p) = dF|_p (X_p) = X_p(F)
 .\end{align*}
-而
-\begin{align*}
-  \left.\frac{d \mathscr{L}}{d \lambda}\right|_{\lambda = 0}  &= \frac{\partial \mathscr{L}}{\partial \phi} \left.\frac{d \phi(\lambda)}{d\lambda}\right|_{\lambda=0} + \frac{\partial \mathscr{L}}{\partial (\partial_a \phi)} \left.\frac{d(\partial_a\phi(\lambda))}{d\lambda}\right|_{\lambda = 0}   \\
-                                                              & = \frac{\partial \mathscr{L}}{\partial \phi}\delta \phi + \frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\delta(\partial_a\phi)\\
-                                                              & = \frac{\partial \mathscr{L}}{\partial \phi}\delta \phi + \frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\partial_a(\delta\phi)
-.\end{align*}
-故
-\begin{align*}
- \delta S = \int_U \frac{\partial \mathscr{L}}{\partial \phi}\delta \phi + \int_U\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\partial_a(\delta\phi)
-.\end{align*}
-而\[
-  \int_U\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\partial_a(\delta\phi) = \int_U\left[\partial_a\left(\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\delta\phi\right) - \delta \phi \partial_a \left( \frac{\partial \mathscr{L}}{\partial (\partial_a\phi}  \right)  \right]
+第一个等号就是对偶矢量场的定义.
+\end{proof}
+最后我们可以给出\[
+   = A^*_p(\tilde{\bm{ \omega}}(B^*_p)) - B^*_p(\tilde{\bm{ \omega}}(A^*_p)) -\tilde{\bm{\omega}}([A^*_p,B^*_p])
 .\] 
-根据高斯定理我们有\[
-  \int_U\partial_a\left(\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\delta\phi\right) = \int_{\hat{U}}n_a\left(\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}\delta\phi\right)
+ 根据联络定义\ref{def:联络-2}第一条给出$\forall p \in P$,$\bm{\tilde{\omega}}(B^*)_p  = B $是一个常数,而矢量作用于常数给出0,故最后给出
+\[
+  d \tilde{\bm{\omega}}_p(A^*_p,B^*_p) = -\tilde{\bm{\omega}}([A^*_p,B^*_p]) = - \bm{\tilde{\omega}}([A,B]^*_p)  = -[A,B]_p
 .\] 
-其中$n_a$为边界的单位法矢量,又因为 $\delta \phi|_{\hat{U}} = 0$,故上式为0.最终我们给出\[
-\delta S = \int_U \left( \frac{\partial \mathscr{L}}{\partial \phi} - \partial_a\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)}   \right) \delta\phi = 0
-.\] 
-而位形的变分$\delta \phi$一般不为0,故给出标量场$\phi$的演化方程 
-\begin{equation}
-  \frac{\partial \mathscr{L}}{\partial \phi} - \partial_a\frac{\partial \mathscr{L}}{\partial (\partial_a \phi)} = 0
-  \label{eq:15-1-3}
-\end{equation}
-我们给出闵式时空的拉式密度\[
-  \mathscr{L} = - \frac{1}{2}[\eta^{ab}(\partial_a\phi)\partial_b\phi +m^2\phi^2]
-.\] 
-代入上式便可以给出KG方程.
-\section{有限自由度系统的哈式理论}
-\subsection{有限自由度系统的哈式理论}
-拉式理论的基本变量是广义坐标$q^i$和广义速度 $\dot{q}^i$,它们的一组值代表系统的一个状态.而哈式理论的基本变量是广义坐标 $q^i$和广义动量 $p_i$.
-给定拉式函数 $L(q^i,\dot{q}^i)$后, $p_i$由下面式子定义 \[
-  p_i := \frac{\partial L(q,\dot{q})}{\partial  \dot{q}^i}, \quad i = 1, \cdots , N 
-.\] 
-位形变量和动量变量称为互相共轭的一对\textbf{正则变量(canonical variables)},它们的一组值$(q^i,p_i)$代表系统的一个状态.量 $H = p_i\dot{q}^i - L(q,dot{q})$
-称为系统的 \textbf{哈式量(Hamiltonian)} \[
-  dH = \dot{q}^i dp_i + p_i d\dot{q}^i - \frac{\partial L}{\partial q^i}dq^i - \frac{\partial L}{\partial \dot{q}^i}d\dot{q}^i =\dot{q}^i dp_i-\frac{\partial L}{\partial \dot{q}^i}d\dot{q}^i
-.\] 
-上式右面不含有$d\dot{q}^i$,这就意味着 $H$与 $q^i,p^i$有关,即 $H = H(q,p)$.
+第二个等号见定理\ref{thm:I-1-8}.
+\item $X \in V_p, Y \in H_p \Rightarrow X = A^*_p$,选择底流形在x点的矢量为$Z$,则 $Y$可以看作 $Z$的水平提升在 $p$点的取值$\tilde{Z}_p$,
+  此时式子\ref{eq:I-8-1}转变为\[
+  d\bm{\tilde{\omega}}_p(A^*_p,\tilde{Z}_p) = 0 
+  .\] 
+  仿照第二条给出\[
+    d\tilde{\omega}(A^*,\tilde{Z}) = A^*(\tilde{\bm{\omega} }(\tilde{Z})) -  \tilde{Z}(\tilde{\bm{\omega} }(A^*)) - \bm{\tilde{\omega}}([A^*,\tilde{Z}]) 
+  .\] 
+  根据定理\ref{thm:I-2-5}给出第三项为$0$,第一项又可以写为 $A^*(0) = 0$,第二项改为 $\tilde{Z}(A)$,因为$A$是常矢量,故第二项也为0.
+  最终我们给出第三种情况成立.
+\end{enumerate}
+上面三种情况就包含了所有的情况,也就是说我们验证了嘉当第二结构方程成立.
+\end{proof}
 
-以下讨论取决于 $N$个 $q^i$可否全部反解出当已知 $p,L$时,即 \[
-  \dot{q}^i = \dot{q}^i(q,p),\quad i= 1,\cdots ,N
-.\] 
-满足以上要求的拉式函数$L(q^i,\dot{q}^i$称为\textbf{正规(regular)的},相应的哈式理论称为\textbf{有正规拉式量的哈式理论}.此时我们有 \[
-H(p,q) = p_i\dot{q}^i(q,p) - L(q,\dot{q}^i(q,p))
-.\] 
-故
-\begin{align*}
-  \frac{\partial H}{\partial p_i} &= \frac{\partial p_j}{\partial p_i}\dot{q}^j + p_j \frac{\partial \dot{q}^j}{\partial p_i} - \frac{\partial L}{\partial \dot{q}^j} \frac{\partial \dot{q}^j}{\partial p_i} = \delta^{i}{}_{j}\dot{q}^j= \dot{q}^i\\
-  \frac{\partial H}{\partial q^i}& = p_j \frac{\partial \dot{q}^j}{\partial q^i} - \frac{\partial L}{\partial q^i} - \frac{\partial L}{\partial \dot{q}^j}\frac{\partial \dot{q}^j}{\partial q^i} = -\frac{\partial L}{\partial q^i} = - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}^i} = -\frac{d}{dt}p_i = -\dot{p}_i
-.\end{align*}
-即
-\begin{equation}
-  \label{eq:15-1-1}
-  \dot{q}^i = \frac{\partial H}{\partial p_i},\quad \dot{p}_i = -\frac{\partial H}{\partial q^i}, \quad i = 1,\cdots , N   
-\end{equation}
-当给定系统的拉式函数,其哈式函数也就给定了,而拉式方程也就转变成了式\ref{eq:15-1-1}2N个一阶常微分方程,称为\textbf{哈式正则方程(Hamiltonian canonical equations)}.
-$(q^i,p_i)$代表一个状态,所有状态的集合称为系统的\textbf{相空间(phase space)},记作 $\Gamma$,是 $2N$维流形.在相空间中指定一点,可以以此为初值,结合微分方程组式\ref{eq:15-1-1},
-给出相空间的一条曲线,反应系统的运动状态.
-\section{未完待续}
-%TODO 哈密顿量暂时用不到,我们后续再补充.
-\chapter{物理场的整体规范不变性(Global Gauge Invariance of Physical Fields)}
-\section{阿贝尔情况(The Abelian Case)}
-设$\phi_1$和 $\pi_2$是闵式时空 $(\mathbb{R}^4,\eta_{ab})$中两个互相独立的,有相同质量参数 $m$的实标量场,则两者分别服从KG方程
-\begin{align*}
-  \partial^a\partial_a \phi_1 - m^2 \phi_1 &= 0 \\
-  \partial^a\partial_a \phi_2 - m^2\phi_2 & = 0
-.\end{align*}
-两者的总的拉式密度为\[
-  \mathscr{L} = \mathscr{L}_1 + \mathscr{L}_2 = -\frac{1}{2}[(\partial^a\phi_1)\partial_a \phi_1 + m^2 \phi_1^2+(\partial^a\phi_2)\partial_a \phi_2 + m^2 \phi_2^2]
-.\] 
-引入复标量场及其共轭\[
-\phi = \frac{1}{\sqrt{2}}(\phi_1 + i\phi_2),\quad \overline{\phi} = \frac{1}{\sqrt{2} }(\phi_1- i\phi_2)
-.\] 
-可以使用$\phi,\overline{\phi}$代替$\phi_1,\phi_2$,此时KG方程写为 \[
-\partial^a\partial_a \phi - m^2 \phi = 0,\quad \partial^a\partial_a \overline{\phi} - m^2 \overline{\phi} =0
-.\] 
-拉式密度改写为\[
-  \mathscr{L} = -[(\partial^a \overline{\phi})\partial_a \phi + m^2\phi \overline{\phi}]
-.\] 
-如果对复标量场$\{\phi,\overline{\phi}\}$按照下面式子进行场变换$\phi \mapsto \phi'$
-\begin{equation}
-  \label{eq:I-4-1}
-  \phi' = e^{-iq\theta}\phi, \quad \overline{\phi'} = e^{iq\theta}\overline{\phi}
-. \end{equation}
-其中$q$是整数 $\theta$为任意常实数,不难发现 \[
-\mathscr{L}' = \mathscr{L}
-.\]
-因为拉式密度$\mathscr{L}$ 在式\ref{eq:I-4-1}代表的场的变换下不变.这种不变性称为场的\textbf{内部对称性(internal symmertry)},以区别于由killing
-矢量场代表的\textbf{时空对称性(spacetime symmetry)}.根据Nother定理,时空对称性和内部对称性都会导致一种守恒律.我们可以得到一个定理.
-\begin{note}
- Nother定理:每一个连续对称性,就会对应一种守恒律. 
-\end{note}
 \begin{theorem}
-  {电荷守恒律}{I-4-1}
-  复标量场$\phi$的拉式密度 $\mathscr{L}$在式\ref{eq:I-4-1}的内部对称性下的不变性导致一个守恒律(物理上解释为电荷守恒律).
+  {Bianchi恒等式}{I-8-7}\[
+  D \bm{\tilde{\Omega}} = 0
+  .\] 
 \end{theorem}
 \begin{proof}
-  以$\phi_0 \equiv \phi(0)$代表初始的复标量场,对场进行式\ref{eq:I-4-1}的变换,全体 $\phi'$的集合是 \[
-    \{\phi(\theta) = e^{-iq\theta }\phi_0: \mathbb{R}^4 \to \mathbb{R}\}
-  .\] 
-  上面集合是一个单参复标量场族,每给出$p$点的坐标,就会给出场在 $p$点的值.在上面的场族中,$\mathscr{L}$借助下式构成$\theta$的一元函数 \[
-  \mathscr{L}(\theta) = \mathscr{L}(\phi(\theta), \partial_a \phi(\theta); \overline{\phi}(\theta), \partial_a \overline{\phi}(\theta))
-  .\] 
-  因为内部对称性,$\frac{d \mathscr{L}(\theta)}{d \theta} = 0$,故
+ \begin{align*}
+   d \tilde{\bm{\Omega} } &= d(d \tilde{\bm{\omega} }  + \frac{1}{2} \llbracket \tilde{\bm{\omega} } ,\tilde{\bm{\omega} } \rrbracket) = 0 + \frac{1}{2} d \llbracket \tilde{\bm{\omega}},\tilde{\bm{\omega} } \rrbracket  \\
+                          & = \frac{1}{2} \left(\llbracket d\tilde{\bm{\omega} },\tilde{\bm{\omega} } \rrbracket - \llbracket \tilde{\bm{\omega} },d \tilde{\bm{\omega} } \rrbracket \right) \quad \text{定理}\ref{thm:I-8-4}\\
+                          & = \frac{1}{2} \left( \llbracket d\tilde{\bm{\omega} },\tilde{\bm{\omega} } \rrbracket + \llbracket \tilde{d\bm{\omega} }, \tilde{\bm{\omega} } \rrbracket  \right) \text{定理}\ref{thm:I-8-3}\\
+                          & = \llbracket d\tilde{\bm{\omega} },\tilde{\bm{\omega} } \rrbracket 
+ .\end{align*} 
+ 故\[
+ D\tilde{\bm{\Omega} }(X,Y,Z) = (d \tilde{\bm{\Omega} })^H(X,Y,Z) = d\tilde{\bm{\Omega} }(X^H,Y^H,Z^H) = \llbracket d\tilde{\bm{\omega} },\tilde{\bm{\omega} } \rrbracket(X^H,Y^H,Z^H)
+ .\] 
+ 而
+ \begin{align*}
+   \llbracket d\tilde{\bm{\omega} },\tilde{\bm{\omega} } \rrbracket(X^H,Y^H,Z^H) & = \frac{1}{2}\left([d \bm{\tilde{\omega}}(X^H,Y^H),\bm{\tilde{\omega}}(Z^H)] + \cdots  \right) 
+ .\end{align*}
+ 因为\[
+ \bm{\tilde{\omega}}(X^H) = 0,\quad
+ \bm{\tilde{\omega}}(Y^H) = 0,\quad
+ \bm{\tilde{\omega}}(Z^H) = 0
+ .\] 
+ 且求和式子每一项都有0项,故最后给出$\llbracket d\tilde{\bm{\omega} },\tilde{\bm{\omega} } \rrbracket(X^H,Y^H,Z^H)  = 0$,即 \[
+  D \bm{\tilde{\Omega}} = 0
+ .\] 
+\end{proof}
+\begin{theorem}
+  {}{I-8-8}\[
+    d \bm{\tilde{\Omega}} = \llbracket  \bm{\tilde{\Omega}},\tilde{\bm{\omega} }  \rrbracket
+.\]
+\end{theorem}
+\begin{proof}
   \begin{align*}
-    0 &= \left.\frac{d}{d \theta}\right|_{\theta = 0} \mathscr{L}(\theta)\\ 
-      & = \left[ \frac{\partial \mathscr{L}}{\partial \phi(\theta)} \frac{d \phi(\theta)}{d\theta} + \frac{\partial \mathscr{L}}{\partial (\partial_a \phi(\theta))} \frac{d(\partial_a \phi(\theta))}{d \theta} + \frac{\partial \mathscr{L}}{\partial \overline{\phi}(\theta)}\frac{d \overline{\phi}(\theta)}{d\theta} + \frac{\partial \mathscr{L}}{\partial (\partial_a \overline{\phi}(\theta))}\frac{d (\partial_a \overline{\phi}(\theta)}{d\theta} \right]_{\theta = 0}
+   \llbracket \tilde{\bm{\Omega} }, \bm{\tilde{\omega}}  \rrbracket  &= \llbracket d\bm{\tilde{\omega}} ,\bm{\tilde{\omega}}  \rrbracket + \frac{1}{2} \llbracket \llbracket\bm{\tilde{\omega}} ,\bm{\tilde{\omega}} \rrbracket , \bm{\tilde{\omega}}\rrbracket  \\
+                                                                     & = \llbracket d \bm{\tilde{\omega}},\bm{\tilde{\omega}} \rrbracket + 0 \quad \text{参考定理}\ref{thm:I-8-2}\text{并注意三项相同} \\
+                                                                     & = d \bm{\tilde{\Omega}}
   .\end{align*}
-  我们先来求第一项,首先\[
-    \left.\frac{d \phi (\theta)}{d\theta}\right|_{\theta = 0} = \left.\frac{d}{d\theta}\right|_{\theta = 0}(e^{-iq\theta}\phi_0) = -iq\phi_0 
+  最后一步见定理\ref{thm:I-8-7}下方证明的第一条式子.
+\end{proof}
+\begin{theorem}
+  {}{I-8-9}
+  \[
+ R^*_g \bm{\tilde{\omega}} = \mathscr{A}\!d_{g^{-1}}\circ \bm{\tilde{\omega}}, \quad \forall g\in G 
   .\] 
-  其次,$\frac{\partial \mathscr{L}}{\partial \phi(\theta)} $ 是对第一宗量$\phi(\theta)$求偏导,与 $\theta$无关,我们可以先计算$\theta = 0$,故有
+  $R$是主丛上的右作用,等号右面也常写为 $\mathscr{A}\!d_{g^{-1}}\bm{\tilde{\omega}}$
+\end{theorem}
+\begin{proof}
+  $\forall g \in G, p \in  P,X \in T_pP$有\[
+    (R^*_g \bm{\tilde{\omega}}_{pg})(X)  = \bm{\tilde{\omega}}_{pg} (R_{g*}X) = \mathscr{A}\!d_{g^{-1}} \bm{\tilde{\omega}}_{p}(X)
+  .\] 
+  第一个等号使用的是拉回映射和推前映射的关系,第二个等号是定义\ref{def:联络-2}的公式
+\end{proof}
+此定理给出了一个$P$上1形式场到 $P$上的1形式场的映射.
+\begin{theorem}
+  {}{BI-8-2}
+   \begin{enumerate}
+     \item $d (\mathscr{A}\!d_{g^{-1}}  \bm{\tilde{\omega}}) = \mathscr{A}\!d_{g^{-1}} d  \bm{\tilde{\omega}}$ 
+     \item $\llbracket \mathscr{A}\!d_{g^{-1}}  \bm{\tilde{\omega}},\mathscr{A}\!d_{g^{-1}}  \bm{\tilde{\omega}} \rrbracket = \mathscr{A}\!d_{g^{-1}}\llbracket \tilde{\bm{\omega} },\tilde{\bm{\omega} } \rrbracket $
+   \end{enumerate}
+\end{theorem}
+\begin{proof}
+  \begin{enumerate}
+    \item  我们知道$\bm{\tilde{\omega}} = e_r \tilde{\omega}^r \quad e_r \in \mathscr{G}, \tilde{\omega}^r \in \Lambda(i,\mathbb{R}(\mathbb{C})$,故我们有
+      \begin{align*}
+       d(\mathscr{A}\!d_{g^{-1}}   \bm{\tilde{\omega}}) &= d(\mathscr{A}\!d_{g^{-1}} (e_r \tilde{\omega}^r)) \\ 
+                                                        & = d(\tilde{\omega}^r (\mathscr{A}\!d_{g^{-1}}e^r))\\
+                                                        & = \mathscr{A}\!d_{g^{-1}} e^r d(\tilde{\omega}^r) \quad \text{定理\ref{thm:I-8-3}第一条}\\
+                                                        & = \mathscr{A}\!d_{g^{-1}}  d\bm{\tilde{\omega}}\quad \mathscr{G}\text{值外微分定义,见定义\ref{def:联络-2}上方补充}
+      .\end{align*}
+      \item 对于第二点\begin{align*}
+          \llbracket \mathscr{A}\!d_{g^{-1}}\bm{\tilde{\omega}},\mathscr{A}\!d_{g^{-1}}\bm{\tilde{\omega}} \rrbracket &= \llbracket \mathscr{A}\!d_{g^{-1}}e_r \tilde{\omega}^r,\mathscr{A}\!d_{g^{-1}}e_r \tilde{\omega}^r \rrbracket  \\
+                                                                                                                      & = \llbracket \tilde{\omega}^r \mathscr{A}\!d_{g^{-1}}e_r ,\tilde{\omega}^r \mathscr{A}\!d_{g^{-1}}e_r  \rrbracket  \\
+                                                                                                                      & = [\mathscr{A}\!d_{g^{-1}}e_r, \mathscr{A}\!d_{g^{-1}}e_r](\tilde{\omega}^r\wedge \tilde{\omega}^r)\\
+                                                                                                                      & = \mathscr{A}\!d_{g^{-1}} [e_r,e_r](\tilde{\omega}^r\wedge \tilde{\omega}^r)\\
+                                                                                                                      & = \mathscr{A}\!d_{g^{-1}} \llbracket \tilde{\bm{\omega} }  ,\tilde{\bm{\omega} } \rrbracket 
+        .\end{align*}
+  \end{enumerate}
+  \begin{note}
+    $\mathscr{A}\!d_{g^{-1}}$ 诱导的李代数是保李括号的,由伴随映射是自同构映射确保群乘法不变给出.
+  \end{note}
+\end{proof}
+
+\begin{theorem}
+  {}{I-8-10}\[
+ R^*_g \bm{\tilde{\Omega}} = \mathscr{A}\!d_{g^{-1}} \circ \bm{\tilde{\Omega}},\quad \forall g\in G 
+  .\] 
+\end{theorem}
+\begin{proof}
   \begin{align*}
-    \left.\frac{\partial \mathscr{L}}{\phi(\theta)}\right|_{\theta = 0} =  \frac{\partial \mathscr{L}}{\partial\phi_0}
-                                                                        = \partial_a\frac{\partial \mathscr{L}}{\partial (\partial_a \phi_0)}\quad \text{第二个等号借用式}\ref{eq:15-1-3}
+    R^*_g \bm{\tilde{\Omega}} &= R^*_g(d\bm{\tilde{\omega}} + \frac{1}{2}\llbracket \bm{\tilde{\omega}},\bm{\tilde{\omega}} \rrbracket )\\
+                              & = d(R^*_g \bm{\tilde{\omega}}) + \frac{1}{2} \llbracket R^*_g \bm{\tilde{\omega}},R^*_g\bm{\tilde{\omega}} \rrbracket \quad \text{定理\ref{thm:I-8-5}}\\
+                              & = d(\mathscr{A}\!d_{g^{-1}}\bm{\tilde{\omega}}) + \frac{1}{2}\llbracket \mathscr{A}\!d_{g^{-1}} \bm{\tilde{\omega}}, \mathscr{A}\!d_{g^{-1}}  \bm{\tilde{\omega}} \rrbracket \quad \text{定理\ref{thm:I-8-9}}\\
+                              & = \mathscr{A}\!d_{g^{-1}}\left( d \tilde{\bm{\omega} } + \frac{1}{2}\llbracket \tilde{\bm{\omega} },\tilde{\bm{\omega} } \rrbracket  \right) \quad \text{定理\ref{thm:BI-8-2}}\\
+                              & = \mathscr{A}\!d_{g^{-1}} \tilde{\bm{\Omega} }
+  .\end{align*}
+\end{proof}
+主丛上的曲率我们已经定义完毕,接下来我们来看看其中的物理意义是什么.实际上主丛上的曲率就对应着底流形上的规范场强.
+对于规范场强我们先来看比较简单的情况——$U(1)$群,$U(1)$群对应于电磁场的理论. 对于电磁场强我们有$\bm{F} = d \bm{A}$,我们知道电磁场强在规范变换下不改变物理实质,具体体现为
+$\bm{F}' = \bm{F}$,我们先给出$U(1)$群下 联络$\bm{\omega} $和规范势 $\bm{A} $以及场强$F$ 的关系.\[
+\bm{\omega} = k A_\mu dx^\mu =k\bm{A} \Rightarrow \bm{F} = k^{-1}d \bm{\omega}  
+.\]两者只差一个常数,接下来我们只需要验证由截面变换诱导出的变换不会使得场强发生改变,由于$k$不会改变实质,我们暂且令其为 $1$.
+
+根据定理\ref{thm:I-2-3}给出\[
+\bm{\omega}'= g\bm{\omega}g^{-1} + gdg^{-1}  
+.\] 
+具体差异参考式\ref{eq:I-6-1},因为这里是阿贝尔群故\[
+  \bm{\omega}'= g\bm{\omega}g^{-1} + gdg^{-1}  = \bm{\omega} gg^{-1} + gdg^{-1} =\bm{\omega} + gdg^{^{-1}}  
+.\] 
+我们来看下面等式
+\begin{align*}
+  d(gdg^{-1}) =  dg\wedge dg^{-1} + (-1)^i gd(dg^{-1}) = dg \wedge d g^{-1}
+.\end{align*}
+\begin{note}
+  由于矩阵群的缘故,所有的都用矩阵表示,本来不能直接相乘的元素混淆在了一起,注意这里是联络等式,乘法要满足形式场.而形式场只会在维数大于二时和普通乘法有所区分.
+\end{note}
+由于$g^{-1}g = I$,故我们有\[
+  (dg^{-1})g + (g^{-1})dg = 0
+.\] 由于是阿贝尔群故有$dg = gg (dg^{-1})$
+故\[
+d(g dg^{-1}) = gg d(g^{-1}) \wedge d(g^{-1}) = 0
+.\] 
+由此可见规范场强不变.
+
+设$U \subset M$是开子集,我们有局域截面$\sigma_U:U \to P$,如前所述$\bm{\omega}_U \equiv \sigma^* \tilde{\bm{\omega}}$ 在物理上代表规范势;仿照这种情况,令$\bm{\Omega}_U \equiv \sigma^*_U \tilde{\bm{\Omega}} $ 下面我们证明$\bm{\Omega}_U $ 在物理上代表\textbf{规范场强(gauge field strength)},我们还需要补充一个定理
+\begin{theorem}
+  {}{I-8-11} 
+  \[
+  \bm{\Omega}_U = d \bm{\omega}_U + \frac{1}{2} \llbracket \bm{\omega}_U , \bm{\omega}_U \rrbracket   
+  .\] 
+\end{theorem}
+\begin{proof}
+ \begin{align*}
+   \bm{\Omega} &= \sigma^*_U\bm{\tilde{\Omega}}  = \sigma^*_U(d \tilde{\bm{\omega} }  + \frac{1}{2} \llbracket \tilde{\bm{\omega} } ,\tilde{\bm{\omega} } \rrbracket )\\
+               & = d(\sigma^*_U\bm{\tilde{\omega}} ) + \frac{1}{2} \llbracket \sigma_U^* \bm{\tilde{\omega}},\sigma^*_U \bm{\tilde{\omega}} \rrbracket \quad \text{定理\ref{thm:I-8-5}}\\
+               & = d(\bm{\omega} ) \frac{1}{2}\llbracket \bm{\omega},\bm{\omega} \rrbracket 
+ .\end{align*} 
+\end{proof} 
+\begin{theorem}
+  {规范场强和曲率的桥梁}{I-8-12}
+  令$\bm{F} = \frac{1}{2} e_r F^r_{\mu\nu} dx^\mu\wedge dx^\nu$, 则$\bm{\Omega} = k \bm{F}  $,其中$F^r_{\mu\nu}$由式\ref{eq:I-5-3}给出.
+\end{theorem}
+\begin{proof}
+  根据定理\ref{thm:I-8-11}给出,物理中的规范势就是这里的联络,即$\bm{\omega} = k e_r A^r_\mu dx^\mu $
+  \begin{align*}
+    \bm{\Omega} &= d\bm{\omega} + \frac{1}{2} \llbracket \bm{\omega} ,\bm{\omega}  \rrbracket  \\
+                & = d(k e_r A^r_\mu dx^\mu) + \frac{1}{2} \llbracket k e_s A^s_\mu dx^\mu,k e_t A^t_\nu dx^\nu \rrbracket \\
+                & = ke_r (d A^r_\mu)\wedge (dx^\mu) + \frac{1}{2} k^2 A^s_\mu A^t_\nu[e_s,e_t]dx^\mu \wedge dx^\nu
+  .\end{align*}
+  我们先来计算
+  \begin{align*}
+    (d A^r_\mu)\wedge (dx^\mu)& = ((\frac{\partial A^r_\mu}{\partial x^\nu} )d x^\nu) \wedge dx^\mu  =(\partial_\nu A^r_\mu) dx^\nu \wedge dx^\mu \\
+                              & =  (\partial_{[\nu}A^r_{\mu]})dx^\nu \wedge dx^\mu \\ &= \frac{1}{2}(\partial_\mu A_\nu^r - \partial_\nu A_\nu^r )dx^\mu \wedge dx^\nu
+  .\end{align*}
+  则我们有
+  \begin{align*}
+   \bm{\Omega} & = ke_r (d A^r_\mu)\wedge (dx^\mu) + \frac{1}{2} k^2 A^s_\mu A^t_\nu[e_s,e_t]dx^\mu \wedge dx^\nu \\
+               & = \frac{1}{2}k e_r(\partial_\mu A_\nu^r - \partial_\nu A_\nu^r )dx^\mu \wedge dx^\nu + \frac{1}{2} k^2 A^s_\mu A^t_\nu C^{r}{}_{st} e_r dx^\mu \wedge dx^\nu\\
+               & = \frac{1}{2} ke_r (\partial_\mu A_\nu^r - \partial_\nu A_\nu^r + k  C^{r}{}_{st} A^s_\mu A^t_\nu ) dx^\mu \wedge dx^\nu\\
+               & = k \bm{F} 
+  .\end{align*}
+\end{proof}
+\begin{note}
+  由此可见,底流形上的$\bm{\Omega}$ 和$\bm{F} $ 是一回事,只是差了一个常数$k$.
+\end{note}
+
+接下来我们来看在矩阵群的情况下括号运算$\llbracket , \rrbracket $ 的表达式,设$\mathscr{G}$上的元素是$N\times N $实(复)矩阵, 则$\bm{\phi} \in \Lambda_K(i,\mathscr{G}), \bm{\psi} \in \Lambda_K(j,\mathscr{G}) $,则作为$\mathscr{G}$值的形式场,
+不难给出$\bm{\phi}(X_1,\cdots X_i) $ 和$\bm{\psi}(X_1,\cdots X_j) $是一个$N \times N$实(复)矩阵.我们以 $N = 2$为例,观测具体形式 \[
+  \bm{\phi}(X_1,\cdots X_i) \begin{bmatrix} \phi(X_1,\cdots X_i)^{1}{}_{1} & \phi(X_1,\cdots X_i)^{1}{}_{2} \\ \phi(X_1,\cdots X_i)^{2}{}_{1}& \phi(X_1,\cdots X_i)^{2}{}_{2} \end{bmatrix}  \in\mathscr{G} 
+.\] 
+我们定义矩阵元为\[
+\phi^{\upsilon}{}_{\nu}(X_1,\cdots X_i) := \bm{\phi}^{\mu}{}_{\nu} (X_1,\cdots X_i) 
+.\] 
+故我们可以定义矩阵的楔积为
+\begin{definition}
+  {}{矩阵楔积-1}
+  设$\mathscr{G}$是矩阵李代数.$\mathscr{G}$值形式$\bm{\phi} \in \Lambda_K(i,\mathscr{G}),\bm{\psi} \in \Lambda_K(j,\mathscr{G})  $ 的楔积定义为矩阵乘法,只不过把原来的乘积换成了楔积.
+\end{definition}
+\begin{example}
+  $N = 2$时 $\bm{\phi} \wedge \bm{\psi}  $
+\end{example}
+\begin{align*}
+  \bm{\phi} \wedge \bm{\psi}   &= \begin{bmatrix} \bm{\phi}^{1}{}_{1} & \bm{\phi}^{1}{}_{2} \\ \bm{\phi}^{2}{}_{1} & \bm{\phi}^{2}{}_{2} \end{bmatrix} \wedge
+\begin{bmatrix} \bm{\psi}^{1}{}_{1} & \bm{\psi}^{1}{}_{2} \\ \bm{\psi}^{2}{}_{1} & \bm{\psi}^{2}{}_{2} \end{bmatrix}\\
+                               &= \begin{bmatrix}\bm{\phi}^{1}{}_{1}\wedge \bm{\psi}^{1}{}_{1} + \bm{\phi}^{1}{}_{2} \wedge \bm{\psi}^{2}{}_{1}& \bm{\phi}^{1}{}_{1}\wedge \bm{\psi}^{1}{}_{2} + \bm{\phi}^{1}{}_{2} \wedge \bm{\psi}^{2}{}_{2}\\ \bm{\phi}^{2}{}_{1}\wedge \bm{\psi}^{1}{}_{1} + \bm{\phi}^{2}{}_{2} \wedge \bm{\psi}^{2}{}_{1}&\bm{\phi}^{2}{}_{1}\wedge \bm{\psi}^{1}{}_{2} + \bm{\phi}^{2}{}_{2} \wedge \bm{\psi}^{2}{}_{2}  \end{bmatrix}  
+.\end{align*}
+我们可以借助指标给出矩阵楔积形式的定义为
+\begin{definition}
+  {}{矩阵楔积-2}
+  设$\{e_r \mid r = 1 , \cdots ,R\}$是$\mathscr{G}$的基底,把 $\bm{\phi} $ 和$\bm{\psi} $ 分别写成$\bm{\phi} = e_r {\phi}^r  $ 和$\bm{\psi} = e_s {\psi}^s  $,${\phi}^r \in \Lambda_K (i,\mathbb{R}(\mathbb{C})) $,${\phi}^s \in \Lambda_K (j,\mathbb{R}(\mathbb{C}))$,利用指标
+  定义为\[
+  \bm{\phi} \wedge \bm{\psi} := e_r e_s({\phi^r} \wedge {\psi}^s  )  
+  .\] 
+  $e_r e_s$代表矩阵$e_r$和 $e_s$之积.
+\end{definition}
+我们给了两个定义,下面证明两个定义的等价性,以加深理解.
+\begin{proof}
+\begin{enumerate}
+  \item (定义\ref{def:矩阵楔积-1} $\Rightarrow$ 定义 \ref{def:矩阵楔积-2}): $\bm{\phi} ,\bm{\psi}  $ 既然是矩阵李代数的元素,那么势必可以按照矩阵李代数基底展开.\[
+  \bm{\phi} =  e_r \phi^r \quad  \bm{\psi} = e_s \psi^s 
+  .\] 
+  注意上面的$r,s$指标代表基底的个数,并不是我们理解的张量分量的指标.我们补上矩阵分量的指标给出\[
+    \bm{\phi}^{\mu}{}_{\rho} = (e_r \phi^r)^{\mu}{}_{\rho} \quad \bm{\psi}^{\rho}{}_\nu = (e_s \psi^s)^{\rho}{}_{\nu}
+  .\] 
+  按照定义\ref{def:矩阵楔积-1}的定义给出
+   \begin{align*}
+    \bm{\phi} \wedge \bm{\psi} = (e_r \phi^r)^{\mu}{}_{\rho} \wedge (e_s \psi^s) ^{\rho}{}_{\nu} = (e_r)^{\mu}{}_{\rho}(e_s)^{\rho}{}_{\nu}(\phi^r \wedge \psi^s)   
+  .\end{align*}
+  由于楔积只是形式场的乘法,对于楔积而言,$e_r,e_s$就只是常数,我们可以把它们提出来,给出上式,不难发现上式就是我们的定义\ref{def:矩阵楔积-2}.
+\item (定义\ref{def:矩阵楔积-2} $\Rightarrow$ \ref{def:矩阵楔积-1}):由于$e_r e_s$代表矩阵的积.我们可以给出定义\ref{def:矩阵楔积-2}给出的矩阵形式,假设矩阵是 $N \times N$维矩阵:
+   \begin{align*}
+     \bm{\phi} \wedge \bm{\psi} &= \begin{bmatrix} (e_r)^{1}{}_{1} & \cdots & (e_r)^{1}{}_{N}\\ \vdots & \ddots & \vdots \\ (e_r)^{N}{}_{1} & \cdots & (e_r)^{N}{}_{N}  \end{bmatrix}   
+     \begin{bmatrix} (e_s)^{1}{}_{1} & \cdots & (e_s)^{1}{}_{N}\\ \vdots & \ddots & \vdots \\ (e_s)^{N}{}_{1} & \cdots & (e_s)^{N}{}_{N}  \end{bmatrix}
+     (\phi^r \wedge \psi^s)\\
+                                     & = \begin{bmatrix}
+                                       \left(\sum\limits^N_{\rho = 1} (e_r)^{1}{}_{\rho}(e_s)^{\rho}{}_{1} \right)(\phi^r \wedge \psi^s)& \cdots & \left(\sum\limits^N_{\rho = 1} (e_r)^{1}{}_{\rho}(e_s)^{\rho}{}_{N} \right)(\phi^r \wedge \psi^s) \\
+                                       \vdots & \ddots & \vdots\\
+                                       \left(\sum\limits^N_{\rho = 1} (e_r)^{N}{}_{\rho}(e_s)^{\rho}{}_{1} \right)(\phi^r \wedge \psi^s)& \cdots&  \left(\sum\limits^N_{\rho = 1} (e_r)^{N}{}_{\rho}(e_s)^{\rho}{}_{N} \right)(\phi^r \wedge \psi^s) \\
+                                     \end{bmatrix} 
+  .\end{align*}
+  我们来看其中一项
+  \begin{align*}
+    \left(\sum\limits^N_{\rho = 1} (e_r)^{1}{}_{\rho}(e_s)^{\rho}{}_{1} \right)(\phi^r \wedge \psi^s) &= \sum\limits^{N}_{\rho = 1}(e_r \phi^r)^{1}{}_{\rho} \wedge (e_s \psi^s)^{\rho}{}_{1}  \\
+                                                                                                      & =\sum\limits^{N}_{\rho = 1}\bm{\phi} ^{1}{}_{\rho} \wedge \bm{\psi}^{\rho}{}_{1}   
+  .\end{align*}
+  就是我们给出的定义\ref{def:矩阵楔积-1}的第一项的定义,其余项类似.
+\end{enumerate}
+由此可见两个定义是等价的.
+\end{proof}
+\begin{theorem}
+  {}{I-8-13}是$\mathscr{G}$是矩阵李代数,$\bm{\phi} \in \Lambda_K(i,\mathscr{G}), \bm{\psi} \in \Lambda_K(j,\mathscr{G}) $,则\[
+    \llbracket \bm{\phi} ,\bm{\psi}  \rrbracket = \bm{\phi} \wedge \bm{\psi} - (-1)^{ij} \bm{\psi} \wedge \bm{\phi}    
+  .\]  
+\end{theorem}
+\begin{proof}
+ \begin{align*}
+   \llbracket \bm{\phi} ,\bm{\psi}  \rrbracket &= \llbracket e_r \phi^r,e_s \psi^s \rrbracket  = [e_r,e_s](\phi^r \wedge \psi^s) \quad \text{第二个等号\ref{thm:I-8-1}} \\
+                                               & = (e_r e_s - e_s e_r)(\phi^r \wedge \psi^s) \quad \text{定理\ref{thm:G-5-3}}\\
+                                               & = e_re_s(\phi^r \wedge\psi^s) - e_s e_r(-1)^{ij} (\psi^s \wedge \phi^r)\\
+                                               & = \bm{\phi}\wedge \bm{\psi} -(-1)^{ij}\bm{\psi} \wedge \bm{\phi}    
+ .\end{align*} 
+\end{proof}
+\begin{theorem}
+  {}{I-8-14}
+  设$G$是矩阵李群,则
+   \begin{align*}
+     \bm{\tilde{\Omega}} &= d\bm{\tilde{\omega}} + \bm{\tilde{\omega}} \wedge  \bm{\tilde{\omega}} \\
+     \bm{\Omega}_U &= d\bm{\omega}_U + \bm{\omega}_U \wedge \bm{\omega}_U     
+  .\end{align*}
+\end{theorem}
+\begin{proof}
+  \begin{enumerate}
+    \item 由定理\ref{thm:I-8-6}知道 
+      \begin{align*}
+        \tilde{\bm{\Omega} } &= d \tilde{\bm{\omega} }  + \frac{1}{2} \llbracket \tilde{\bm{\omega} } ,\tilde{\bm{\omega} } \rrbracket\\
+                             & = d \bm{\tilde{\omega}} +  \frac{1}{2}(\bm{\tilde{\omega}} \wedge \bm{\tilde{\omega}} -(-1)^{1\times1} \bm{\tilde{\omega}}\wedge \bm{\tilde{\omega}} )\\
+                             & = d\bm{\tilde{\omega}} + \bm{\tilde{\omega}} \wedge  \bm{\tilde{\omega}} 
+      .\end{align*}
+    \item 第二个定理借助式\ref{thm:I-8-11},并和前一条证明一致,这里不再赘述.
+  \end{enumerate}
+\end{proof}
+\begin{theorem}
+  {}{I-8-15}
+  设$g_{UV}: U\cap V \to G$是局域平凡$T_U$与 $T_V$之间的转换函数,则在 $U\cap V$上有\[
+    \bm{\Omega}_V = \mathscr{A}\!d_{g^{-1}_{UV}} \bm{\Omega}_U   
+  .\] 
+\end{theorem}
+\begin{proof}
+  以$\sigma_U$和 $\sigma_V$分别代表与 $T_U$ 和$T_V$相应的局域截面,则 \[
+    \bm{\Omega}_V (X,Y) = (\sigma_V^* \bm{\tilde{\Omega}} )(X,Y) = \bm{\tilde{\Omega}}(\sigma_{V*}X, \sigma_{V*}Y)   
+  .\] 
+  根据式\ref{eq:I-2-6}我们知道
+  \begin{align*}
+    \sigma_{V*}X &= R_{g_{UV}(x)*} \sigma_{U*}X + \left[ L^{-1}_{g_{UV}(x)*} g_{UV*}(X) \right]^*_{\sigma_V(x)} \\
+    \sigma_{V*}Y &= R_{g_{UV}(x)*}\sigma_{U*} Y + \left[ L^{-1}_{g_{UV}(x)*} g_{UV*}(Y) \right]^*_{\sigma_V(x)} 
+  .\end{align*}
+  对第一行进行分析令$R(X) = R_{g_{UV}(x)*}\sigma_{U*} X,L(X) =\left[ L^{-1}_{g_{UV}(x)*} g_{UV*}(X) \right]^*_{\sigma_V(x)} $,首先$L(X)$是竖直矢量场在 $\sigma_{V}(x)$的值.
+  你可以从图\ref{fig:I-2-2}得出,当然你也可以分析,$g_{UV*}(Y)$是 $g(x)$给出的推前映射,会 把底流形上的矢量 $X$映射到 $G$上的矢量,接下来就是 $G$上
+  的矢量变换.对于第二行式子同理.我们根据定义\ref{def:协变外微分and曲率}给出
+  \begin{align*}
+    \bm{\tilde{\Omega}}(\sigma_{V*}X, \sigma_{V*}Y) &= \bm{\tilde{\Omega}}(R(X)+ L(X),R(Y) + L(Y))\\  
+                                                   = & \bm{\tilde{\Omega}}(R(X),R(Y)) + \bm{\tilde{\Omega}}(R(X),L(Y)) + \bm{\tilde{\Omega}}(L(X)+ R(Y))+ \bm{\tilde{\Omega}}(L(X),L(Y))\\
+                                                   = &  \bm{\tilde{\Omega}}(R(X),R(Y))
+  .\end{align*}
+  后三项均为$0$,因为输入了单竖直矢量.
+  故
+   \begin{align*}
+     \bm{\Omega}_V (X,Y) &= \bm{\tilde{\Omega}}(R_{g_{UV}(x)*}\sigma_{U*} X, R_{g_{UV}(x)*}\sigma_{U*} Y)\\
+                         & = R^*_{g_{UV}(x)} \bm{\Omega}_V (\sigma_{U*}X,\sigma_{U*}Y)\\
+                         & = \mathscr{A}\!d_{g^{-1}_{UV(x)}}(\sigma_{U*}X,\sigma_{U*}Y) \quad \text{定理\ref{thm:I-8-9}}\\
+                         & = \mathscr{A}\!d_{g^{-1}_{UV(x)}}(\sigma^*_U \bm{\tilde{\Omega}}(X,Y) )\\
+                         & = \mathscr{A}\!d_{g^{-1}_{UV(x)}}\sigma^*_U \bm{\tilde{\Omega}}(X,Y) 
   .\end{align*}
   故\[
-    \left[\frac{\partial \mathscr{L}}{\partial \phi(\theta)} \frac{d \phi(\theta)}{d\theta}\right]_{\theta = 0} = -iq\phi_0 \partial_a\frac{\partial \mathscr{L}}{\partial (\partial_a \phi_0)}
+    \bm{\Omega}_V = \mathscr{A}\!d_{g^{-1}_{UV}} \bm{\Omega}_U   
   .\] 
-  对于第二项,有\[
-    \left.\frac{d(\partial_a \phi(\theta))}{d \theta} \right|_{\theta = 0}= \partial_a(\left.\frac{d\phi(\theta)}{d \theta}\right|_{\theta = 0}) = -iq (\partial_a\phi_0)
-  .\] 
-  以及\[
-    \left.\frac{\partial \mathscr{L}}{\partial (\partial_a \phi(\theta))} \right|_{\theta = 0}= \frac{\partial \mathscr{L}}{\partial (\partial_a \phi_0)}
- .\]
- 故\[
-   \left[  \frac{\partial \mathscr{L}}{\partial (\partial_a \phi(\theta))} \frac{d(\partial_a \phi(\theta))}{d \theta} \right]_{\theta = 0} =-iq (\partial_a\phi_0) \frac{\partial \mathscr{L}}{\partial (\partial_a \phi_0)} 
- .\] 
- 前两项明显满足莱布尼兹律最终给出结果$-iq \partial_a (\phi_0 \frac{\partial \mathscr{L}}{\partial (\partial_a)\phi_0} )$,而$\mathscr{L}$的形式我们也知道,可以给出\[
- \frac{\partial \mathscr{L}(0)}{\partial (\partial_a\phi_0)}  =   \frac{\partial (-[(\partial^a \overline{\phi}_0)\partial_a \phi_0 + m^2\phi_0 \overline{\phi}_0])}{\partial (\partial_a\phi_0)} = -(\partial^a \overline{\phi}_0)
- .\] 
- 故前两项之和为$iq\partial_a(\phi_0 \partial^a \overline{\phi}_0)$,第三项和第四项之和步骤和前面完全相同,不过需要添加负号,并对$\phi_0$取复共轭.最后给出\[
- 0 = iq\partial_a(\phi_0 \partial^a \overline{\phi}_0 - \overline{\phi}_0 \partial^a \phi_0)
- .\] 
- 我们去掉下标$0$,以 $\phi$代表正路场.给出 \[
- iq\partial_a(\phi \partial^a \overline{\phi} - \overline{\phi} \partial^a \phi) = 0
- .\] 
- 令 \[
- J^a \equiv ieq (\phi \partial^a \overline{\phi} - \overline{\phi} \partial^a \phi)
- .\] 
- 其中$e$代表基本电荷.则有 $\partial_a J^a = 0$,故 $J^a$代表某种守恒流密度.
 \end{proof}
-\begin{remark}
- \begin{enumerate}
-   \item 物理上把$J^0$解释为场的电荷密度, $\partial_\mu J^\mu$反应的是电荷守恒律.
-   \item 式\ref{eq:I-4-1}代表的场变换叫做\textbf{规范变换(gauge transformoration)}关键点聚焦于对称变换,而式\ref{eq:I-4-1}中的变换
-     因为与时空点无关,又叫做\textbf{整体规范变换}
- \end{enumerate} 
-\end{remark}
-
-上面的整体规范变换也可以推广到多分量的复场,考虑含有$N$个复分量的复场$\{\phi_n, n = 1, \cdots ,N\}$,如果这个复场的拉式密度满足\[
-\mathscr{L} = \mathscr{L}(\phi_n \overline{\phi}_n, \partial_a \phi_n \partial^a \overline{\phi_n},\cdots)
+\begin{theorem}
+  {}{I-8-16}
+  当结构群是矩阵群是,定理\ref{thm:I-8-15}给出的公式转变为\[
+    \bm{\Omega} = g^{-1}_{UV} \Omega_U g_{UV} 
+  .\] 
+\end{theorem}
+\begin{note}
+ 主要是因为在矩阵群时$\mathscr{A}\!d_{g}A = g A g^{-1}$ 
+\end{note}
+\chapter{矢丛上的联络和协变导数(Connections and Covariant Derivatives in a Vector Bundle)}
+与主丛$P$类似,矢丛 $Q$的任意点 $q$的切空间 $T_qQ$也天然存在竖直子空间 $V_q \subset T_q Q$,定义为\[
+  V_q := \left\{ X \in T_qQ  \mid \hat{\pi}_*(X) = 0 \right\} 
 .\] 
-上述式子意思是$\mathscr{L}$依赖于场,但是每一含有$\phi_n$的项必有 $\overline{\phi}_n$,含$\partial_a \phi_n$的项必含 $\partial^a \overline{\phi}_n$,这样就会使得场在如下的变换下,保证拉式密度不变.\[
-  \phi'_n = e^{-iq_n \theta} \phi_n, \quad \overline{\phi'}_n = e^{-iq_n \theta} \overline{\phi}_n \quad i = 1, \cdots ,N
-.\] 
-上面的场变换也可以写成矩阵的形式\[
-\begin{bmatrix}  \phi_1'\\ \vdots \\ \phi'_N\end{bmatrix} = 
-\begin{bmatrix} e^{-iq_1\theta}&&0\\&\ddots& \\ 0 && e^{-iq_N \theta}  \end{bmatrix} 
-\begin{bmatrix} \phi_1 \\ \vdots \\ \phi_N \end{bmatrix} 
-.\] 
+因为$\hat{\pi}$是伴丛上天生就有的,但是要衡量水平子空间的话,我们要引入矢丛$Q$的联络.矢丛上的每根fiber $\hat{\pi}^{-1}[x]$是实(复)矢量空间,
+用实(复)数$c$对 $\hat{\pi}^{-1}[x]$ 任一点$q$的数乘结果仍是 $\hat{\pi}^{-1}[x]$ 的点.定义映射$\zeta_c : Q\to Q$为
 \[
-\begin{bmatrix}  \phi_1'& \ldots & \phi'_N\end{bmatrix} = 
-\begin{bmatrix} \phi_1 & \ldots & \phi_N \end{bmatrix} 
-\begin{bmatrix} e^{iq_1\theta}&&0\\&\ddots& \\ 0 && e^{iq_N \theta}  \end{bmatrix} 
+  \zeta_c := cq = p\cdot cf\quad \forall q \in Q 
 .\] 
+不难得出$\zeta_c$是同胚映射.
+ \begin{definition}
+   {}{矢丛联络} 
+   矢丛$Q$上的一个\textbf{联络}是对每点 $q \in Q$指定一个水平子空间$H_p \subset T_q Q$,满足
+   \begin{enumerate}
+     \item $T_q Q = V_q \oplus H_q$ 
+     \item $\zeta_{c*} [H_q] = H_{\zeta_c(q)} = H_{cq}, \quad \forall  q \in Q , c \in \mathbb{R}(\mathbb{C}) ,c \neq 0$
+     \item $H_q$光滑地依赖于 $q$.
+   \end{enumerate}
+\end{definition}
+\begin{note}
+  不指定联络的情况下,我们是否可以讨论竖直分量,不是天然存在竖直子空间吗,答案是否定的,因为指定了水平子空间,我们才能唯一指定X的竖直分量;
+  还有一点值得说明的是第二条要求,和\ref{def:联络-1}不同,矢丛上的联络定义的搬运只局限于数乘变换,也就是说只有数乘的关系给出的联络是相同的.
+\end{note}
+\begin{theorem}
+  {}{I-9-1}
+  设$Q$为矢丛, $q \in Q$,以$X^V$代表 $X \in T_q Q$的竖直分量,则\[
+    (c_1 X_1 + c_2 X_2)^V = c_1X_1^V + c_2 X_2^V \quad \forall X_1,X_2 \in  T_q Q, c_1,c_2 \in \mathbb{R}(\mathbb{C})  
+  .\] 
+\end{theorem}
+\begin{proof}
+对任意$X_1, X_2 \in T_qQ$及标量$c_1, c_2$，考虑线性组合$X = c_1X_1 + c_2X_2$的分解：
+由切空间分解定理，存在唯一的竖直分量$X^V \in V_qQ$和水平分量$X^H$使得
+\[
+X = X^V + X^H
+\]
+同理对$X_1,X_2$分解为：
+\[
+\begin{cases}
+X_1 = X_1^V + X_1^H \\
+X_2 = X_2^V + X_2^H
+\end{cases}
+\]
+代入线性组合得：
+\[
+c_1X_1 + c_2X_2 = c_1(X_1^V + X_1^H) + c_2(X_2^V + X_2^H) = (c_1X_1^V + c_2X_2^V) + (c_1X_1^H + c_2X_2^H)
+\]
 
-从群论的角度来看,式\ref{eq:I-4-1}代表的变换是酉群$U(1)$,可见例\ref{ex:G-5-1}.
-事实上集合\[
-  \hat{G} \equiv \{\text{diag} (e ^{-iq \theta}, \cdots , e^{-i q_N \theta}) \mid \theta \in \mathbb{R} \}
-.\] 
-是群,而且同态映射\[
-  \rho : U(1) \to \hat{G}, \quad  e^{-i\theta} \mapsto \text{diag}(e^{-iq_1\theta},\cdots , e^{-iq_N \theta})
-.\] 
-是$U(1)$群的表示.注意分清李群和表示的维数,在本例而言第一个表示的维度是1,和 $U(1)$群一样,第二个是 $N$.注意辨别.
-\section{非阿贝尔情况(The Non-Abelian Case)}
-  上一小节的整体规范变换只涉及阿贝尔群$U(1)$,本节我们来看非阿贝尔群 $SU(2)$.在物理中质子与质子之间的强相互作用力
-  和中子与中子的强相互作用力是一样的,与粒子所带电荷不同.海森堡于是提出质子和中子可看作一种粒子(核子necleon)的不同状态(同位旋态).
-  核子的同位旋可以用以下波函数描述\[
- \phi = \begin{bmatrix} \phi_1 \\ \phi_2 \end{bmatrix}  
+由于$V_qQ$是线性子空间，$c_1X_1^V + c_2X_2^V \in V_qQ$，而水平分量的线性组合仍属于水平子空间。根据分解的唯一性可得：
+\[
+(c_1X_1 + c_2X_2)^V = c_1X_1^V + c_2X_2^V
+\]
+\end{proof}
+\begin{theorem}
+  设$Q$是带联络的矢丛, $ \eta: I\to M$是底流形上的曲线,$x_0 \equiv \eta(0)$,则 $\forall q \in \hat{\pi}^{-1}[x_0] \subset Q$,$\exists \eta(t)$的唯一水平提升曲线$\hat{\eta}(t)$,满足$\hat{\eta}(0) = q$
+\end{theorem}
+\begin{proof}
+  参考定理\ref{thm:I-2-6}的说明.
+\end{proof}
+\begin{theorem}
+  {}{I-9-6}
+  主丛$P$上的任一联络在其伴矢丛 $Q$上自然诱导一个联络
+\end{theorem}
+\begin{proof}
+  $\forall q \in Q, \exists p \in P, f\in F$给出$q = p \cdot f$,每一个$f$一定可以生出一个映射 $\psi_f:P \to Q$定义为\[
+ \psi_f(p) := p \cdot f \in Q 
   .\] 
-  由于不同状态的核子的强相互作用力是相同的,也就意味着在同位旋态之间的变换保持拉式密度不变.我们先来看如何实现同位旋变换,应该满足方程\[
-    \begin{bmatrix} \phi'_1\\\phi'_2  \end{bmatrix}  
-    = \begin{bmatrix} U_{11}&U_{12}\\ U_{21}& U_{22} \end{bmatrix} 
-    \begin{bmatrix} \phi_1 \\\phi_2 \end{bmatrix} 
-    ,\quad U_{11},U_{12}, U_{21},U_{22} \in \mathbb{C} 
+  利用这一映射就可以借助$p \in P$的水平子空间$H_p$定义 $q$点的水平子空间为 \[
+    H_q := \psi_{f*}[H_p] 
   .\] 
-  以$U$代表矩阵,则上式可以写为 $\phi' = U \phi$,我们先来看 $U$满足什么条件,量子力学中要求波函数的概率是归一的,也就是 \[
-    (\phi,\phi) = 1 = (\phi',\phi') = (U\phi,U\phi) = (U^\dagger U\phi,\phi) 
-  .\] 
-  表明$U^\dagger U = I$,所以 $U\in U(2)$,对两边取行列式得\[
-    1 = \det{I}  = \det{(U^\dagger U)} = \det{U^\dagger} \det{U} = \overline{\det{U}}\det{U} =  |\det{U}|^2 
-  .\] 
-  故有$\det{U} = e^{i\alpha} , \alpha \in \mathbb{R}$.令$U = U_1U_2$,其中 $U_2 = \text{diag}(e^{i\frac{\alpha}{2}},e^{i \frac{\alpha}{2}})$,则$\det{U_2}=e^{i\alpha}$,我们有\[
-    e^{i\alpha} = \det{U} = \det{U_1 U_2} = \det{U_1} \det{U_2} = \det{U_1}e^{i\alpha}  
-  .\] 
-  故$\det{U_1} = 1$,又因为 $U_2 \phi = e^{i \frac{\alpha}{2}} \phi$,只给波函数带来相位变化,而又因为波函数的相位变化不会带来物理实质的改变,故$U_2\phi$和 $\phi$是同一量子态.
-  故我们可以使用 $U_1$代替 $U$实现同位旋状态的改变,并省略下标给出 \[
-    \phi' = U\phi,\quad \det{U} = 1 
-  .\] 
-  省略下标后的$U(\text{即}U_1) \in SU(2)$.
-
-$\phi$在量子场论中代表场算符,因此 $\phi' = U \phi$是场变换(内部变换),核子系统的拉式密度 $\mathscr{L}$在$SU(2)$变换下不变,对应的守恒律就是同位旋守恒.为了不过分陷于物理,这里点到即止.
-
-这里我们来看 $SU(2)$怎么样表达.因为 $U \in SU(2)$,故\[
-  U = \text{Exp}(A) \quad A\in \mathscr{SU}(2) = \text{span}(-\frac{i}{2}\tau_1,-\frac{i}{2}\tau_2,-\frac{i}{2}\tau_3)
-.\] 
-其中$\tau_1,\tau_2,\tau_3$见例\ref{ex:G-6-4},则$A$可以写为 \[
-  A = -\frac{i}{2}(\theta^1\tau_1 + \theta^2 \tau_2 +\theta^3 \tau_3) = -\frac{i}{2} \vec{\tau}\cdot \vec{\theta} 
-.\] 
-则$U$可以表示为 \[
-  U(\vec{\theta}) = \text{Exp}(- \frac{i}{2} \vec{\tau}\cdot \vec{\theta}) = e^{- \frac{i}{2} \vec{\tau}\cdot \vec{\theta}}
-.\] 
-因$\tau_1,\tau_2,\tau_3$是 $2\times 2$复矩阵,则$e^{-i \frac{i}{2}\vec{\tau}\cdot \vec{\theta}}$ 也是.把群元写成$e^{-\frac{i}{2} \vec{\tau}\cdot \vec{\theta}}$ 实际上采用的是 $3$维李群 $SU(2)$的(复)2维表示,也是 $SU(2)$的自身表示.表示的
-维数指的是李群可以使用李群的矩阵表示作用的表示空间的维数.表示空间在这里具体体现为$\phi$的维数,也就是2维.我们以$V$来代表表示空间.根据不同的物理需要,还会
-用到 $SU(2)$[或SU(3),SU(4),$\cdots$,SU(N)]等其它维的表示.
- 
-一般而言,规范场论涉及一个李群(内部变换群)$G$和一个或多个矩阵李群 $\hat{G}$,而且存在同态映射$\rho$\[
- \rho : G \to \hat{G} 
-  .\] 
+  但是$q$并不唯一对应于一个 $p$.我们取轨道的另一个点 $(p',f')$,则有 $q = \psi_{f'}(p')$.我们依旧可以通过 $\psi_{f'}(p')$诱导
+  出另一个水平子空间 $H_q' = \psi_{f'*}[H_{p'}]$.好在 $p,p'$是在同一根fiber上,满足关系 $ p' = pg$,我们可以给出 $\psi_f$,和
+  $\psi_{f'}$的关系
+   \begin{align*}
+     \psi_f(p) = p \cdot f = pg \cdot g^{-1} f = R_g(p) \cdot f' = \psi_{f'}(R_g(p)) = (\psi_{f'}\circ R_g)(p)
+  .\end{align*}
+  故
+  \begin{align*}
+    H_q' = \psi_{f'*}[H_{pg}] = \psi_{f'*}[R_{g*} H_p] = (\psi_{f'*} \circ R_{g_*})[H_p] = (\psi_{f'} \circ R_g)_*[H_p] = \psi_{f*}[H_p] = H_q
+  .\end{align*}
+   由此可见我们可以在$q$点诱导一个确定的水平子空间,接下来我们证明这个子空间构成联络,只需要验证满足定义\ref{def:联络-1}的三个条件即可.
   \begin{note}
-    内部变换群不一定是矩阵群$G$,但是可以有矩阵表示,就是矩阵李群$\hat{G}$
+   可以按照相同的定义把联络的定义从主丛搬到更一般的纤维丛上.即也可以用到伴丛上.
+   \end{note}
+  \begin{enumerate}
+    \item  ($T_qQ = V_q \oplus H_q$): $\forall X \in T_qQ$,令$Y \equiv \hat{\pi}_*X$,以$\tilde{Y}$ 代表$Y$在 $p$的水平提升,令 $X_2 \equiv \psi_{f*} \tilde{Y} \in H_q$,令$X_1 \equiv X - X_2$,则\[
+        \hat{\pi}_{*}X_1 = \hat{\pi}_{*}X - \hat{\pi}_{*}X_2 =  Y - (\hat{\pi}_{*} \circ \psi_{f*})(\tilde{Y}) = Y - (\hat{\pi}\circ \psi_f)_* \tilde{Y} = Y - \pi_* \tilde{Y} = Y-Y = 0
+    .\] 
+    分解的唯一性只需要我们验证$Y$是唯一的即可,假设存在 $Y' \neq Y$,但是$Y' = \hat{\pi}_*X$,因为推前映射是线性的故
+    \begin{align*}
+      Y - Y' = \hat{\pi}_{*} X  - \hat{\pi}_{*} X = \hat{\pi}_{*} (X -X) = \hat{\pi}_{*} 0 = 0
+    .\end{align*}
+    与假设矛盾,故分解的唯一性成立.
+  \item ($\zeta_{c*} [H_q] = H_{cq}$):由$q = p \cdot f$得到$\zeta_c(q) = cq = p\cdot cf = \psi_{cf}(p)$,又因为$q = \psi_f(p)$,所以\[
+      \psi_{cf}(p) = \zeta_c(q) = \zeta_c(\psi_f(p)) = (\zeta_c \circ \psi_f)(p) 
+  .\] 
+  即$\psi_{cf} = \zeta_c \circ \psi_f$,那么
+    \[
+      \zeta_{c*}[H_q] = \zeta_{c*}[\psi_{f*}[H_p]] = (\zeta_{c*} \circ \psi_{f*})[H_p] = (\zeta_c \circ \psi_f)_*[H_p] = \psi_{cf*}[H_p] = H_{p\cdot cf} = H_{cq}
+    .\] 
+  \item 由于$H_p$光滑地依赖于 $p$, $\psi_f$是光滑映射由底流形保证,故 $H_q$光滑地依赖于 $q$.
+  \end{enumerate}
+\end{proof}
+\begin{theorem}
+  {}{I-9-7}
+  设伴矢丛$Q$的联络由主丛 $P$的联络诱导而得, $\tilde{\eta}(t)$ 是曲线$\eta(t)$在 $P$上的水平提升曲线,则
+  \begin{center}
+   $\hat{\eta}(t)$ 是$\eta(t)$在 $Q$上的水平提升曲线 $\Leftrightarrow$ 当且仅当 $f \in F$, $\hat{\eta}(t) = \tilde{\eta}(t) \cdot f$
+ \end{center}
+\end{theorem}
+\begin{proof}
+  \begin{enumerate}
+    \item($\Leftarrow$) 首先我们有\[\hat{\eta}(t) = \tilde{\eta}(t) \cdot f = \psi_f(\tilde{\eta}(t)).\]
+      则
+      \begin{align*}
+        \frac{d}{dt}(\hat{\eta}(t)) =  \frac{d}{dt} \psi_f(\tilde{\eta}(t)) = \psi_{f*}\frac{d}{dt} (\tilde{\eta}(t))
+      .\end{align*}
+      设$Y = \frac{d}{dt} (\tilde{\eta}(t)) \in H_{\tilde{\eta}(t))}$,则$\psi_{f*}Y \in H_{\hat{\eta}(t)}$,即我们验证$\hat{\eta}(t)$是水平曲线,我们还应该验证它是$\eta(t)$的水平提升.
+      \begin{align*}
+        \hat{\pi}(\hat{\eta}(t)) = \hat{\pi}(\tilde{\eta}(t)\cdot f) = (\hat{\pi} \circ \psi_f)(\tilde{\eta}(t)) = \pi(\tilde{\eta}(t)) = \eta(t)
+      .\end{align*}
+      导数第二个括号是因为我们在定义伴丛的时候,给出$\hat{\pi}(q) := \pi(p)$,即\[
+        \pi(p) = \hat{\pi}(p\cdot f) = (\hat{\pi} \circ {\psi_f})(p)
+      .\] 
+    \item ($\Rightarrow$) 令$q \equiv \hat{\eta}(0), p \equiv \tilde{\eta}(0)$,则存在$f \in F$满足\[
+   q = p\cdot f 
+    .\] 构造曲线$\mu(t) \equiv \tilde{\eta}(t) \cdot f$,仿照左方向的证明,可以给出$\mu(t)$是一条水平曲线,我们应该验证 $\mu(t)$和 $\hat{\eta}(t)$重合.因为\[
+   \mu(0) = \tilde{\eta}(0) \cdot f =  p \cdot f = q = \hat{\eta}(0) 
+    .\] 
+    由此可见$\mu(t)$和 $\hat{\eta}(t)$ 均是过$q$点的水平提升曲线.根据定理\ref{thm:I-2-6}给出两条曲线重合.证明结束.
+  \end{enumerate}
+\end{proof}
+
+假设有一个流形$M$, $\nabla_a$是$M$上的导数算符, $v^a$是开集 $U \subset M$上的矢量场,则$v^a$在任一 $x_0 \in U$沿着$T^a \in T_{x_0}M$的协变导数$T^b\nabla _b v^a$有意义.用数学的语言是,
+设$ I $是$\mathbb{R}$的开区间, $\eta: I\to U$是曲线,$x_0 \equiv(0)$,  $T \equiv \left.\frac{d \eta(t)}{dt}\right|_{t = 0} $,则$T^b \nabla _b v^a(\nabla_T v^a)$可以表示为\[
+    \nabla_T v^a \equiv T^b \nabla _b v^a = \lim_{s\to 0} \frac{1}{s}(\tilde{v}^a|_{\eta(s)} - v^a|_{x_0}) 
+.\] 
+\begin{theorem}
+  {}{BI-9-1}
+  设$FM$上的 $\bm{\tilde{\omega}} $ 在$M$上生出 $\nabla_a$,在$TM$上生出 $q \mapsto H_q$,则 $\eta(t) \subset M$在$Q$上的水平提升曲线 $\hat{\eta}(t)$ 是$\eta(t)$上的平移矢量场.
+\end{theorem}
+\begin{proof}
+  令$x_0 = \eta(0),p = (x_0,e_\mu)$,我们可以在底流形上平移标架得到标架场 $\overline{e}_\mu$,满足\[
+ Y^b \nabla_b (\overline{e}_\mu)^a = 0 \quad Y = \frac{d}{dt}(\eta(t)) 
+  .\] 
+  所以我们可以给出在主丛上的水平提升曲线是\[
+    \tilde{\eta}(t) = (\eta(t) ,\overline{e}_\mu|_{\eta(t)}) 
+  .\] 
+  而根据定理\ref{thm:I-9-7},可以给出在$Q$上的水平提升曲线为 $\hat{\eta}(t) = \tilde{\eta}(t) \cdot f$,即\[
+    \hat{\eta}(t) = (\eta(t),\overline{e}_\mu|_{\eta(t)}) \cdot f^\mu 
+  .\] 
+  仿照例\ref{ex:I-3-4}我们给出矢量场是\[
+    \overline{v}^a|_{\eta(t)} = (\overline{e}_\mu)^a|_{\eta(t)} f^\mu 
+  .\] 
+  也就是说我们认为$\hat{\eta}(t)$ 上的一个点就是一个矢量.接下来我们需要证明这个矢量场是沿着$\eta(t)$平移的. 
+  \[
+ Y^b \nabla_b \overline{v}^a = Y^b \nabla_b(f^\mu (\overline{e}_\mu)^a) = f^\mu Y_b (\overline{e}_\mu)^a = 0 
+  .\] 
+  由此我们说明了底流形上的导数算符,和由$\bm{\tilde{\omega}} $ 生成的$Q$上的联络是互恰的. 互恰的形式由定理\ref{thm:BI-9-1}表述.
+\end{proof}
+\begin{definition}
+  {截面场的协变导数}{截面场的协变导数} 
+  设$Q$是带联络的矢丛, $\hat{\sigma}:U\to Q$ 是局域截面.为定义$\hat{\sigma}$ 沿点$X_0 \in U$的矢量$T \in T_{x_0}U$的协变导数$\nabla_T \hat{\sigma}$,取曲线$\eta:I \to U$使得$x_0 \equiv \eta(0), T\equiv \left.\frac{d \eta(t)}{dt}\right|_{t = 0} $,把$\eta(t)$过点 $\hat{\sigma}(\eta(s))$ 的水平提升记作$\hat{\eta}_s(t)$ 则\[
+      \nabla_T \hat{\sigma}: =\lim_{s \to 0} \frac{1}{s}[\hat{\eta}_s(0) - \hat{\eta}_0(0)] 
+  .\] 
+\end{definition}
+\begin{note}
+  书上P1150图反应了协变导数的关系,这里叙述一下理解:在$Q$上的局域截面,不一定是水平截面,也就给区域 $U$选定了一个矢量场,为了定义一个区域的协变导数,我们需要知道求哪个方向的导数,这就是 $T$所反映的,当确定方向后,为了能够使得矢量进行运算,我们需要将其放进一个矢量空间中,平移确保了矢量在转换空间时没有
+  变形,而根据定理\ref{thm:BI-9-1},我们只需要选择 $\eta(t)$过 $\hat{\sigma}(\eta(s))$ 点的水平提升曲线$\hat{\eta}_s(t)$,这一曲线反应的是沿着$\eta(t)$方向对 $\eta(s)$点的矢量进行平移.根据我们的要求,只需要取 $t = 0$,就将矢量平移到$x_0$点,随后我们可以进行矢量的导数求解.
+\end{note}
+
+接下来我们厘清一些概念:设$V$是 $n$维矢量空间, $\{e_\mu\}$是 $V$选定的基底,每一个 $v \in V$均可以按照基矢进行分解得到, $\{v^\mu\}$.但是矢量空间本质上是定义在流形上的一点的切空间,而我们常说$V$是一个流形,我们接下来说明二者之间的联系. $v$在基矢的分解写为
+ \[
+v = e_\mu v^\mu
+.\] 
+原因是我们可以把$v^\mu$看作一个坐标,这样 $V$就可以认为是 $\mathbb{R}^n$,因 此矢量空间就构成了一个平凡的流形,为了更清楚表述,我们将 $v$改成 \[
+v = e_\mu x^\mu
+.\] 
+我们在流形$V$上选定一点$v_0$,则 流形 $V$可以看作是 $v_0$的切空间,原因是因为整个 $V$的坐标是 $x^\mu$,我们可以生成$v_0$坐标基矢场$\frac{\partial   }{\partial x^\mu}|_{v_0} $,则有\[
+  \vec{v} \equiv \frac{\partial   }{\partial x^\mu}|_{v_0} x^\mu \in T_{v_0}V 
+.\] 
+我们把$\{e_\mu\}$和 $\frac{\partial   }{\partial x^\mu}|_{v_0}$认同,则我们在矢量空间选定一点 $v_0$,则整个矢量空间可以看作是 $v_0$的切空间.这一概念其实我们经常使用.也就是说 $v_0$点的切空间是一个流形.为此我们也有一个结论,设在流形 $V$上有一个曲线 $\gamma(t)$,若
+其坐标的参数式给出,我们有 \[
+\left.\frac{d}{dt}\right|_{t = 0} \gamma(t) = \left.\frac{\partial}{\partial x^\mu}\right|_{\gamma(0)} \left.\frac{d x^\mu(t)}{dt}\right|_{t = 0}  
+.\] 
+我们令$v_0 = \gamma(0)$,我们还可以给出另一个等式 
+\begin{align*}
+  \left.\frac{d}{dt}\right|_{t = 0} \gamma(t) \equiv& = \lim_{t\to 0} \frac{1}{t} [\gamma(t) - \gamma(0)]\\
+                                                    & = \lim_{t\to  0}\frac{1}{t}[e_\mu x^\mu(t) - e_\mu x^\mu(0)] \\
+                                                    & = e_\mu \lim_{t\to 0} \frac{1}{t} [x^\mu(t) - x^\mu(0)] \\
+                                                    & = e_\mu \left.\frac{d x^\mu(t)}{dt}\right|_{t = 0} 
+  \end{align*} 
+  我们把$e_\mu$和 $\frac{\partial   }{\partial x^\mu} $ 认同,所以在矢量空间下$\frac{d}{dt} $ 即可以理解为求切矢,也可以理解为求导.也就是说协变导数给出了$v_0$的切空间的一个竖直矢量.
+
+ \begin{theorem}
+   {}{I-9-3}\[
+  \nabla_T \hat{\sigma} = (\hat{\sigma}_* T)^V 
+   .\] 
+\end{theorem}
+\begin{proof}
+  设$\eta(s):I \to U$是含$x_0$的开集 $U \subset M$中的曲线,$I \subset \mathbb{R}$,满足$\eta(0) = x_0, \left.\frac{d \eta(t)}{dt}\right|_{t = 0}  = T$. 定义映射$\phi : I \times I (\subset \mathbb{R}^2) \to \hat{\pi}^{-1}[U]$ 为 \[
+ \phi(t,s) := \hat{\eta}_s(t), \quad \forall (t,s) \in I\times I 
+  .\] 
+  其中$\hat{\eta}_s(t)$ 是一条水平提升曲线,$t$是水平提升曲线的参数,当$s = t$时,此水平提升曲线和 $\hat{\sigma}(\eta(s))$ 相交.
+
+  令$\lambda(t) = (t,t)$代表区域 $I\times I$的对角线,则 \[
+ \phi(\lambda(t)) = \phi(t,t) =  \hat{\eta}_t(t) = \hat{\sigma}(\eta(t))
+  .\] 
+  我们研究的是截面场的导数,可以写为
+  \begin{align*}
+    \left.\frac{d}{dt}\right|_{t = 0} \phi(\lambda(t)) = \left.\frac{d}{dt}\right|_{t = 0} \hat{\sigma}(\eta(t)) = \hat{\sigma}_{*} \left.\frac{d}{dt}\right|_{t = 0}(\eta(t)) = \hat{\sigma}_* T
+  .\end{align*}
+另一方面
+\begin{align*}
+  \left.\frac{d}{dt}\right|_{t = 0} \phi(\lambda(t)) &= \left.\frac{d}{dt}\right|_{t = 0} \phi(t,t) = \left.\frac{d}{dt}\right|_{t = 0}\phi(t,0) + \left.\frac{d}{d s}\right|_{s = 0} \phi(0,s)\\
+                                                     & = \left.\frac{d}{dt}\right|_{t = 0}\hat{\eta}_{0}(t) + \left.\frac{d}{d s}\right|_{s = 0} \hat{\eta}_s(0)
+\end{align*}
+我们逐项来看
+\begin{align*}
+  \left.\frac{d}{dt}\right|_{t = 0}\hat{\eta}_{0}(t)  \in H_{\hat{\sigma}(0)} 
+.\end{align*}
+\begin{align*}
+  \left.\frac{d}{d s}\right|_{s = 0} \hat{\eta}_s(0) = \lim_{s \to 0} \frac{1}{s}[\hat{\eta}_s(0) - \hat{\eta}_0(0)] = \nabla_T \hat{\sigma} \in V_{\hat{\sigma}(0)} 
+.\end{align*}
+故
+\begin{align*}
+ \nabla_T \hat{\sigma} = \left( \left.\frac{d}{dt}\right|_{t = 0} \phi(\lambda (t))  \right)^V = (\hat{\sigma}_* T)^V
+.\end{align*}
+\end{proof}
+\begin{theorem}
+  {}{I-9-4} 
+  设$Q$是带联络的矢丛, $\eta:I \to M$是曲线,$x_1 \equiv \eta(t_1), x_2 \equiv \eta(t_2)$,则矢量空间 $\hat{\pi}^{-1}[x_1]$ 与$\hat{\pi}^{-1}[x_2]$ 之间存在同构映射$\beta_{12}: \hat{\pi}^{-1}[x_1] \to \hat{\pi}^{-1}[x_2]$,定义如下:
+  \begin{center}
+    $\forall q \in \hat{\pi}^{-1}[x_1]$,以$\hat{\eta}(t)$ 代表$\eta(t)$满足 $\hat{\eta}(t_1) = q $ 的水平提升,则$\beta_{12}(q) := \hat{\eta}(t_2)$ 
+  \end{center}
+\end{theorem}
+\begin{proof}
+  \begin{enumerate}
+  \item (线性性):在 $\hat{\pi}^{-1}[x_1]$ 任取两点$q,q' \in \hat{\pi}^{-1}[x_1]$ 对于标量给出$a,b \in \mathbb{R}(\mathbb{C})$,构造曲线\[\gamma(t) \equiv a \hat{\eta}(t) + b \hat{\eta}'(t).\]
+    其中$\hat{\eta}(t_1) = q,\quad \hat{\eta}'(t_1) = q'$.不难验证$\gamma(t)$是过 $aq + aq'$的水平提升曲线.则根据$\beta_{12}$的定义给出 \[
+      \beta_{12}(a q + aq') = \gamma(t_2) = a \hat{\eta}(t_2) + b \hat{\eta}'(t_2) = a \beta_{12}(q) + b \beta_{12}(q')
+    .\] 线性性成立
+  \item(一一到上): 一一: 若$\beta_{12}(q) = \beta_{12}(q')$,则$\hat{\eta}(t_2) = \hat{\eta}'(t_2)$,根据定理\ref{thm:I-2-6}给出,$\hat{\eta} = \hat{\eta}'$,则有$\hat{\eta}(t_1) = \hat{\eta}'(t_1)$,即\[
+ q = q' 
+  .\]一一性成立.\\
+  到上:到上要求像空间每点都有逆元,这要求我们给出逆映射$\beta_{21}$,我们可以仿照定义给出
+  \begin{center}
+    $\forall q \in \hat{\pi}^{-1}[x_2]$,以$\hat{\eta}'(t)$ 代表$\eta(t)$满足 $\hat{\eta}'(t_2) = q $ 的水平提升,则$\beta_{12}^{-1}(q) := \hat{\eta}'(t_1)$ 
+  \end{center}
+  我们需要验证我们给出的定义是满足逆映射的要求,首先给定一点$q_2$我们总可以找到对应的像 $\hat{\eta}'(t_1)$,由于水平提升曲线是唯一的,我们给出\[
+ \hat{\eta}_1 = \hat{\eta}_2 
+  .\] 
+  为了使得叙述更清楚,我们使得$\hat{\eta}$ 带上指标$1,2$,反应出 $x_1,x_2$的水平提升曲线.两个曲线相等也就意味着 \[
+    \beta_{12}(\hat{\eta}_2(t_1)) =  \beta_{12}(\hat{\eta}_1(t_1)) = \hat{\eta}_1(t_2) = \hat{\eta}_2(t_2)
+  .\] 
+  即\[
+    \beta_{12}\circ \beta_{12}^{-1} =  I
+  .\] 
+  同理,可以验证$    \beta_{12}^{-1}\circ \beta_{12} =  I$.我们给出逆映射,也就意味这到上性成立.
+\end{enumerate}
+一一到上的线性矢量空间就是同构的.
+\end{proof}
+
+设$Y$是 $U \subset M$上的矢量场,可以定义截面$\hat{\sigma}$ 沿着$Y$的协变导数 $\nabla_Y \hat{\sigma}$,根据定理\ref{thm:I-9-3},$\nabla_Y \hat{\sigma}$也是矢量,故$\nabla_Y \hat{\sigma}$
+也是一个截面,含义是$(\nabla_Y \hat{\sigma})(x) \equiv \nabla_T \hat{\sigma}, \quad x \in U, T \equiv Y|_x$;更进一步的说,令$\hat{\sigma}: U\to Q$ 和$\hat{\sigma}': U\to Q$ 都是截面,$\lambda$是 $U$上的函数,我们可以给出 $\hat{\sigma} + \hat{\sigma}'$和$\lambda \hat{\sigma}$的定义,使得它们的
+结果也是$U$上的截面.
+ \begin{itemize}
+   \item $(\hat{\sigma} + \hat{\sigma}')(x) := \hat{\sigma}(x) + \hat{\sigma}'(x),\quad \forall x \in U$,右面的加法是矢量空间的加法.
+   \item $\left( \lambda \hat{\sigma} \right)(x) := \lambda(x) \hat{\sigma}(x), \quad \forall x \in  U$,右面的数乘是矢量空间的数乘.
+\end{itemize}
+\begin{theorem}
+ 设$\hat{\sigma}: U\to Q$ 和$\hat{\sigma}': U\to Q$ 都是截面,$\lambda$是 $U$上的函数, $Y$和 $Y'$都是 $U$上的矢量场,则
+ \begin{enumerate}
+   \item $\nabla_{Y+Y'} \hat{\sigma} = \nabla_Y \hat{\sigma} + \nabla_{Y'} \hat{\sigma}$ ;
+   \item $\nabla _Y(\hat{\sigma} + \hat{\sigma}') = \nabla_Y \hat{\sigma} + \nabla_Y \hat{\sigma}'$ ;
+   \item $\nabla _{\lambda Y} \hat{\sigma} = \lambda\nabla_Y \hat{\sigma} $ ;
+   \item $\nabla_Y(\lambda \hat{\sigma}) = \lambda \nabla_Y \hat{\sigma} + Y(\lambda) \hat{\sigma}$,$Y(\lambda)$是 $Y$作用在 $\lambda$给出的函数.
+ \end{enumerate}
+\end{theorem}
+\begin{proof}
+ \begin{enumerate}
+   \item 根据定理\ref{thm:I-9-3},我们有
+     \begin{align*}
+       \nabla_{Y+Y'} \hat{\sigma} &= (\hat{\sigma}_*(Y + Y'))^V\\
+                                  & = (\hat{\sigma}_* Y)^V + (\hat{\sigma}_* Y')^V \quad \text{定理\ref{thm:I-9-1}}\\
+                                  & = \nabla_Y \hat{\sigma} + \nabla_{Y'} \hat{\sigma}
+     .\end{align*}
+   \item 对于任一点 $x \in U$,有$\left.\frac{d}{dt}\right|_{t = 0} \eta(t) =T = Y|_x $,$\eta(t)$是矢量场 $Y$满足 $\eta(0) = x$的积分曲线.我们可以给出
+     \begin{align*}
+       [\nabla _Y(\hat{\sigma} + \hat{\sigma}')](x) & = \nabla_T[(\hat{\sigma} + \hat{\sigma}')] 
+                                                    = ((\hat{\sigma} + \hat{\sigma}')_*T)^V \quad \text{定理 \ref{thm:I-9-3}} \\
+                                                    & =\left((\hat{\sigma} + \hat{\sigma}')_* \left.\frac{d}{dt}\right|_{t = 0} \eta(t) \right)^V \\
+                                                    & =\left( \left.\frac{d}{dt}\right|_{t = 0} (\hat{\sigma} + \hat{\sigma}')(\eta(t)) \right)^V \\ 
+                                                    & =\left( \left.\frac{d}{dt}\right|_{t = 0} (\hat{\sigma}(\eta(t)) + \hat{\sigma}'(\eta(t))) \right)^V \\ 
+                                                    & =\left( \left.\frac{d}{dt}\right|_{t = 0} \hat{\sigma}(\eta(t)) + \left.\frac{d}{dt}\right|_{t = 0}\hat{\sigma}'(\eta(t)) \right)^V \\ 
+                                                    & =(\hat{\sigma}_*T + \hat{\sigma}'_*T)^V 
+                                                     =(\hat{\sigma}_*T)^V + (\hat{\sigma}'_*T)^V \\
+                                                    & = \nabla_T\hat{\sigma} + \nabla _T\hat{\sigma}'
+                                                     =  \nabla_Y\hat{\sigma}(x) + \nabla _Y\hat{\sigma}'(x)\\
+                                                    & = [ \nabla_Y\hat{\sigma} + \nabla _Y\hat{\sigma}'] (x)
+     .\end{align*}
+故等式成立.
+\item 这一条和第一条原理相同
+  \begin{align*}
+    \nabla _{\lambda Y} \hat{\sigma} &= (\hat{\sigma}_* (\lambda Y))^V \\
+                                     & =(\lambda \hat{\sigma}_*)^V \quad \text{推前映射线性性}\\
+                                     & = \lambda (\hat{\sigma}_*)^V \quad \text{定理\ref{thm:I-9-1}}\\
+                                     & = \lambda \nabla_Y \hat{\sigma} 
+  .\end{align*}
+\item 第四条和第二条类似,由于第二条足够详细,这里我们列出关键步骤.
+  \begin{align*}
+    \nabla_Y(\lambda \hat{\sigma})(x)& = \left( \left.\frac{d}{dt}\right|_{t = 0} (\lambda \hat{\sigma})(\eta(t))  \right)^V =  \left( \left.\frac{d}{dt}\right|_{t = 0} \lambda(\eta(t)) \hat{\sigma}(\eta(t))  \right)^V\\
+                                  &  = \left(\left(  \left.\frac{d}{dt}\right|_{t = 0} \lambda(\eta(t)) \right) \hat{\sigma}(x) + \lambda(x)\left( \left.\frac{d}{dt}\right|_{t = 0} \hat{\sigma}(\eta(t)) \right)  \right)^V\\
+                                  & = (Y(\lambda))\hat{\sigma}(x) + \nabla_Y(\hat{\sigma})(x) 
+  .\end{align*}
+  故\[
+  \nabla_Y(\lambda \hat{\sigma})  = (Y(\lambda))\hat{\sigma}(x) + \nabla_Y(\hat{\sigma})(x)
+  .\] 
+ \end{enumerate} 
+$\left.\frac{d}{dt}\right|_{t = 0} \lambda(\eta(t)) = Y(\lambda)$,就是我们对$\frac{d}{dt}$ 的不同理解给出的结论.
+\end{proof}
+
+协变导数 $\nabla_T \hat{\sigma}$ 还可以表示为更便于计算的形式.给定带联络的伴丛,我们完全可以找到带联络的主丛$(P,\bm{\tilde{\omega}})$,主丛和伴丛上的联络是融洽的.给定定义域$U \subset M$,我们有
+截面映射$\hat{\sigma}: U\to Q,\sigma:U \to P$,则$\forall x \in U$,我们可以给出$\hat{\sigma}(x),\sigma(x)$,如此可唯一确定一个$f: U\to F$满足\[
+\hat{\sigma}(x) = \sigma(x) \cdot f(x), \quad \forall x \in U 
+.\] 
+仍旧在底流形上选取曲线$\eta : I\to U, \forall s \in I$,以$\tilde{\eta}(s)$ 代表$\eta(t)$过点 $\sigma(s) \equiv \sigma(\eta(s))$的水平提升曲线,我们后面均把 $\eta(s)$简记为 $s$.
+则我们给出\[
+\hat{\sigma}(s) = \sigma(s) \cdot f(s) \quad \forall s \in I 
+.\] 
+我们根据如上讨论,确定了$f(s)$,我们构造 $\mu_s(t)$为 \[
+\mu_s(t) \equiv \tilde{\eta}_s(t) \cdot f(s) 
+.\] 
+定理\ref{thm:I-9-7}保证$\mu_s(t)$是 $\eta(t)$在 $Q$的水平提升曲线,又因为 \[
+\mu_s(s) = \tilde{\eta}_s(s) \cdot f(s) = \sigma(s) \cdot f(s) = \hat{\sigma}(s) 
+.\] 
+即$\mu_s(t)$过点$\hat{\sigma}(s)$,也就是说$\mu_s(t)$是$\eta(t)$过点 $\hat{\sigma}(s)$ 的水平提升曲线.最后我们给出\[
+\hat{\eta}_s(t) = \mu_s(t) = \tilde{\eta}_s(t)\cdot f(s) 
+.\] 
+当$t = 0$时, $\hat{\eta}_s(0) = \mu_s(0) = \tilde{\eta}_s(0)\cdot f(s)$,而$\tilde{\eta}_s(0)$ 与$\sigma(0)$同fiber,也就是我们给出一个映射 $g : I\to G$使得\[
+\tilde{\eta}_s(0) = \sigma(0) g(s) = \tilde{\eta}_0(0) g(s), \quad \forall s \in I 
+.\] 
+当$s = 0$时,不难看出 $g(0) = e$;对于伴丛上的水平提升$\hat{\eta}_s(0)$,我们可以给出\[
+\hat{\eta}_s(0) = \tilde{\eta}_0(0) g(s) \cdot f(s) = \tilde{\eta}_0(0)\cdot g(s) f(s) = \sigma(0) \cdot g(s)f(s) 
+.\] 
+有了这个式子,我们就可以计算$\nabla_T \hat{\sigma}$,结果是
+\begin{align*}
+  \nabla_T \hat{\sigma} &= \lim_{s \to  0} \frac{1}{s}[\hat{\eta}_s(0) - \hat{\eta}_0(0)]  \\
+                        & = \lim_{s \to  0} \frac{1}{s}[ \sigma(0) \cdot g(s) f(s) - \sigma(0) \cdot g(0)f(0)] \\
+                        & = \sigma(0) \cdot \lim_{s\to 0} \frac{1}{s}[g(s)f(s) - g(0)f(0)]\text{可见伴丛最后一部分}\\
+                        & = \sigma(0) \cdot \left.\frac{d}{ds}\right|_{s = 0}g(s)f(s) 
+.\end{align*}
+修改指标$s$为 $t$则 
+\begin{align*}
+  \nabla_T \hat{\sigma} &= \sigma(0) \cdot  \left.\frac{d}{dt}\right|_{t = 0}g(t)f(t) \\
+                        & = \sigma(0) \cdot  \left.\frac{d}{dt}\right|_{t = 0} \chi_{g(t)} f(t)
+.\end{align*}
+$\chi_g(t)$是伴丛上的左作用.
+ \begin{note}
+   $\sigma(0)$是人为选择的截面,是否会因此导致结果不同,一方面我们是出自定义\ref{def:截面场的协变导数},故不会导致不同,另一方面,主丛的一条fiber,对应与伴丛上的一个点,选择截面更具体一点就是选择某个
+   坐标系,不会导致结果不变.因为$g$在主丛上的自由性缩成了一个点.
+\end{note}
+现在的$Q$是伴矢丛,全体 $\chi_g$的集合,就是某个群作用于 矢量空间的映射,就是 $G$的表示,也就是说 \[
+  \hat{G} \equiv \left\{ \chi_g: F\to F  \mid \forall g \in G \right\} 
+.\] 
+也就是说$\chi_g$可以写为群的表示,即\[
+\chi_g = \rho(g)
+.\] 
+则我们有\[
+\nabla_T \hat{\sigma} = \sigma(0) \cdot  \left.\frac{d}{dt}\right|_{t = 0} \rho(g(t)) f(t)
+.\] 
+$\rho(g(t))$是 $N \times N$方阵, $f(t)$是列阵,我们再次简化上面式子为
+ \begin{align*}
+   \nabla_T \hat{\sigma} &= \sigma(0) \cdot  \left.\frac{d}{dt}\right|_{t = 0} \rho(g(t)) f(t)\\
+             & = \sigma(0) \cdot \left[ \rho(g(0))\left.\frac{d}{dt}\right|_{t = 0} f(t) + \left[ \left.\frac{d}{dt}\right|_{t = 0} \rho(g(t)) \right]f(t)   \right]  \\
+             & = \sigma(0) \cdot \left[ \hat{e}\left.\frac{d}{dt}\right|_{t = 0} f(t) + \left[ \left.\frac{d}{dt}\right|_{t = 0} \rho(g(t)) \right]f(t)   \right]  
+.\end{align*}
+$g(0) = e$是前文推出的.
+
+我们再度选择一个截面 $\sigma' : U\to P$满足\[
+\sigma'(\eta(t)): = \tilde{\eta}_0(t)
+.\] 
+两个截面会把主丛上的联络拉成不同的底流形上的联络,参考\ref{def:联络-3}.\[
+  \bm{\omega} \equiv \sigma^* \bm{\tilde{\omega}} \quad \bm{\omega}' \equiv \sigma'^* \bm{\tilde{\omega}}    
+.\] 
+两个联络之间应该满足关系\[
+  \bm{\omega}'(Y) = \mathscr{A}\!d_{g_{UV^{-1}}} \bm{\omega}(Y) + L_{g_UV ^{-1}*}g_{UV*}(Y)  
+.\] 
+根据式\ref{eq:I-1-2},可以确定$g_{UV}$,故
+ \begin{align*}
+ \tilde{\eta}_s(0) = \sigma(0) g(s) = \tilde{\eta}_0(0) g(s)  \Rightarrow \sigma = \sigma' g(s)
+.\end{align*}
+由于我们修改过指标,不难确定,$g_{UV}(\eta(t)) = g(\eta(t))^{-1}$(在不造成混淆的情况下,省略$ \eta$),而此时的$Y$,就是曲线 $\eta(t)$在 $t$的切矢量 $T$.
+故我们给出的两个联络应该满足 \[
+  \bm{\omega}'(T) = \mathscr{A}\!d_{g(t)} \bm{\omega}(T) + L_{g(t)*}g^{-1}_{*}(T)  
+.\] 
+\begin{note}
+  注意$g(t)$是群元,而 $g^{-1}$是一个底流形到李群的映射.
+\end{note}
+而\[
+\bm{\omega}'(T) = \sigma'^*\bm{\tilde{\omega}}'(T) = \bm{\tilde{\omega}}'(\sigma'_*(T)) = 0 
+.\] 
+原因是因为$\tilde{\eta}_0(t)$ 是水平提升曲线.由于关于 $'$的联络为 $0$,我们就得到不带 $'$的联络与 $g(t)$的关系, \[
+\mathscr{A}\!d_{g(t)} \bm{\omega}(T) =- L_{g(t)*}g(t)^{-1}_{*}(T)  
+.\] 
+从$\nabla _T $来看,上面关于$\mathscr{G}$的等式需要在两边加上$\rho_*$映射.我们分开来看
+\begin{align*}
+  \rho_* \left[ \mathscr{A}\!d_{g(t)} \bm{\omega}(T) \right] & =  \rho_*\left. \frac{d}{dm}\right|_{m = 0} \exp{(m \mathscr{A}\!d_{g(t)} \bm{\omega}(T))}\\
+                                                             & = \rho_* \left.\frac{d}{dm}\right|_{m = 0} I_{g(t)} \exp{(m \bm{\omega}(T) )} \quad\text{定理\ref{thm:G-8-1}}\\
+                                                             & = \left.\frac{d}{d m}\right|_{m = 0}\rho \left[ I_{g(t)} \exp{(m \bm{\omega}(T) )} \right]\\
+                                                             & = \left.\frac{d}{d m}\right|_{m = 0}\rho (I_{g(t)}) \rho\exp{(m \bm{\omega}(T) )}\\
+                                                             & = I_{\rho (g(t))*}\rho_*[\bm{\omega}(T) ] \\
+                                                             & = \mathscr{A}\!d_{\rho(g(t))}\left[ \rho_* [\bm{\omega}(T) ] \right] 
+.\end{align*}
+\begin{align*}
+  \rho_*[L_{g(t)*} g(t)^{-1}_*(T)] &= \rho_*\circ L_{g(t)*}\circ g^{-1}_*  \left.\frac{d}{d s}\right|_{s = 0} \eta(t+s)\\
+                                   & = \left.\frac{d}{d s}\right|_{s = 0} \rho (L_{g(t)} g^{-1}\eta(s+t))
+.\end{align*}
+为了避免和参数$t$混淆,这里我们把代表曲线在$t$的切矢量写为 $\left.\frac{d}{ds}\right|_{s = 0} \eta(s+t)$
+我们代入计算得到
+\begin{align*}
+  \rho_*[L_{g(t)*} g(t)^{-1}_*(T)]  &= \left.\frac{d}{d s}\right|_{s = 0} \rho(g(t)) \rho(g(t+s)^{-1})\\
+                                    & =\rho(g(t)) \left.\frac{d}{d s}\right|_{s = 0}  \rho(g(t+s)^{-1})\\
+                                    &=\rho(g(t)) \left.\frac{d}{d t}\right|_{t}  \rho(g(t)^{-1}) 
+\end{align*}
+\begin{note}
+  最后一个括号比较费解,我们可以从两个角度理解它:一种是纯代数角度,采用换元法,令$t' = s+t$,得到 $\left.\frac{d}{d t'}\right|_{t' = t}  \rho(g(t')^{-1})$,由于$t$本身也是 $\eta(t)$的参数,其实质意义$t'$一致. 故可以把$t'$写成 $t$;另一种
+    就是考虑符号代表的意义了,$\left.\frac{d}{d s}\right|_{s = 0}  \rho(g(t+s)^{-1})$可以理解为 $\rho_* \circ g^{-1}_*$把$\eta(t)$在 $t$处的切矢量,映射到李代数元的表示空间中,也就是曲线在群表示空间的切矢.
+\end{note}
+综上讨论,给出
+\[
+  \rho(g(t)) \left.\frac{d}{d t} \right|_{t}  \rho(g(t)^{-1}) = -\mathscr{A}\!d_{\rho(g(t))}\left[ \rho_* \bm{\omega}(T) ] \right] = -\rho(g(t)) \left[ \rho_* [\bm{\omega}(T) \right]\rho(g(t))^{-1}
+.\] 
+最后一个等号是利用了矩阵群的性质,可以对定理\ref{thm:G-8-1}两边求导,令$t = 0$给出.我们对上式最最后的整理以复合我们需要使用的形式\[
+\left.\frac{d}{d t} \right|_{t}  \rho(g(t)^{-1}) = -\left[ \rho_* \bm{\omega}(T) \right]\rho(g(t))^{-1}
+.\] 
+当$t = 0$时 \[
+\left.\frac{d}{d t} \right|_{t = 0}  \rho(g(t)^{-1}) = -\left[ \rho_* \bm{\omega}(T) \right]\rho(g(0))^{-1} = -\left[ \rho_* \bm{\omega}(T) \right]\rho\left( e \right) ^{-1}= -\left[ \rho_* \bm{\omega}(T) \right]
+.\] 
+因为$\rho(g(t)^{-1}) \rho(g(t)) = I$,故\[
+\left.\frac{d}{d t} \right|_{t = 0}  \rho(g(t)) = - \left.\frac{d}{d t} \right|_{t = 0}  \rho(g(t)^{-1}) = \left[ \rho_* \bm{\omega}(T) \right]
+.\] 
+代入到$\nabla_T \hat{\sigma}$,得到
+\begin{equation}
+  \label{eq:I-9-1}
+  \nabla_T \hat{\sigma} = \sigma(0)  \cdot \left\{ \left.\frac{d}{dt}\right|_{t = 0} f(t)  + \left[ \rho_* \bm{\omega}(T) \right] f(0)\right\}  
+  .\end{equation}
+有了以上屠龙宝刀,下面就让我们开始打boss吧.
+\begin{example}
+  \label{ex:I-9-1}
+  $P = FM,Q_1 = TM,G = GL(n), F_1 = \mathbb{R}^n,\chi : G \times F_1 \to  F_1$,$\chi$是伴丛上的左作用,定义为 \[
+    (\chi_g(f))^\mu := g^{\mu}{}_{\nu}f^\nu 
+  .\] 
+  因此$\hat{G} = \left\{ g^{\mu}{}_{\nu}| g\in G \right\} = G $,即存在$\rho_1:G\to \hat{G}$,$\rho_1$在本例子中是恒等映射.
+  设$U \subset M$,试着求$\hat{\sigma}:U \to Q$
+\end{example}
+选择辅助截面$\sigma: U \to P$满足\[
+\sigma(x) = (x, \left.\frac{\partial}{\partial x^\mu}\right|_{x} ), \quad x \in U 
+.\] 
+其中,$\left.\frac{\partial}{\partial x^\mu}\right|_{x}$某个坐标系的坐标基底.我们接下来使用式\ref{eq:I-9-1}(具体到本例)
+  \begin{align*}
+    \nabla_T \hat{\sigma} = \sigma(0)  \cdot \left\{ \left.\frac{d}{dt}\right|_{t = 0} f^\mu(t)  + \left[ \rho_{1*} \bm{\omega}(T) \right]^{\mu}{}_{\nu} f^\mu(0)\right\}  
+  .\end{align*}
+  对于$\bm{\omega}(T) $,我们也写成带指标的形式给出\[
+ \bm{\omega}(T) = \bm{\omega}_\sigma(x_0)T^\sigma   
+  .\] 
+  其中$\bm{\omega}_\sigma(x_0) = \bm{\omega} (\left.\frac{\partial}{\partial x^\sigma}\right|_{x_0}) \in \mathscr{G} \quad T^\sigma = (dx^\sigma)(T) \in \mathbb{R}$,则
+    \begin{align*}
+      \left[ \rho_{1*} \bm{\omega}(T) \right]^{\mu}{}_{\nu} = [\bm{\omega}(T)]^{\mu}{}_{\nu} = (\bm{\omega}_\sigma(x_0) T^\sigma )^{\mu}{}_{\nu} = T^\sigma (\bm{\omega}_\sigma(x_0) )^{\mu}{}_{\nu} \equiv T^\sigma \bm{\omega}^{\mu}{}_{\nu \sigma} 
+    .\end{align*}
+    最后一步只是符号的简单记法.
+    
+    注意$\hat{\sigma}$ 的集合意义就是底流形上的一个矢量场,可以记为$v^a$,则$f^\mu = v^\mu$,故我们有
+     \begin{align*}
+       T^b \nabla_b v^a \equiv \nabla _T v^a &= (x_0,\left.\frac{\partial}{\partial x^\mu}\right|_{x_0} ) \cdot \left\{\left.\frac{d}{dt}\right|_{t = 0} v^\mu(t)  + T^\sigma \bm{\omega}^{\mu}{}_{\nu\sigma}  v^\nu(0) \right\}  \\
+                                             & =\left[ \left( \frac{\partial}{\partial x^\mu} \right)^a \left( \frac{d v^\mu(t)}{dt}   + T^\sigma \bm{\omega}^{\mu}{}_{\nu\sigma} v^\nu \right)  \right]_{x_0}
+    .\end{align*}
+    第二个等号只是切丛作为矢量的记号的转变.
+
+    这和我们以前定义导数算符时给出的克氏符一致,结合$T_a,v^a$的任意性给出.$\bm{\omega}^{\mu}{}_{\nu\sigma} = \Gamma^{\mu}{}_{\nu\sigma}$,由此可见,主丛$FM$的联络 $\bm{\tilde{\omega}} $ 经过$\sigma :U \to P$在$U$上诱导的联络
+     $\bm{\omega} $ 就是我们熟知的克氏符.我们可以消去曲线$t$,给出任意性
+      \[
+        \left.\frac{d v^\mu(t)}{dt}\right|_{x_0} = \left.\frac{d v^\mu(x(t)}{dt}\right|_{x_0} = \left.\frac{\partial v^\mu}{\partial x^\sigma}\right|_{x_0} \left.\frac{d x^\sigma(t)}{dt}\right|_{t=0} = \left.\frac{\partial v^\mu}{\partial x^\sigma}\right|_{x_0} T^\sigma
+     .\] 
+     故\[
+       T^b \nabla_b v^a = T^\sigma\left[\left( \frac{\partial}{\partial x^\mu}  \right)^a \left( \frac{\partial v^\mu}{\partial x^\sigma} + \omega^{\mu}{}_{\nu\sigma}v^\nu \right)   \right]_{x_0} 
+     .\] 
+     当选择另一个截面时$\sigma'$时,上式只写为\[
+           T^b \nabla_b v^a = T'^\sigma\left[\left( \frac{\partial}{\partial x'^\mu}  \right)^a \left( \frac{\partial v'^\mu}{\partial x'^\sigma} + \omega'^{\mu}{}_{\nu\sigma}v'^\nu \right)   \right]_{x_0} 
+     .\] 
+     这也是协变的意思.
+\begin{example}
+  \label{ex:I-9-2}
+  例\ref{ex:I-9-1}讨论矢量场$v$在 $x_0$点沿着矢量 $T$的协变导数,本例我们探讨 $U \subset M$上的任一标架场$\left\{ e_a \right\} $ (不一定是坐标基底场)的第 $\mu$基矢场$e_\mu$在
+  $x_0$点沿着第 $\tau$基矢$e_{\tau}|_x{0}$的协变导数,也就是说作为例\ref{ex:I-9-1}的特例,本例满足
+  \begin{align*}
+    v|_U &= e_\mu|_U\\
+  T|_{x_0} &= e_\tau|_{x_0}
+  \end{align*}
+  也就是说,我们要求$(\nabla_{e_\tau} e_\mu)|_{x_0}$,我们同样使用式\ref{eq:I-9-1},我们来看$f(t)$,如何确定$f(t)$需要给出 $\sigma(\eta(t)),\hat{\sigma}((\eta(t))$,其中$\eta(t)$满足两点:过 $x_0$点, 在$x_0$处的切矢是 $e_\tau$.而$\sigma$是选择的一个辅助截面, $\hat{\sigma}$ 是底流形上面的基矢场,则 \[
+    \hat{\sigma}(\eta(t)) = \sigma(\eta(t)) \cdot  f(t) = (\eta(t), e_\lambda|_{\eta(t)}) \cdot f^\lambda(\eta(t))  = [e_\lambda f^\lambda]_{\eta(t)}
+  .\] 
+  而$\hat{\sigma}(\eta(t)) = e_\mu|_{\eta(t)}$,不难给出$f(\eta(t)) = \delta^{\lambda}{}_{\mu}$.
+  \begin{note}
+    注意选择辅助截面$\sigma(\eta(t))$的同时,我们才确定了 $\hat{\sigma}(\eta(t))$,这一特点只有本例有,例\ref{ex:I-9-1}有绝对的矢量$v^a$,也就选择了某一截面$\hat{\sigma}$.在本例我们
+    天然的使得$v$和标架场对应,也就是说我们需要给出标架场才能,确定 $v$,由于二者的联系,把 $f(t)$限制到了一个常数.当然 $\sigma(\eta(t))$不一定是水平的,也就意味着 $\hat{\sigma}(\eta(t))$ 与$\sigma(\eta(t))$一致.
   \end{note}
-
-
+  则$\left.\frac{d}{dt}\right|_{t = 0} f(t) = 0 $,我们来看$[\rho_{1*} \bm{\omega}(T)]^{\nu}{}_{\lambda}f^{\lambda}(0) $ 
+    \begin{align*}
+      [\rho_{1*} \bm{\omega}(T)]^{\nu}{}_{\lambda}f^{\lambda}(0) = [\bm{\omega}(e_\tau|_{x_0}) ]^{\nu}{}_{\lambda} \delta^{\lambda}{}_{\mu}  =  \bm{\omega}(e_{\tau}|_{x_0}) ^{\nu}{}_{\mu} = \bm{\omega}^{\nu}{}_{\mu\tau}(x_0)  
+    .\end{align*}
+    这里没有遵守指标平衡,注意分辨实际意义.故\[
+      (e_\tau)^b|_{x_0} \nabla _b (e_\mu)^a = (\nabla_{e_\tau} e_\mu)|_{x_0} = (x_0,e_\nu|_{x_0})\cdot \bm{\omega}^{\nu}{}_{\mu\tau}(x_0) = [(e_\nu)^a \bm{\omega}^{\nu}{}_{\mu \tau}]_{x_0}  
+    .\] 
+    $e_\nu$实质意义上是作为标架场的基底.不过这里都是标架场,容易混淆,可以对比\ref{ex:I-9-1}理解.我们省去计算给出
+    \begin{equation}
+      \label{eq:I-9-2}
+      (e_\tau)^b|_{x_0} \nabla _b (e_\mu)^a =[(e_\nu)^a \bm{\omega}^{\nu}{}_{\mu \tau}]_{x_0}
+    \end{equation}
+  \end{example}
+  有了以上讨论,我们假设$(FM, \bm{\tilde{\omega}})$,其中$\bm{\tilde{\omega}} \mapsto \bm{\omega}^{\nu}{}_{\mu\tau}  $ 有两种途径
+  \begin{enumerate}
+    \item $\bm{\tilde{\omega}} \xmapsto{\sigma^*} \bm{\omega} \xmapsto{\left\{ e_\mu \right\} }  \bm{\omega}^{\nu}{}_{\mu\tau} $ 
+    \item $\bm{\tilde{\omega}} \xmapsto{\text{定理\ref{thm:I-2-8}}} \nabla_a$,$e(\tau)^b \nabla _b (e_\mu)^a = (e_\nu)^a \gamma^{\nu}{}_{\mu\tau}$ (式\ref{eq:I-2-7}),$\bm{\omega}(\nabla)^{\nu}{}_{\mu\tau} \equiv \gamma^{\nu}{}_{\mu\tau} $
+  \end{enumerate}
+  以上两种途径的等价性,在前文证明过,结论是式\ref{eq:I-2-11}.我们列举已知的殊途同归.但是在这里又有一个全新的途径: $\bm{\tilde{\omega}} $ 在$TM$上有 $q \to H_q$,$H_q$又在 $M$上给出了联络 $\nabla$,定义是\ref{def:截面场的协变导数},例\ref{ex:I-9-2}(具体是式\ref{eq:I-9-2})证明了该途径和上面
+  途径$2$殊途同归.我们给出了三种联络的殊途同归.途径1和途径3由定理\ref{thm:BI-9-1}给出了互恰的形式.
+  \begin{example}
+    \label{ex:I-9-3}
+    $P = FM, Q_2 = T^*M,F_2 = \mathbb{R}^n = \mathscr{T}_{\mathbb{R}^{n}}(0,1)$,结构群 $G$仍然是 $GL(n)$,左作用$\chi_g$定义为 \[
+      (\chi_gf)_\mu := (g^{-1})^{\nu}{}_{\mu}f_\nu, \quad \forall f_\nu \in F_2 
+    .\] 
+    表示的映射为\[
+      \rho_2: G \to  \hat{G}_2 = \left\{ (g^{-1})^{\nu}{}_{\mu}| g\in GL(n) \right\}  
+    .\] 
+  \end{example}
+  我们利用式\ref{eq:I-9-1}给出\[
+    \nabla _T \hat{\sigma} = \sigma(0) \cdot  \left\{ \left.\frac{d}{dt}\right|_{t=0} f_\mu(t) + [\rho_{2*}(\bm{\omega}(T) )]_{\mu}{}^{\nu}f_\nu(t)  \right\}  
+  .\] 
+  选择辅助截面为$\sigma:U\to P, \sigma(x):= (x,\left.\frac{\partial}{\partial x^\mu}\right|_{x}) $
+   
+    为了求$\rho_{2*}$,我们补充定理
+     \begin{theorem}
+       {}{BI-9-2}
+        $\rho_1: G\to \hat{G}$是矢量空间的群的表示,$\rho_2:G\to \hat{G}$是对偶矢量空间群的表示,两者满足
+       \[
+          \rho_2(g) = [\rho_1(g^{-1})]^T 
+        .\] 
+        二者相互作用的前提是被作用的$f_\mu$摆成列阵.
+    \end{theorem}
+    \begin{proof}
+      我们把左作用写为方阵乘以列阵
+      \begin{align*}
+        (\chi_g f)_\mu = (g^{-1})^{\nu}{}_{\mu}f_\nu = ((g^{-1})^T)_{\mu}{}^{\nu} f_\nu
+      .\end{align*}
+      则 \[
+        (\rho_2 g) \times f = [(g^{-1})^T]\times f =[(\rho_1 g^{-1})]^T \times f 
+      .\] 
+      第二个等号利用$\rho_1$是恒等映射.
+    \end{proof}
+    \begin{note}
+      上面这个定理,本质上起源于矢量是逆变的,而对偶矢量是协变的,协变和逆变主要看转换矩阵是否与坐标基底变换矩阵是否相同,相同是协变的,不相同需要差一个逆.再结合上对偶矢量是行阵,这里写成列阵计算,为了保证结果,需要添加一个转置.本质上是一个群元作用在矢量上.
+    \end{note}
+    令$B = \bm{\omega}(T) $,则\[
+      \rho_{2*} B = \rho_{2*} \left.\frac{d}{ds}\right|_{s = 0} \exp(s B)  = \left.\frac{d}{ds}\right|_{s = 0} \rho_2(\exp (sB))  = \left.\frac{d}{ds}\right|_{s = 0}[\rho_1(\exp(-sB))]^T
+    .\] 
+    由于转置和求导并不矛盾,故\[
+      \rho_{2*} B = \left[ \left.\frac{d}{ds}\right|_{s = 0}\rho_1(\exp(-sB)) \right]^T = -(\rho_{1*} B)^T 
+    .\] 
+    则
+    \begin{align*}
+      \nabla _T \hat{\sigma} &= \sigma(0) \cdot  \left\{ \left.\frac{d}{dt}\right|_{t=0} f_\mu(t) + [\rho_{2*}(\bm{\omega}(T) )]_{\mu}{}^{\nu}f_\nu(t)  \right\}  \\
+                             & = \sigma(0) \cdot\left\{ \left.\frac{d}{dt}\right|_{t = 0} f_\mu(t) - [\rho_{1*} \bm{\omega}(T) ]^{\nu}{}_{\mu} f_\nu(0)  \right\}  \\
+                             & = (x_0,\left.\frac{\partial}{\partial x^\mu}\right|_{x_0} )\cdot \left\{  \left.\frac{d}{dt}\right|_{t = 0} f_\mu(t) - T^\sigma \bm{\omega}^{\nu}{}_{\mu\sigma}  f_\nu(0) \right\}  \\
+                             & =\left[ (dx^\mu)_a (\frac{d f_\mu(t)}{dt} - \bm{\omega}^{\nu}{}_{\mu\sigma}T^\sigma f_\nu )\right]_{x_0} \quad \text{例\ref{ex:I-3-5}}
+    .\end{align*}
+    \begin{example}
+      \label{ex:I-9-4} 
+      $P= FM,Q_3 =(1,1) $张量丛,$F_3 = \mathscr{T}_{\mathbb{R}^n}(1,1)$,左作用$\chi_g$定义为 \[
+         (\chi_g(f))^{\mu}{}_{\nu} := g^{\mu}{}_{\alpha} (g^{-1})^{\beta}{}_{\nu} f^{\alpha}{}_{\beta}
+      .\] 
+      表示群$\hat{G}_3$为\[
+        \hat{G}_3 = \left\{ g^{\mu}{}_{\alpha}(g^{-1})^{\beta}{}_{\nu} | g \in GL(n)\right\} 
+      .\] 
+    \end{example}
+    此时$F_3$是矢量空间的一一型张量,以$\rho_1,\rho_2,\rho_3$,代表 $G$到 $\hat{G}_1,\hat{G}_2,\hat{G}_3$的映射,$\rho_3(g) \in \hat{G}_3$ 作用于$F_3$,而
+     $F_3$内的元素是 $n^2$维矢量空间.则 $f$应该看作 $n^2\times 1$的列阵,而 $\rho_3(g)$可以看作是 $n^2 \times n^2$的矩阵.
+     按照 $\rho_3(g)f$应该看作 $n^2 \times n^2$的方阵与 $n^2 \times 1$的矩阵相乘.
+     $\mu,\nu$代表 $2^2\times 2^2$的指标,具体而言作为 $2\times 2$分块矩阵的指标,$f$以作为分块矩阵
+     并以$\hat{g}^{\mu}{}_{\nu \alpha}{}^{\beta} f^{\alpha}{}_{\beta}= g^{\mu}{}_{\alpha}(g^{-1})_{\nu}{}^{\beta} f^{\alpha}{}_{\beta}$作为参考.
+      
+    \begin{align*}
+      f = \begin{bmatrix} f^{1}{}_{1} \\ f^{1}{}_{2}\\f^{2}{}_{1}\\f^{2}{}_{2} \end{bmatrix} 
+      \quad \rho_3(g) \equiv \hat{g} = 
+      \begin{bmatrix}  
+        \hat{g}^{1}{}_{11}{}^1&\hat{g}^{1}{}_{11}{}^2&\hat{g}^{1}{}_{12}{}^1&\hat{g}^{1}{}_{12}{}^2\\
+        \hat{g}^{1}{}_{21}{}^1&\hat{g}^{1}{}_{21}{}^2&\hat{g}^{1}{}_{22}{}^1&\hat{g}^{1}{}_{22}{}^2\\
+        \hat{g}^{2}{}_{11}{}^1&\hat{g}^{2}{}_{11}{}^2&\hat{g}^{2}{}_{12}{}^1&\hat{g}^{2}{}_{12}{}^2\\
+        \hat{g}^{2}{}_{21}{}^1&\hat{g}^{2}{}_{21}{}^2&\hat{g}^{2}{}_{22}{}^1&\hat{g}^{2}{}_{22}{}^2\\
+      \end{bmatrix} 
+    .\end{align*}
+    \begin{note}
+      上面只是举$n = 2$为例展示了如何协调矩阵乘法和列向量,本质上还应该是我们定义的乘法.指标交换位置只会决定矩阵怎么排.
+    \end{note}
+    \begin{definition}
+      {}{同阶方阵张量积}
+      $P$和 $Q$代表两个同阶的方阵则 \[
+        (P \otimes Q)^{\mu}{}_{\nu\alpha}{}^{\beta} = P^{\mu}{}_{\alpha}Q_{\nu}{}^{\beta}
+      .\] 
+    \end{definition}
+    \begin{theorem}
+      $\rho_1,\rho_2$分别是例\ref{ex:I-9-1}和例\ref{ex:I-9-3}给出的表示映射.
+      \[
+      \rho_3(g) = \rho_1(g) \otimes \rho_2(g)
+      .\] 
+    \end{theorem}
+    \begin{proof}
+      根据定义\ref{def:同阶方阵张量积}验证即可.
+    \end{proof}
+    故我们有
+    \begin{align*}
+      \nabla _T \hat{\sigma} &= \sigma(0) \cdot \left\{\left.\frac{d}{dt}\right|_{t = 0} f^{\mu}{}_{\nu}(t) + [\rho_{3*} \bm{\omega}(T) ]^{\mu}{}_{\nu\alpha}{}^{\beta}f^{\alpha}{}_{\beta} (0) \right\}
+    .\end{align*}
+    只考虑$[\rho_{3*} \bm{\omega}(T) ]$,令$B = \bm{\omega}(T) $给出
+    \begin{align*}
+      \rho_{3*} \bm{\omega}(T)  & = \rho_{3*}\left.\frac{d}{ds}\right|_{s = 0} \exp(sB) \\
+                                & = \left.\frac{d}{ds}\right|_{s = 0} \rho_{3} \exp(sB) \\
+                                & = \left.\frac{d}{ds}\right|_{s = 0} \rho_1(\exp(sB)) \otimes \rho_2(\exp(sB))\\
+                                & = \rho_1(e) \otimes \left.\frac{d}{ds}\right|_{s = 0} \rho_2(\exp(sB)) + \left.\frac{d}{ds}\right|_{s = 0} \rho_1 (\exp (sB)) \otimes \rho_2(e)\\
+                                & = \rho_1(e) \otimes \rho_{2*}(B) + \rho_{1*}(B) \otimes \rho_2(e)
+    .\end{align*}
+    \begin{note}
+      但凡是线性的,本质上都应该满足莱布尼兹律.
+    \end{note}
+    则
+    \begin{align*}
+      [\rho_{3*}B]^{\mu}{}_{\nu\alpha}{}^{\beta} &=  \rho_1(e)^{\mu}{}_{\alpha}  \rho_{2*}(B)_{\nu}{}^{\beta} + \rho_{1*}(B)^{\mu}{}_{\alpha}  \rho_2(e)_{\nu}{}^{\beta}\\
+                                                 & = - \delta^{\mu}{}_{\alpha}  \rho_{1*}(B)^{\beta}{}_{\nu}+ \rho_{1*}(B)^{\mu}{}_{\alpha}  \delta_{\nu}{}^{\beta}
+    .\end{align*}
+    $\rho_2\to \rho_1$的转变参考例\ref{ex:I-9-3},故
+    \begin{align*}
+            \nabla _T \hat{\sigma} &= \sigma(0) \cdot \left\{\left.\frac{d}{dt}\right|_{t = 0} f^{\mu}{}_{\nu}(t) + [\rho_{3*} \bm{\omega}(T) ]^{\mu}{}_{\nu\alpha}{}^{\beta}f^{\alpha}{}_{\beta} (0) \right\}\\
+                                   & = \sigma(0) \cdot \left\{\left.\frac{d}{dt}\right|_{t = 0} f^{\mu}{}_{\nu}(t) +( - \delta^{\mu}{}_{\alpha}  \rho_{1*}(B)^{\beta}{}_{\nu}+ \rho_{1*}(B)^{\mu}{}_{\alpha}  \delta_{\nu}{}^{\beta})f^{\alpha}{}_{\beta}(0)   \right\} \\
+                                   & = \sigma(0) \cdot \left\{\left.\frac{d}{dt}\right|_{t = 0} f^{\mu}{}_{\nu}(t)  -  \rho_{1*}(B)^{\beta}{}_{\nu} f^{\mu}{}_{\beta}+ \rho_{1*}(B)^{\mu}{}_{\alpha} f^{\alpha}{}_{\nu}(0)   \right\}\\
+                                   & = (x_0,\left.\frac{\partial}{\partial x^\mu}\right|_{x_0} ) \cdot \left\{\left.\frac{d}{dt}\right|_{t = 0} f^{\mu}{}_{\nu}(t)  -  \rho_{1*}(B)^{\beta}{}_{\nu} f^{\mu}{}_{\beta}(0)+ \rho_{1*}(B)^{\mu}{}_{\alpha} f^{\alpha}{}_{\nu}(0)   \right\}
+    .\end{align*}
+    我们修改记法,不难给出上式是$(1,1)$型张量丛的协变导数.
+    \begin{align*}
+      \nabla _T \hat{\sigma} = (\frac{\partial  }{\partial x^\mu} )^a(dx^\mu)_b\left[ \frac{ d f^{\mu}{}_{\nu}}{d t} + T^\sigma\bm{\omega}^{\mu}{}_{\alpha\sigma}f^{\alpha}{}_{\nu} - T^\sigma \bm{\omega}^{\beta}{}_{\nu\sigma}f^{\mu}{}_{\beta}   \right]_{x_0} 
+    .\end{align*}
+    \begin{example}
+      \label{ex:I-9-5}
+      在平凡主丛$P = \mathbb{R}^4 \times U(1)$上指定联络 $\bm{\tilde{\omega}} $,令$F = \mathbb{C}$,在 $F$上定义左作用 $\chi : U(1) \times F \to F$为\[
+        \chi_g(\phi) := e^{-iq\theta} \phi, \quad \forall  g = e^{-i\theta} \in U(1),\phi \in F
+      .\] 
+    \end{example}
+    为了计算截面$\hat{\sigma}: \mathbb{R}^4 \to Q$,可以任意选择辅助截面$\sigma : \mathbb{R}^4 \to P$,它们之间满足\[
+      \hat{\sigma}(x) = \sigma(x) \cdot \phi(x), \quad \forall x \in  \mathbb{R}^4
+    .\]根据其物理意义,$\hat{\sigma}(x)$ 是物理上一个绝对的场$\Phi(x)$, $\phi(x)$则是在 选定$\sigma(x)$后,$\Phi(x)$的 分量.在这里,式\ref{eq:I-9-1}写为\[
+    \nabla_T \Phi = \sigma(0) \cdot \left\{ \left.\frac{d}{dt}\right|_{t = 0} \phi(t) + [\rho_* (\bm{\omega}(T) )]\phi(0) \right\} 
+    .\] 
+    选定洛伦兹惯性坐标系$\left\{ x^\mu \right\} $,则
+    \begin{align*}
+      \left.\frac{d}{dt}\right|_{t = 0} \phi(t) & = \left.\frac{d}{dt}\right|_{t = 0}\phi(x^\mu(t)) \\  
+                                                & = \left.\frac{\partial \phi}{\partial x^\mu}\right|_{x_0} \left.\frac{d x^\mu(t)}{dt}\right|_{t = 0} \\
+                                                & = \left.\frac{\partial \phi}{\partial x^\mu}\right|_{x_0} T^\mu = T^\mu (\partial_\mu \phi)
+    .\end{align*}
+    对于$\rho_* (\bm{\omega}(T))$我们有
+    \begin{align*}
+      \rho_* (\bm{\omega}(T)) &= \rho_* (\omega_\mu(x_0)T^\mu) = T^\mu \rho_*(\omega_\mu(x_0)) \\
+                              & = T^\mu \rho_*(k e_r A^r_\mu(x_0))\\
+                              & = T^\mu k A^r_\mu(x_0 ) \rho_*(e_r)\\
+                              & = T^\mu(-ik L_r A^r_\mu(x_0))
+    .\end{align*}
+    对于$U(1)$群而言 $k = e$, $L_r A^r_\mu = L_1A^1_\mu = qA_\mu(x_0)$,我们代回到 $\nabla_T \Phi$
+    \begin{align*}
+      \nabla_T \Phi = \sigma(0) \cdot T^\mu[\partial_\mu \phi - ieqA_\mu \phi]_{x_0} = \sigma(0) \cdot T^\mu(D_\mu \phi)_{x_0}
+    .\end{align*}
+    这就是前面给出的协变导数.
+    \begin{example}
+      \label{ex:I-9-6}
+      仿照\ref{ex:I-9-5},我们也可以计算$\overline{\phi}$ 场的协变导数算符.
+    \end{example}
 \end{document}

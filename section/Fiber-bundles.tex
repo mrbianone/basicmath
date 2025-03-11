@@ -105,7 +105,7 @@
        \pi^{-1}[\pi(p)] = \{pg  \mid g \in G\}, \quad \forall  p \in P;\text{见图}\ref{fig:I-1-1}
    .\] 
  \item  每一$x \in  M$有开邻域$U\subset M$及微分同胚$T_U: \pi^{-1}[U]\to U \times G$,且$T_U$取如下形式 \[
-     T_u(p) = (\pi(p),S_U(p)),\quad \forall  p \in \pi^{-1}[U] 
+     T_U(p) = (\pi(p),S_U(p)),\quad \forall  p \in \pi^{-1}[U] 
    .\] 其中映射$S_U : \pi^{-1} [U] \to G$满足\[
   S_U(pg) = S_U(p)g,\quad \forall g \in G 
 .\] 具体含义见图\ref{fig:I-1-2}
@@ -150,12 +150,12 @@
  (R_{\breve{p}_U} \circ S_U)p = R_{\breve{p}_U}S_U(p) = R_{S_U(p)}\breve{p}_U  = \breve{p}_U S_U(p)  
  \end{align*}
  由于$p,\breve{p}_U \in  \pi^{-1}[x]$,不难知道存在g满足$p = \breve{p}_U g$代入上式中有 \[
- (R_{\breve{p}_U} \circ S_U)p = \breve{p}_U S_U(\breve{p}_U g) = \breve{p}_U S_U(\breve{p}_U)g = \breve{p}_Ueg = p
+   (R_{\breve{p_U}} \circ S_U)p = \breve{p}_U S_U(\breve{p}_U g) = \breve{p}_U S_U(\breve{p}_U)g = \breve{p}_Ueg = p
  .\] 
  所以等式成立.
- \item 证明$(S_U \circ R_{\breve{p_U}}) = e$
+\item 证明$(S_U \circ R_{\breve{p}_U}) = e$
  \begin{align*}
-   (S_U \circ R_{\breve{p_U}}) g =S_U(R_{\breve{p}_U}(g)) = S_U(\breve{p}_U g) = S_U(\breve{p}_U)g = eg = g 
+   (S_U \circ R_{\breve{p}_U}) g =S_U(R_{\breve{p}_U}(g)) = S_U(\breve{p}_U g) = S_U(\breve{p}_U)g = eg = g 
  .\end{align*}
  等式成立.
  \end{enumerate}
@@ -379,7 +379,7 @@ $T_U,T_V \cdots$映射到不同的的点,为了保证P不变,我们引入了转�
  \begin{example}
  \label{ex:I-1-5}
  若在$M$上定义了度规场,对于标架而言便可以讨论正交归一性.以洛伦兹时空为例 \[
-   P \equiv \{x, \hat{e}_\mu  \mid x \in M\} \hat{e}_\mu\text{代表}T_xM\text{上的正交归一基底} 
+   P \equiv \{(x, \hat{e}_\mu)  \mid x \in M\} \hat{e}_\mu\text{代表}T_xM\text{上的正交归一基底} 
  .\] 
  选择$O(1,3)$为结构群的话,按照例\ref{ex:I-1-4}定义给出的主丛称为\textbf{正交归一标价丛(orthogonal frame bundle)}.
 
@@ -417,7 +417,7 @@ $T_U,T_V \cdots$映射到不同的的点,为了保证P不变,我们引入了转�
    给定$A\in \mathscr{G}$后,每点$p \in P$可以给出一个竖直矢量$A^*_p$ \[
      A^*_p := R_{p*} A , \forall p \in P
    .\] 
-   因而每一$A\in \mathscr{G}$ 在$P$上胜出一个竖直矢量场 $A^*$,称为由 $A$诱导的\textbf{基本矢量场(fundmental vector field)}
+   因而每一$A\in \mathscr{G}$ 在$P$上生出一个竖直矢量场 $A^*$,称为由 $A$诱导的\textbf{基本矢量场(fundmental vector field)}
  \end{definition}
  \begin{theorem}
    {}{I-1-5}
@@ -742,7 +742,7 @@ d\varphi = e_r d\varphi^r \in\Lambda_M(l+1,\mathscr{V})
          \bm{\omega}_V(Y)= \mathscr{A}\!d_{g_{UV}(x)^{-1}}\bm{\omega}_U(Y) + L^{-1}_{g_{UV}(x)*}g_{UV*}(Y),\quad \forall x \in U\cap V, Y \in T_xM 
       .\] 
     \end{definition}
-    我们来理解一下这个等式,$\mathscr{A}\!d_{g_{UV}(x)^{-1}}\bm{\tilde{\omega}}_U(Y)$是李代数元,不难猜想$L^{-1}_{g_{UV}(x)*}g_{UV*}(Y)$也是李代数元,事实上确实是,我们可以根据图\ref{fig:I-2-2}看出它们之间的关系.
+    我们来理解一下这个等式,$\mathscr{A}\!d_{g_{UV}(x)^{-1}}\bm{\omega}_U(Y)$是李代数元,不难猜想$L^{-1}_{g_{UV}(x)*}g_{UV*}(Y)$也是李代数元,事实上确实是,我们可以根据图\ref{fig:I-2-2}看出它们之间的关系.
     (注意红色部分与蓝色部分的联系)
     \begin{figure}[htpb]
       \centering
@@ -803,7 +803,7 @@ d\varphi = e_r d\varphi^r \in\Lambda_M(l+1,\mathscr{V})
                      & = \bm{\tilde{\omega}}|_{\sigma_V(x)}[R_{g_{UV}(x)*}\sigma_{U*}Y ]+\bm{\tilde{\omega}}|_{\sigma_v(x)}[[L^{-1}_{g_{UV}(x)*}g_{UV*}(Y)]^*_{\sigma_V(x)}]\\
                      & = \bm{\tilde{\omega}}|_{\sigma_U(x)g_{UV}(x)}[R_{g_{UV}(x)*}\sigma_{U*}Y ] +L^{-1}_{g_{UV}(x)*}g_{UV*}(Y)\\
                      & = \mathscr{A}\!d_{g_{UV}(x)^{-1}}\bm{\tilde{\omega}}_{\sigma_U(x)}(\sigma_{U*}Y)+ L^{-1}_{g_{UV}(x)*}g_{UV*}(Y)\\
-                     & = \mathscr{A}\!d_{g_{UV}(x)^{-1}}\bm{\omega}_{U}|_x(Y)+ L^{-1}_{g_{UV}(x)*}g_{UV*}(Y)\\
+                     & = \mathscr{A}\!d_{g_{UV}(x)^{-1}}\bm{\omega}_{U}|_x(Y)+ L^{-1}_{g_{UV}(x)*}g_{UV*}(Y)
 .\end{align*}
 就是我们定义\ref{def:联络-3}的要求,证明结束.
 
@@ -910,15 +910,15 @@ d\varphi = e_r d\varphi^r \in\Lambda_M(l+1,\mathscr{V})
     L^{-1}_{g_{UV}^{}(x)*}g_{UV*}^{}(Y) &=   L^{-1}_{g_{UV}^{}(x)*}g_{UV*}^{}(\left. \frac{d}{dt}  \right|_{t = 0} \eta(t) )\\
                                         & = \left. \frac{d}{dt}  \right|_{t = 0}L^{-1}_{g_{UV}^{}(x)}g_{UV}^{}( \eta(t) )\\
                                         & = \left. \frac{d}{dt}  \right|_{t = 0}g_{UV}^{}(x)^{-1}g_{UV}^{}( \eta(t) )\\
-                                        & = g_{UV}^{}(x)^{-1}\left. \frac{d}{dt}  \right|_{t = 0}g_{UV}^{}( \eta(t) )\\
+                                        & = g_{UV}^{}(x)^{-1}\left. \frac{d}{dt}  \right|_{t = 0}g_{UV}^{}( \eta(t) )
   .\end{align*}
   目前比较容易,下面需要一些技巧,首先$g_{UV} \in \Lambda_{U\cap V}(0,\mathscr{V})$,则$d g_{UV} \in \Lambda_{U\cap V}(1,\mathscr{V})$,以$\left\{ e_r \right\} $ 代表$\mathscr{V}$的一组基矢量,则有\[
     g_{UV} = e_r f^r, dg_{UV} = e_r df^r 
   .\] 故
   \begin{align*}
-    L^{-1}_{g_{UV}^{}(x)*}g_{UV*}^{}(Y) & = g_{UV}^{}(x)^{-1}\left. \frac{d}{dt}  \right|_{t = 0}g_{UV}^{}( \eta(t) )\\
-                                        & = g_{UV}^{}(x)^{-1}\left. \frac{d}{dt}  \right|_{t = 0}e_r f^r(\eta(t))\\
-                                        & = g_{UV}^{}(x)^{-1}e_r\left. \frac{d}{dt}  \right|_{t = 0} f^r(\eta(t))\\
+    L^{-1}_{g_{UV}^{}(x)*}g_{UV*}^{}(Y) & = g_{UV}^{}(x)^{-1}\left. \frac{d}{dt}  \right|_{t = 0}g_{UV}^{}( \eta(t) )
+                                         = g_{UV}^{}(x)^{-1}\left. \frac{d}{dt}  \right|_{t = 0}e_r f^r(\eta(t))\\
+                                        & = g_{UV}^{}(x)^{-1}e_r\left. \frac{d}{dt}  \right|_{t = 0} f^r(\eta(t))
   .\end{align*}
   我们观察$\left. \frac{d}{dt}  \right|_{t = 0} f^r(\eta(t))$ ,$f^r$是 $\mathbb{R} or \mathbb{C}$的0形式场,回顾切矢的定义不难给出\[
   \left. \frac{d}{dt}  \right|_{t = 0} f^r(\eta(t)) = Y(f^r) = df^r(Y)

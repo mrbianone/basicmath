@@ -223,6 +223,7 @@
      设 $\mathscr{V}$ 和 $\mathscr{W}$ 是李代数.线性映射 $\beta : \mathscr{V}\rightarrow\mathscr{W}$ 称为 李代数同态,若它保李括号,即 $\beta([A,B]) = [\beta(A),\beta(B)]$.同态再称为 李代数同构,若 $\beta$ 是一一到上的.
  \end{definition}
  \begin{theorem}
+   {}{G-3-2}
      设 $\mathscr{G}$ 和 $\hat{\mathscr{G}}$ 分别是李群 $G$ 和 $\hat{G}$ 的李代数,$\rho:G\rightarrow\hat{G}$ 是同态映射,则 $\rho$ 在点 $e\in G$ 诱导的推前映射 $\rho_*:\mathscr{G}\rightarrow\hat{\mathscr{G}}$ 是李代数同态.
  \end{theorem}
  \begin{definition}
@@ -416,7 +417,7 @@
  \section{O(m)群(正交群,orthohonal group)}
  如第一节所言,GL(m)群是m维矢量空间V上所有(1,1)型张量T的集合,对T再提出某些要求便得到GL(m)的子群,O(m)群是要求T保度规的子群.
  以下把O(m)群的元素专门记作Z.设$(V,g_{ab})$是带正定度规的m维矢量空间.线性映射$Z:V \rightarrow V$称为\textbf{保度规的},若
- $$g_{ab}(Z^a{}_cv^c)(Z^b{}_d) = g_{cd}v^cu^d,\quad \forall v^c,u^d \in V$$
+ $$g_{ab}(Z^a{}_cv^c)(Z^b{}_du^d) = g_{cd}v^cu^d,\quad \forall v^c,u^d \in V$$
  若$v=u$,可见在这样的映射下,矢量的长度不变,称为\textbf{保长性},二者等价,可借用坐标基矢证明.
  我们有\begin{equation*}
      Z^a{}_cZ^b{}_d g_{ab}=g_{cd}
@@ -548,7 +549,7 @@
      \item 对于子集$O^\uparrow_+(1,1)$  ,有$\Lambda(0) =\text{diag}(1,1)$,是恒等元,作用与$v$所在的矩阵为$v'=\begin{bmatrix}v^0\\v^1 \end{bmatrix}$,称为\textbf{恒等变换};
      \item 对于子集$O^\uparrow_-(1,1)$  ,有$\Lambda(0) =\text{diag}(1,-1) $,作用与$v$所在的矩阵为$v'=\begin{bmatrix}v^0\\-v^1\end{bmatrix}$,称为\textbf{空间反射},记作$r_x$;
      \item 对于子集$O^\downarrow_-(1,1)$,有$\Lambda(0) =\text{diag}(-1,1) $,作用与$v$所在的矩阵为$v'=\begin{bmatrix}-v^0\\v^1\end{bmatrix}$,称为\textbf{时间反射},记作$r_t$;
-     \item 对于子集$O^\downarrow_+(1,1)$,有$\Lambda(0) =\text{diag}(-1,-1) $,作用与$v$所在的矩阵为$v'=\begin{bmatrix}-v^0\\-v^1\end{bmatrix}$,称为\textbf{时间反演},记作$i_tx$.
+     \item 对于子集$O^\downarrow_+(1,1)$,有$\Lambda(0) =\text{diag}(-1,-1) $,作用与$v$所在的矩阵为$v'=\begin{bmatrix}-v^0\\-v^1\end{bmatrix}$,称为\textbf{时空反演},记作$i_tx$.
  \end{enumerate}
 %  \begin{tikzpicture}
 %   % 绘制 x 轴
@@ -684,7 +685,7 @@
 
  \begin{theorem}
      设U为酉矩阵,则
-     $$\det U = e^i\phi $$
+     $$\det U = e^{i\phi} $$
      其中$\phi \in \mathbb{R}$,即$|\det U| = 1$
  \end{theorem}
  proof:酉矩阵满足等式$U^\dagger U = I$,则
@@ -912,7 +913,8 @@
  \chapter{李代数的结构常数}
  $\mathscr{V}$是李代数,则李括号$[,]:\mathscr{V}\times \mathscr{V} \xrightarrow{\text{双线}} \mathscr{V}$是双线性映射.明显是(1,2)型张量,记作$C^c{}_{ab}$,便有
  \begin{definition}
- $$[v,u]^c = C^c{}_{ab}v^aU^a,\quad \forall v^a,u^b \in \mathscr{V}$$
+   {}{结构常张量}
+ $$[v,u]^c = C^c{}_{ab}v^au^b,\quad \forall v^a,u^b \in \mathscr{V}$$
  $C^c{}_{ab}$称为李代数$\mathscr{V}$的\textbf{结构(常)张量(structure constant tensor)}
  \end{definition}
  \begin{note}
@@ -940,13 +942,14 @@
  \end{enumerate}
 
  \begin{definition}
+   {}{结构常数}
  设$\{(e_\mu)^a\}$是$\mathscr{V}$的任一基底,则
  $$[e_\mu,e_\nu]^c = C^c{}_{ab}(e_\mu)^a(e_\nu)^b = C^\sigma{}_{\mu\nu}(e_\sigma)^c$$
  上式的$C^\sigma{}_{\mu\nu}$称为李代数$\mathscr{V}$的\textbf{结构常数(structure constants)},结构常数依赖坐标基底.
  \end{definition}
  \begin{example}
    \label{G-6-1}
-     李群$\mathbb{R}$的李代数的结构张量
+     李群$\mathbb{R}^2$的李代数的结构张量
  \end{example}
      把$\mathbb{R}^2$的每点看作从(0,0)点出发的一个矢量,定义群乘法为矢量加法,容易验证其是李群,恒等元e很明显是(0,0)点,易见是阿贝尔群,则有
      \begin{enumerate}
@@ -1217,7 +1220,7 @@ b_3=\begin{bmatrix}
 
  这个结构常数明显和$\mathscr{SO}(3)$在上面给出的基底下的的结构常数相同.
  定义线性映射$\psi:\mathscr{SU}(2) \rightarrow \mathscr{SO}(3)$满足$\psi(E_i) = A_i$可见$\psi$保李括号,根据定义\ref{def:李代数同态同构}
- 可以说$\mathscr{SU}(2),\mathscr{SO}(3)$李代数同构,李代数同构并不代表着李群同构,相反李群同构对应于李代数同构.这与李群和李代数的关系有关,李群相同意味着恒等元及其切空间相同,但是
+ 可以说$\mathscr{SU}(2),\mathscr{SO}(3)$李代数同态,李代数同态并不代表着李群同构,相反李群同构对应于李代数同构.这与李群和李代数的关系有关,李群相同意味着恒等元及其切空间相同,但是
  切空间相同并不一定说明李群相同,在局域内可以说相同,整体则不一定.
 
  接下来我们讨论一下SU(2)群;从U(2)说起,$U \in U(2),\quad U = \begin{bmatrix}
@@ -1679,6 +1682,7 @@ $\gamma'(t)$也是单参子群.$$
 即$I_{\exp(tA)} = \phi_{-t}\circ L_{\exp (tA)}$,代入前面式子$$
 	[A,B] = \left.\frac{d}{dt}\right|_{t=0}(I_{\exp(tA)*}B) = \left.\frac{d}{dt}\right|_{t=0}(\mathscr{A}\!d_{\exp(tA)}B)$$
 \begin{theorem}
+  {}{G-8-4}
 	设H是连通李群G的连通李子群,$\mathscr{H}$和$\mathscr{G}$分别是H和G的李代数,则H是G的正规子群$\Leftrightarrow$ $\mathscr{H}$是$\mathscr{G}$的理想(理想的定义见\ref{def:理想}).
 \end{theorem}
 \begin{proof}
@@ -1813,6 +1817,7 @@ $$
 	C_{\rho\mu\nu} \equiv K_{\rho\sigma}C^{\sigma}{}_{\mu \nu}
 $$
 \begin{theorem}
+  {}{G-8-8}
 	$$
 		C_{\rho \mu \nu} = C_{[\rho \mu \nu]}$$
 
