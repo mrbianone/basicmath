@@ -1,0 +1,61 @@
+% \documentclass[border=3pt]{standalone}
+% \usepackage{tikz}
+% \usepackage[UTF8]{ctex} % 支持中文标签
+%
+% \begin{document}
+% \begin{tikzpicture}[
+%     node/.style={draw, circle, minimum size=8mm, fill=white},
+%     arrow/.style={->, >=stealth, thick}
+%   ]
+%
+%   % 定义节点（假设布局）
+%   \node[node] (PF) at (0, 2) {$P \times F$};
+%   \node[node] (M)  at (0, -2) {$M$};
+%   \node[node] (P)  at (-2, 0) {$P$};
+%   \node[node] (Q)  at (2, 0) {$Q$};
+%
+%   % 绘制箭头和标签
+%   \draw[arrow] (PF) -- (P);
+%   \draw[arrow] (PF) -- (Q);
+%   \draw[arrow] (P) -- (M);
+%   \draw[arrow] (Q) -- (M);
+% \end{tikzpicture}
+% \end{document}
+
+\documentclass[border=3pt]{standalone}
+\usepackage{tikz}
+\usepackage[UTF8]{ctex} % 支持中文标签
+\usetikzlibrary{calc,decorations.pathreplacing,decorations.markings}
+
+\begin{document}
+\begin{tikzpicture}[
+    node/.style={draw, circle, fill=white},
+    arrow/.style={postaction={decorate, decoration={markings, mark=at position 0.5 with {\arrow[scale=1.5]{stealth}}}}}
+  ]
+  
+  % 定义节点（假设布局）
+  \node[node] (PF) at (-3, 2) {$P \times F$};
+  \node[node] (M)  at (-3, -2) {$M$};
+  \node[node] (P)  at (-5, 0) {$P$};
+  \node[node] (Q)  at (-1, 0) {$Q$};
+  
+  \node[node] (PF1) at (6, 2) {$\pi^{-1}[U]\times F$};
+  \node[node] (M1)  at (6, -2) {$U$};
+  \node[node] (P1)  at (4, 0) {$\pi^{-1}[U]$};
+  \node[node] (Q1)  at (8, 0) {$\hat{\pi}^{-1}[U]$};
+  \node[node] (UG)  at (1,0){$U \times G$};
+  \node[node] (UF)  at (11,0){$U \times F$};
+  % 绘制箭头和标签
+  \draw[arrow] (PF) -- (P) node[xshift = -5 ,yshift = 5,pos = 0.5] {$\tau$};
+  \draw[arrow] (PF) -- (Q)  node[xshift = 5 ,yshift = 5,pos = 0.5] {$\hat{\tau}$};
+  \draw[arrow] (P) -- (M) node[xshift = -5 ,yshift =- 5,pos = 0.5] {$\pi$};
+  \draw[arrow] (Q) -- (M) node[xshift = 5 ,yshift =- 5,pos = 0.5] {$\hat{\pi}$};
+
+  \draw[arrow] (PF1) -- (P1) node[xshift = -5 ,yshift = 5,pos = 0.5] {$\tau$};
+  \draw[arrow] (PF1) -- (Q1)  node[xshift = 5 ,yshift = 5,pos = 0.5] {$\hat{\tau}$};
+  \draw[arrow] (P1) -- (M1) node[xshift = -5 ,yshift =- 5,pos = 0.5] {$\pi$};
+  \draw[arrow] (Q1) -- (M1) node[xshift = 5 ,yshift =- 5,pos = 0.5] {$\hat{\pi}$};
+  \draw[->] (P1) -- (UG) node[below,pos = 0.5] {$T_U$};
+  \draw[->] (Q1) -- (UF)node[below,pos = 0.5]{$\hat{T}_U$};
+\end{tikzpicture}
+\end{document}

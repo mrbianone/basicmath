@@ -1,0 +1,15 @@
+\documentclass[pstricks,border=12pt]{standalone}
+\usepackage{pst-3dplot}
+
+\begin{document}
+\psset{Beta=20}
+\begin{pspicture}(-6,-3)(6,4)
+\def\Radius{5 }
+\parametricplotThreeD[xPlotpoints=100,yPlotpoints=10](0,360)(-1,1){
+t 2 div cos u mul \Radius add t cos mul
+t 2 div cos u mul \Radius add t sin mul
+t 2 div sin u mul }
+\end{pspicture}
+
+\end{document}
+
